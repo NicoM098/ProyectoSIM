@@ -52,12 +52,39 @@
     <Compile Include="Formularios\DisExponencial.Designer.cs">
       <DependentUpon>DisExponencial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\DisNormal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\DisNormal.Designer.cs">
+      <DependentUpon>DisNormal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\DisUniforme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\DisUniforme.Designer.cs">
+      <DependentUpon>DisUniforme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Logica\GeneradorAleatorios.cs" />
     <Compile Include="Logica\Intervalo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\DisExponencial.resx">
       <DependentUpon>DisExponencial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\DisNormal.resx">
+      <DependentUpon>DisNormal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\DisUniforme.resx">
+      <DependentUpon>DisUniforme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

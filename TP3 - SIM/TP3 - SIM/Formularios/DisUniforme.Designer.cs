@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace TP3___SIM.Formularios
+﻿namespace TP3___SIM.Formularios
 {
-    partial class DisExponencial
+    partial class DisUniforme
     {
         /// <summary>
         /// Required designer variable.
@@ -31,8 +29,15 @@ namespace TP3___SIM.Formularios
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_LimSup = new System.Windows.Forms.MaskedTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt_LimInf = new System.Windows.Forms.MaskedTextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txt_cantidad = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.btn_graficar = new System.Windows.Forms.Button();
+            this.btn_limpiar = new System.Windows.Forms.Button();
+            this.btn_calcular = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.lblChi = new System.Windows.Forms.Label();
             this.lblChiCuadrado = new System.Windows.Forms.Label();
@@ -48,60 +53,146 @@ namespace TP3___SIM.Formularios
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cbo_cantIntervalos = new System.Windows.Forms.ComboBox();
-            this.dgv_aleatoriosCS = new System.Windows.Forms.DataGridView();
+            this.dgvNumerosAleatorios = new System.Windows.Forms.DataGridView();
             this.OrdenNumeros = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.generados = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_graficar = new System.Windows.Forms.Button();
-            this.btn_limpiar = new System.Windows.Forms.Button();
-            this.btn_calcular = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwJiCuadrado)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_aleatoriosCS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNumerosAleatorios)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txt_LimSup);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txt_LimInf);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txt_cantidad);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft PhagsPa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(17, 99);
+            this.groupBox1.Location = new System.Drawing.Point(17, 79);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(556, 360);
-            this.groupBox1.TabIndex = 69;
+            this.groupBox1.TabIndex = 77;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parámetros";
+            // 
+            // txt_LimSup
+            // 
+            this.txt_LimSup.AllowPromptAsInput = false;
+            this.txt_LimSup.HidePromptOnLeave = true;
+            this.txt_LimSup.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
+            this.txt_LimSup.Location = new System.Drawing.Point(121, 107);
+            this.txt_LimSup.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_LimSup.Mask = "99999999";
+            this.txt_LimSup.Name = "txt_LimSup";
+            this.txt_LimSup.PromptChar = ' ';
+            this.txt_LimSup.ResetOnPrompt = false;
+            this.txt_LimSup.Size = new System.Drawing.Size(82, 27);
+            this.txt_LimSup.TabIndex = 72;
+            this.txt_LimSup.ValidatingType = typeof(int);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 114);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(113, 20);
+            this.label3.TabIndex = 73;
+            this.label3.Text = "Limite Superior:\r\n";
+            // 
+            // txt_LimInf
+            // 
+            this.txt_LimInf.AllowPromptAsInput = false;
+            this.txt_LimInf.HidePromptOnLeave = true;
+            this.txt_LimInf.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
+            this.txt_LimInf.Location = new System.Drawing.Point(121, 68);
+            this.txt_LimInf.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_LimInf.Mask = "99999999";
+            this.txt_LimInf.Name = "txt_LimInf";
+            this.txt_LimInf.PromptChar = ' ';
+            this.txt_LimInf.ResetOnPrompt = false;
+            this.txt_LimInf.Size = new System.Drawing.Size(82, 27);
+            this.txt_LimInf.TabIndex = 70;
+            this.txt_LimInf.ValidatingType = typeof(int);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 71);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(105, 20);
+            this.label2.TabIndex = 71;
+            this.label2.Text = "Limite Inferior:";
             // 
             // txt_cantidad
             // 
             this.txt_cantidad.AllowPromptAsInput = false;
             this.txt_cantidad.HidePromptOnLeave = true;
             this.txt_cantidad.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.txt_cantidad.Location = new System.Drawing.Point(237, 21);
+            this.txt_cantidad.Location = new System.Drawing.Point(237, 30);
             this.txt_cantidad.Margin = new System.Windows.Forms.Padding(4);
             this.txt_cantidad.Mask = "99999999";
             this.txt_cantidad.Name = "txt_cantidad";
             this.txt_cantidad.PromptChar = ' ';
             this.txt_cantidad.ResetOnPrompt = false;
             this.txt_cantidad.Size = new System.Drawing.Size(82, 27);
-            this.txt_cantidad.TabIndex = 8;
+            this.txt_cantidad.TabIndex = 68;
             this.txt_cantidad.ValidatingType = typeof(int);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 24);
+            this.label8.Location = new System.Drawing.Point(8, 33);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(221, 20);
-            this.label8.TabIndex = 9;
+            this.label8.TabIndex = 69;
             this.label8.Text = "Cantidad de numeros a generar:";
+            // 
+            // btn_graficar
+            // 
+            this.btn_graficar.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_graficar.Location = new System.Drawing.Point(470, 671);
+            this.btn_graficar.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_graficar.Name = "btn_graficar";
+            this.btn_graficar.Size = new System.Drawing.Size(103, 34);
+            this.btn_graficar.TabIndex = 76;
+            this.btn_graficar.Text = "Graficar";
+            this.btn_graficar.UseVisualStyleBackColor = true;
+            // 
+            // btn_limpiar
+            // 
+            this.btn_limpiar.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_limpiar.Location = new System.Drawing.Point(183, 671);
+            this.btn_limpiar.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_limpiar.Name = "btn_limpiar";
+            this.btn_limpiar.Size = new System.Drawing.Size(144, 34);
+            this.btn_limpiar.TabIndex = 75;
+            this.btn_limpiar.Text = "Limpiar Campos";
+            this.btn_limpiar.UseVisualStyleBackColor = true;
+            this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
+            // 
+            // btn_calcular
+            // 
+            this.btn_calcular.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_calcular.Location = new System.Drawing.Point(347, 671);
+            this.btn_calcular.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_calcular.Name = "btn_calcular";
+            this.btn_calcular.Size = new System.Drawing.Size(103, 34);
+            this.btn_calcular.TabIndex = 74;
+            this.btn_calcular.Text = "Calcular";
+            this.btn_calcular.UseVisualStyleBackColor = true;
+            this.btn_calcular.Click += new System.EventHandler(this.btn_calcular_Click);
             // 
             // groupBox6
             // 
@@ -114,7 +205,7 @@ namespace TP3___SIM.Formularios
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox6.Size = new System.Drawing.Size(189, 62);
-            this.groupBox6.TabIndex = 68;
+            this.groupBox6.TabIndex = 73;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Chi Cuadrado Observado";
             // 
@@ -155,7 +246,7 @@ namespace TP3___SIM.Formularios
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox4.Size = new System.Drawing.Size(586, 258);
-            this.groupBox4.TabIndex = 67;
+            this.groupBox4.TabIndex = 72;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Calculo del Estadistico de Prueba";
             // 
@@ -225,7 +316,7 @@ namespace TP3___SIM.Formularios
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(796, 314);
-            this.groupBox2.TabIndex = 66;
+            this.groupBox2.TabIndex = 71;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Grafico";
             // 
@@ -253,20 +344,20 @@ namespace TP3___SIM.Formularios
             this.cbo_cantIntervalos.Size = new System.Drawing.Size(121, 28);
             this.cbo_cantIntervalos.TabIndex = 9;
             // 
-            // dgv_aleatoriosCS
+            // dgvNumerosAleatorios
             // 
-            this.dgv_aleatoriosCS.AllowUserToAddRows = false;
-            this.dgv_aleatoriosCS.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dgv_aleatoriosCS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_aleatoriosCS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvNumerosAleatorios.AllowUserToAddRows = false;
+            this.dgvNumerosAleatorios.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvNumerosAleatorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNumerosAleatorios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.OrdenNumeros,
             this.generados});
-            this.dgv_aleatoriosCS.Location = new System.Drawing.Point(18, 481);
-            this.dgv_aleatoriosCS.Margin = new System.Windows.Forms.Padding(4);
-            this.dgv_aleatoriosCS.Name = "dgv_aleatoriosCS";
-            this.dgv_aleatoriosCS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_aleatoriosCS.Size = new System.Drawing.Size(556, 177);
-            this.dgv_aleatoriosCS.TabIndex = 65;
+            this.dgvNumerosAleatorios.Location = new System.Drawing.Point(18, 460);
+            this.dgvNumerosAleatorios.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvNumerosAleatorios.Name = "dgvNumerosAleatorios";
+            this.dgvNumerosAleatorios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvNumerosAleatorios.Size = new System.Drawing.Size(556, 198);
+            this.dgvNumerosAleatorios.TabIndex = 70;
             // 
             // OrdenNumeros
             // 
@@ -287,9 +378,9 @@ namespace TP3___SIM.Formularios
             this.lblTitulo.Location = new System.Drawing.Point(14, 9);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(193, 21);
-            this.lblTitulo.TabIndex = 64;
-            this.lblTitulo.Text = "METODO EXPONENCIAL";
+            this.lblTitulo.Size = new System.Drawing.Size(167, 21);
+            this.lblTitulo.TabIndex = 69;
+            this.lblTitulo.Text = "METODO UNIFORME";
             // 
             // label1
             // 
@@ -299,63 +390,27 @@ namespace TP3___SIM.Formularios
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(560, 20);
-            this.label1.TabIndex = 63;
+            this.label1.TabIndex = 68;
             this.label1.Text = "Para generar la secuencia de numeros aleatorios, ingrese los siguientes parametro" +
     "s:";
             // 
-            // btn_graficar
-            // 
-            this.btn_graficar.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_graficar.Location = new System.Drawing.Point(479, 678);
-            this.btn_graficar.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_graficar.Name = "btn_graficar";
-            this.btn_graficar.Size = new System.Drawing.Size(103, 34);
-            this.btn_graficar.TabIndex = 72;
-            this.btn_graficar.Text = "Graficar";
-            this.btn_graficar.UseVisualStyleBackColor = true;
-            this.btn_graficar.Click += new System.EventHandler(this.btn_graficar_Click);
-            // 
-            // btn_limpiar
-            // 
-            this.btn_limpiar.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_limpiar.Location = new System.Drawing.Point(192, 678);
-            this.btn_limpiar.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_limpiar.Name = "btn_limpiar";
-            this.btn_limpiar.Size = new System.Drawing.Size(144, 34);
-            this.btn_limpiar.TabIndex = 71;
-            this.btn_limpiar.Text = "Limpiar Campos";
-            this.btn_limpiar.UseVisualStyleBackColor = true;
-            this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
-            // 
-            // btn_calcular
-            // 
-            this.btn_calcular.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_calcular.Location = new System.Drawing.Point(356, 678);
-            this.btn_calcular.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_calcular.Name = "btn_calcular";
-            this.btn_calcular.Size = new System.Drawing.Size(103, 34);
-            this.btn_calcular.TabIndex = 70;
-            this.btn_calcular.Text = "Calcular";
-            this.btn_calcular.UseVisualStyleBackColor = true;
-            this.btn_calcular.Click += new System.EventHandler(this.btn_calcular_Click);
-            // 
-            // DisExponencial
+            // DisUniforme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1405, 725);
+            this.ClientSize = new System.Drawing.Size(1478, 718);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_graficar);
             this.Controls.Add(this.btn_limpiar);
             this.Controls.Add(this.btn_calcular);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.dgv_aleatoriosCS);
+            this.Controls.Add(this.dgvNumerosAleatorios);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.label1);
-            this.Name = "DisExponencial";
-            this.Text = "DisExponencial";
+            this.Name = "DisUniforme";
+            this.Text = "DisUniforme";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -365,22 +420,24 @@ namespace TP3___SIM.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.dgwJiCuadrado)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_aleatoriosCS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNumerosAleatorios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
-        private void btn_graficar_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.MaskedTextBox txt_LimSup;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.MaskedTextBox txt_LimInf;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MaskedTextBox txt_cantidad;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btn_graficar;
+        private System.Windows.Forms.Button btn_limpiar;
+        private System.Windows.Forms.Button btn_calcular;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label lblChi;
         private System.Windows.Forms.Label lblChiCuadrado;
@@ -396,13 +453,10 @@ namespace TP3___SIM.Formularios
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbo_cantIntervalos;
-        private System.Windows.Forms.DataGridView dgv_aleatoriosCS;
+        private System.Windows.Forms.DataGridView dgvNumerosAleatorios;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrdenNumeros;
         private System.Windows.Forms.DataGridViewTextBoxColumn generados;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_graficar;
-        private System.Windows.Forms.Button btn_limpiar;
-        private System.Windows.Forms.Button btn_calcular;
     }
 }
