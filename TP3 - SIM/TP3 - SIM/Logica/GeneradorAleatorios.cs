@@ -12,6 +12,7 @@ namespace TP3___SIM.Logica
         private double max;
         private List<double> numeros;
         private object oGeneradorAleatorios;
+        public static Random rnd = new Random();
 
         //METODOS GET Y SET
 
@@ -71,34 +72,30 @@ namespace TP3___SIM.Logica
             return Numeros;
         }
 
-        public List<double> generadorCS(int cantNum)
+        public double generadorCS()
         {
             Random rnd = new Random();
 
-            Numeros.Clear();
+            double aleatorio = (rnd.Next(10000));
+            double aux = (double)aleatorio / 10000;
 
-            for (int i = 0; i < cantNum; i++)
-            {
-                double aleatorio = (rnd.Next(10000));
-                double aux = (double)aleatorio / 10000;
-                numeros.Add(aux);
-
-                if (i == 0)
-                {
-                    min = aux;
-                    max = aux;
-                }
-                if (aux < min)
-                {
-                    min = aux;
-                }
-                if (aux > max)
-                {
-                    max = aux;
-                }
-            }
-            return numeros;
+            return aux;
         }
 
+        public List<double> generadorUniforme(double a, double b, int cantidad)
+        {
+            numeros.Clear();
+
+            for (int i = 1; i <= cantidad; i++)
+            {
+                double x = 0;
+
+                x = Math.Truncate((a + (b - a) * rnd.NextDouble())*10000) / 10000;
+
+                numeros.Add(x);
+            }
+
+            return numeros;
+        }
     }
 }

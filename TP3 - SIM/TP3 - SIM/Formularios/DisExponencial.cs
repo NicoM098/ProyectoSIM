@@ -53,15 +53,15 @@ namespace TP3___SIM.Formularios
             if (ValidarCampos())
             {
                 cantidad = int.Parse(txt_cantidad.Text);
-                List<double> lista = oGeneradorAleatorios.generadorCS(cantidad);
-                int i = 0;
-                foreach (double aleatorio in lista)
-                {
+                //List<double> lista = oGeneradorAleatorios.generadorCS(cantidad);
+                //int i = 0;
+                //foreach (double aleatorio in lista)
+                //{
 
 
-                    /*i++;
-                    dgv_aleatoriosCS.Rows.Add(i, aleatorio.ToString());*/
-                }
+                //    /*i++;
+                //    dgv_aleatoriosCS.Rows.Add(i, aleatorio.ToString());*/
+                //}
                 cbo_cantIntervalos.Enabled = true;
                 btn_graficar.Enabled = true;
 

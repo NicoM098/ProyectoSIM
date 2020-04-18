@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txt_LimSup = new System.Windows.Forms.MaskedTextBox();
+            this.txtLimSup = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txt_LimInf = new System.Windows.Forms.MaskedTextBox();
+            this.txtLimInf = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txt_cantidad = new System.Windows.Forms.MaskedTextBox();
+            this.txtCantidad = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btn_graficar = new System.Windows.Forms.Button();
             this.btn_limpiar = new System.Windows.Forms.Button();
@@ -68,36 +68,36 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txt_LimSup);
+            this.groupBox1.Controls.Add(this.txtLimSup);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txt_LimInf);
+            this.groupBox1.Controls.Add(this.txtLimInf);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txt_cantidad);
+            this.groupBox1.Controls.Add(this.txtCantidad);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft PhagsPa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(17, 79);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(556, 360);
+            this.groupBox1.Size = new System.Drawing.Size(556, 158);
             this.groupBox1.TabIndex = 77;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parámetros";
             // 
-            // txt_LimSup
+            // txtLimSup
             // 
-            this.txt_LimSup.AllowPromptAsInput = false;
-            this.txt_LimSup.HidePromptOnLeave = true;
-            this.txt_LimSup.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.txt_LimSup.Location = new System.Drawing.Point(121, 107);
-            this.txt_LimSup.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_LimSup.Mask = "99999999";
-            this.txt_LimSup.Name = "txt_LimSup";
-            this.txt_LimSup.PromptChar = ' ';
-            this.txt_LimSup.ResetOnPrompt = false;
-            this.txt_LimSup.Size = new System.Drawing.Size(82, 27);
-            this.txt_LimSup.TabIndex = 72;
-            this.txt_LimSup.ValidatingType = typeof(int);
+            this.txtLimSup.AllowPromptAsInput = false;
+            this.txtLimSup.HidePromptOnLeave = true;
+            this.txtLimSup.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
+            this.txtLimSup.Location = new System.Drawing.Point(121, 107);
+            this.txtLimSup.Margin = new System.Windows.Forms.Padding(4);
+            this.txtLimSup.Mask = "99999999";
+            this.txtLimSup.Name = "txtLimSup";
+            this.txtLimSup.PromptChar = ' ';
+            this.txtLimSup.ResetOnPrompt = false;
+            this.txtLimSup.Size = new System.Drawing.Size(82, 27);
+            this.txtLimSup.TabIndex = 72;
+            this.txtLimSup.ValidatingType = typeof(int);
             // 
             // label3
             // 
@@ -109,20 +109,20 @@
             this.label3.TabIndex = 73;
             this.label3.Text = "Limite Superior:\r\n";
             // 
-            // txt_LimInf
+            // txtLimInf
             // 
-            this.txt_LimInf.AllowPromptAsInput = false;
-            this.txt_LimInf.HidePromptOnLeave = true;
-            this.txt_LimInf.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.txt_LimInf.Location = new System.Drawing.Point(121, 68);
-            this.txt_LimInf.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_LimInf.Mask = "99999999";
-            this.txt_LimInf.Name = "txt_LimInf";
-            this.txt_LimInf.PromptChar = ' ';
-            this.txt_LimInf.ResetOnPrompt = false;
-            this.txt_LimInf.Size = new System.Drawing.Size(82, 27);
-            this.txt_LimInf.TabIndex = 70;
-            this.txt_LimInf.ValidatingType = typeof(int);
+            this.txtLimInf.AllowPromptAsInput = false;
+            this.txtLimInf.HidePromptOnLeave = true;
+            this.txtLimInf.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
+            this.txtLimInf.Location = new System.Drawing.Point(121, 68);
+            this.txtLimInf.Margin = new System.Windows.Forms.Padding(4);
+            this.txtLimInf.Mask = "99999999";
+            this.txtLimInf.Name = "txtLimInf";
+            this.txtLimInf.PromptChar = ' ';
+            this.txtLimInf.ResetOnPrompt = false;
+            this.txtLimInf.Size = new System.Drawing.Size(82, 27);
+            this.txtLimInf.TabIndex = 70;
+            this.txtLimInf.ValidatingType = typeof(int);
             // 
             // label2
             // 
@@ -134,20 +134,20 @@
             this.label2.TabIndex = 71;
             this.label2.Text = "Limite Inferior:";
             // 
-            // txt_cantidad
+            // txtCantidad
             // 
-            this.txt_cantidad.AllowPromptAsInput = false;
-            this.txt_cantidad.HidePromptOnLeave = true;
-            this.txt_cantidad.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.txt_cantidad.Location = new System.Drawing.Point(237, 30);
-            this.txt_cantidad.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_cantidad.Mask = "99999999";
-            this.txt_cantidad.Name = "txt_cantidad";
-            this.txt_cantidad.PromptChar = ' ';
-            this.txt_cantidad.ResetOnPrompt = false;
-            this.txt_cantidad.Size = new System.Drawing.Size(82, 27);
-            this.txt_cantidad.TabIndex = 68;
-            this.txt_cantidad.ValidatingType = typeof(int);
+            this.txtCantidad.AllowPromptAsInput = false;
+            this.txtCantidad.HidePromptOnLeave = true;
+            this.txtCantidad.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
+            this.txtCantidad.Location = new System.Drawing.Point(237, 30);
+            this.txtCantidad.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCantidad.Mask = "99999999";
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.PromptChar = ' ';
+            this.txtCantidad.ResetOnPrompt = false;
+            this.txtCantidad.Size = new System.Drawing.Size(82, 27);
+            this.txtCantidad.TabIndex = 68;
+            this.txtCantidad.ValidatingType = typeof(int);
             // 
             // label8
             // 
@@ -352,11 +352,11 @@
             this.dgvNumerosAleatorios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.OrdenNumeros,
             this.generados});
-            this.dgvNumerosAleatorios.Location = new System.Drawing.Point(18, 460);
+            this.dgvNumerosAleatorios.Location = new System.Drawing.Point(18, 245);
             this.dgvNumerosAleatorios.Margin = new System.Windows.Forms.Padding(4);
             this.dgvNumerosAleatorios.Name = "dgvNumerosAleatorios";
             this.dgvNumerosAleatorios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvNumerosAleatorios.Size = new System.Drawing.Size(556, 198);
+            this.dgvNumerosAleatorios.Size = new System.Drawing.Size(556, 413);
             this.dgvNumerosAleatorios.TabIndex = 70;
             // 
             // OrdenNumeros
@@ -429,11 +429,11 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.MaskedTextBox txt_LimSup;
+        private System.Windows.Forms.MaskedTextBox txtLimSup;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.MaskedTextBox txt_LimInf;
+        private System.Windows.Forms.MaskedTextBox txtLimInf;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox txt_cantidad;
+        private System.Windows.Forms.MaskedTextBox txtCantidad;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_graficar;
         private System.Windows.Forms.Button btn_limpiar;

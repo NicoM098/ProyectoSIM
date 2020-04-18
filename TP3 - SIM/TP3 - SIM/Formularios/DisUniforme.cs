@@ -29,7 +29,7 @@ namespace TP3___SIM.Formularios
 
         private bool ValidarCampos()
         {
-            if (txt_cantidad.Text == "")
+            if (txtCantidad.Text == "")
             {
                 return false;
             }
@@ -41,38 +41,32 @@ namespace TP3___SIM.Formularios
         {
             dgvNumerosAleatorios.Rows.Clear();
             int cantidad;
-            int a = 0;
-            int b = 0;
+            int limInf = 0;
+            int limSup = 0;
 
             if (ValidarCampos())
             {
-                a = int.Parse(txt_LimInf.Text);
-                b = int.Parse(txt_LimSup.Text);
-                cantidad = int.Parse(txt_cantidad.Text);
-                List<double> numeros = new List<double>();
+                limInf = int.Parse(txtLimInf.Text);
+                limSup = int.Parse(txtLimSup.Text);
+                cantidad = int.Parse(txtCantidad.Text);
 
-                List<double> lista = oGeneradorAleatorios.generadorCS(cantidad);
+                List<double> numeros = new List<double>();
 
 
                 //ESTA ES LA LLAMADA AL METODO DE GENERAR ALEATORIOS
                 //HAY QUE SOLUCIONAR EL GENERAR NUMEROS ALEATORIOS, HACER UNA LISTA E ITERAR SOBRE ELLA PARA HACER LAS OPERACIONES
 
                 int contador = 0;
-                numeros = oGeneradorAleatorios.calcularAleatorioUniforme(a, b, cantidad);
+                numeros = oGeneradorAleatorios.generadorUniforme(limInf, limSup, cantidad);
+
                 foreach (double n in numeros)
                 {
                     contador += 1;
                     dgvNumerosAleatorios.Rows.Add(contador, n);
                 }
-                {
-                    //ACA HAY QUE RELLENAR EL DGV CON LOS DATOS DE LA DISTRIBUCION
 
-                    /*i++;
-                    dgv_aleatoriosCS.Rows.Add(i, aleatorio.ToString());*/
-                }
                 cbo_cantIntervalos.Enabled = true;
                 btn_graficar.Enabled = true;
-
             }
             else
             {
@@ -82,20 +76,7 @@ namespace TP3___SIM.Formularios
 
         private void btn_limpiar_Click(object sender, EventArgs e)
         {
-            dgvNumerosAleatorios.Refresh();
-            dgvNumerosAleatorios.Rows.Clear();
-            txt_cantidad.Text = "0";
-            dgwJiCuadrado.Rows.Clear();
-
-            lblChi.Text = "";
-
-            cbo_cantIntervalos.SelectedIndex = -1;
-
-            cbo_cantIntervalos.Enabled = false;
-            btn_graficar.Enabled = false;
-            lblChi.Text = "";
-
-            btn_graficar.Enabled = false;
+            
         }
     }
 }
