@@ -39,13 +39,35 @@ namespace TP3___SIM.Logica
         }
 
 
-        public List<double> calcularAleatorioExponencial(int x, int A, int B, int RND, int cant)
+        public List<double> Exponencial(int cantidad)
         {
-            double x1 = x;
             Numeros.Clear();
+            List<double> numerosAleatorios = new List<double>();
 
+            //ACA habría que calcular el lambda, si queremos pasar por parametro la media..
+            //
+            double acumulador = 0;
 
+            for (int i = 0; i < cantidad; i++)
+            {
+                
+                double x = rnd.NextDouble();
+                numerosAleatorios.Add(x);
 
+                acumulador += x;
+            }
+
+            double media = acumulador / cantidad;
+            double lambda = 1 / media;
+
+            for (int i = 0; i < cantidad; i++)
+            {
+
+                double x = 0;
+
+                x = Math.Log(1 - numerosAleatorios.ElementAt(i)) / (-lambda);
+                Numeros.Add(x);
+            }
             return Numeros;
         }
 
