@@ -55,6 +55,7 @@ namespace TP3___SIM.Formularios
 
                 //ESTA ES LA LLAMADA AL METODO DE GENERAR ALEATORIOS
                 //HAY QUE SOLUCIONAR EL GENERAR NUMEROS ALEATORIOS, HACER UNA LISTA E ITERAR SOBRE ELLA PARA HACER LAS OPERACIONES
+                //Hay otras soluciones con problemas
 
                 int contador = 0;
                 numeros = oGeneradorAleatorios.generadorUniforme(limInf, limSup, cantidad);
