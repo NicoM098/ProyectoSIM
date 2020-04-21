@@ -79,9 +79,13 @@ namespace TP3___SIM.Logica
         public List<double> generadorNormal(int cant)
         {
             numeros.Clear();
-            double aux = 0;
+           
+            double aux = 1;
 
-            List<double> numerosUniformes = generadorUniforme(0, 1, cant);
+            List<double> numerosUniformes = new List<double>(generadorUniforme(0, 1, cant));
+
+            numeros.Clear();
+
             double media = numerosUniformes.Average();
 
             for (int i = 0; i < cant; i++)
@@ -89,7 +93,7 @@ namespace TP3___SIM.Logica
                 aux += Math.Pow(numerosUniformes.ElementAt(i) - media, 2);
             }
 
-            double varianza = (1 / (cant - 1)) * aux;
+            double varianza = ((double)1 / (double)(cant - 1)) * aux;
             double desvEstandar = Math.Sqrt(varianza);
 
             for (int i = 0; i < cant; i+=2)
@@ -97,12 +101,11 @@ namespace TP3___SIM.Logica
                 double rnd1 = numerosUniformes.ElementAt(i);
                 double rnd2 = numerosUniformes.ElementAt(i+1);
 
-                double N1 = ((Math.Sqrt(-2 * Math.Log(rnd1))) * Math.Cos(2 * Math.PI * rnd2)) * desvEstandar + media;
-                double N2 = ((Math.Sqrt(-2 * Math.Log(rnd1))) * Math.Sin(2 * Math.PI * rnd2)) * desvEstandar + media;
+                double N1 = Math.Truncate((((Math.Sqrt(-2 * Math.Log(rnd1))) * Math.Cos(2 * Math.PI * rnd2)) * desvEstandar + media)*10000) / 10000;
+                double N2 = Math.Truncate((((Math.Sqrt(-2 * Math.Log(rnd1))) * Math.Sin(2 * Math.PI * rnd2)) * desvEstandar + media)*10000) / 10000;
 
                 numeros.Add(N1);
                 numeros.Add(N2);
-                MessageBox.Show("N1 es " + N1.ToString() + " y N2 es " + N2.ToString() + " en la vuelta " + i.ToString());
             }
             return numeros;
         }
