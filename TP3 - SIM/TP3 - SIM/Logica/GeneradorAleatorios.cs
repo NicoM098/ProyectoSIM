@@ -96,11 +96,12 @@ namespace TP3___SIM.Logica
             double varianza = ((double)1 / (double)(cant - 1)) * aux;
             double desvEstandar = Math.Sqrt(varianza);
 
+            //Todo: preguntar al profe que pasa si se ingresa cant impar
             for (int i = 0; i < cant; i+=2)
             {
                 double rnd1 = numerosUniformes.ElementAt(i);
-                double rnd2 = numerosUniformes.ElementAt(i+1);
-
+                double rnd2 = numerosUniformes.ElementAt(i + 1);
+                
                 double N1 = Math.Truncate((((Math.Sqrt(-2 * Math.Log(rnd1))) * Math.Cos(2 * Math.PI * rnd2)) * desvEstandar + media)*10000) / 10000;
                 double N2 = Math.Truncate((((Math.Sqrt(-2 * Math.Log(rnd1))) * Math.Sin(2 * Math.PI * rnd2)) * desvEstandar + media)*10000) / 10000;
 

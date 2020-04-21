@@ -22,26 +22,27 @@ namespace TP3___SIM.Formularios
 
         }
 
-
-
-
-
-
-        private void DisExponencial_Load(object sender, EventArgs e)
+        private void DisNormal_Load(object sender, EventArgs e)
         {
             cbo_cantIntervalos.Enabled = false;
             btn_graficar.Enabled = false;
             lblChi.Text = "";
-
         }
-
-
 
         private bool ValidarCampos()
         {
             if (txt_cantidad.Text == "")
             {
+                MessageBox.Show("Debe completar los parametros requeridos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
+            else
+            {
+                if ((int.Parse(txt_cantidad.Text) % 2) != 0)
+                {
+                    MessageBox.Show("Debe ingresar una cantidad par", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
             }
             return true;
         }
@@ -65,11 +66,6 @@ namespace TP3___SIM.Formularios
                 }
                 cbo_cantIntervalos.Enabled = true;
                 btn_graficar.Enabled = true;
-
-            }
-            else
-            {
-                MessageBox.Show("Debe completar los parametros requeridos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

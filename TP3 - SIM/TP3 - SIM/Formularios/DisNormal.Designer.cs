@@ -351,8 +351,11 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DisNormal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DisNormal";
+            this.Load += new System.EventHandler(this.DisNormal_Load);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox4.ResumeLayout(false);
