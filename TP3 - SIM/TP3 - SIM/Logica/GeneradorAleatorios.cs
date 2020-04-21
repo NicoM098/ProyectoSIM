@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data;
+using System.Drawing;
+using System.ComponentModel;
 
 namespace TP3___SIM.Logica
 {
@@ -39,7 +43,8 @@ namespace TP3___SIM.Logica
         }
 
 
-        public List<double> Exponencial(int cantidad)
+        //Generador Exponencial Negativa
+        public List<double> generadorExponencial(int cantidad)
         {
             Numeros.Clear();
             List<double> numerosAleatorios = new List<double>();
@@ -71,27 +76,35 @@ namespace TP3___SIM.Logica
             return Numeros;
         }
 
-        public List<double> calcularAleatorioUniforme(int A, int B, int cant)
+        public List<double> generadorNormal(int cant)
         {
-            double x1;
-            Numeros.Clear();
-            int RND = cant;
+            numeros.Clear();
+            double aux = 0;
+
+            List<double> numerosUniformes = generadorUniforme(0, 1, cant);
+            double media = numerosUniformes.Average();
 
             for (int i = 0; i < cant; i++)
             {
-                x1 = A + RND * (B - A);
+                aux += Math.Pow(numerosUniformes.ElementAt(i) - media, 2);
             }
 
+            double varianza = (1 / (cant - 1)) * aux;
+            double desvEstandar = Math.Sqrt(varianza);
 
-            return Numeros;
-        }
+            for (int i = 0; i < cant; i+=2)
+            {
+                double rnd1 = numerosUniformes.ElementAt(i);
+                double rnd2 = numerosUniformes.ElementAt(i+1);
 
-        public List<double> calcularAleatorioNormal(int x, int a, int c, int m, int cant)
-        {
-            double x1 = x;
-            Numeros.Clear();
+                double N1 = ((Math.Sqrt(-2 * Math.Log(rnd1))) * Math.Cos(2 * Math.PI * rnd2)) * desvEstandar + media;
+                double N2 = ((Math.Sqrt(-2 * Math.Log(rnd1))) * Math.Sin(2 * Math.PI * rnd2)) * desvEstandar + media;
 
-            return Numeros;
+                numeros.Add(N1);
+                numeros.Add(N2);
+                MessageBox.Show("N1 es " + N1.ToString() + " y N2 es " + N2.ToString() + " en la vuelta " + i.ToString());
+            }
+            return numeros;
         }
 
         public double generadorCS()

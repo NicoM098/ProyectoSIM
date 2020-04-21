@@ -255,11 +255,11 @@
             this.dgv_aleatoriosCS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.OrdenNumeros,
             this.generados});
-            this.dgv_aleatoriosCS.Location = new System.Drawing.Point(18, 477);
+            this.dgv_aleatoriosCS.Location = new System.Drawing.Point(18, 165);
             this.dgv_aleatoriosCS.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_aleatoriosCS.Name = "dgv_aleatoriosCS";
             this.dgv_aleatoriosCS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_aleatoriosCS.Size = new System.Drawing.Size(556, 181);
+            this.dgv_aleatoriosCS.Size = new System.Drawing.Size(556, 493);
             this.dgv_aleatoriosCS.TabIndex = 70;
             // 
             // OrdenNumeros
@@ -283,7 +283,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(556, 360);
+            this.groupBox1.Size = new System.Drawing.Size(556, 76);
             this.groupBox1.TabIndex = 69;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parámetros";
