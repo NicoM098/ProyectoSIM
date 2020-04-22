@@ -13,6 +13,10 @@ namespace TP3___SIM.Formularios
 {
     public partial class DisUniforme : Form
     {
+        private int limSup = 0;
+        private int limInf = 0;
+        private int cantidad = 0;
+
         private readonly GeneradorAleatorios oGeneradorAleatorios;
         public DisUniforme()
         {
@@ -40,9 +44,10 @@ namespace TP3___SIM.Formularios
         private void btn_calcular_Click(object sender, EventArgs e)
         {
             dgvNumerosAleatorios.Rows.Clear();
-            int cantidad;
-            int limInf = 0;
-            int limSup = 0;
+
+            cantidad = 0;
+            limInf = 0;
+            limSup = 0;
 
             if (ValidarCampos())
             {
@@ -97,7 +102,7 @@ namespace TP3___SIM.Formularios
                 //Crep un gestor de intervalos, pasandole como parametro la lista de numeros aleatorios que es un atributo del generador de aleatorios que usamos 
                 GestorIntervalo oGestorIntervalo = new GestorIntervalo(oGeneradorAleatorios.Numeros);
 
-                intervalos = oGestorIntervalo.armarIntervalos(numIntervalos);
+                intervalos = oGestorIntervalo.armarUniforme(numIntervalos, limSup, limInf);
 
                 //Generacion grafico
                 List<int> listaEnteros = new List<int>();
@@ -125,7 +130,7 @@ namespace TP3___SIM.Formularios
 
                 int gradosLibertad = numIntervalos - 1;
 
-                histogramaGenerado.ChartAreas[0].AxisY.Maximum = listaEnteros.Max();
+                histogramaGenerado.ChartAreas[0].AxisY.Maximum = listaEnteros.Max()+2;
 
                 btnGraficar.Enabled = false;
             }

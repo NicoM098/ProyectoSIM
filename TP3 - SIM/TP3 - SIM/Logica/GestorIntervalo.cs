@@ -16,7 +16,6 @@ namespace TP3___SIM.Logica
             numeros = aleatorios;
         }
 
-
         public Intervalo[] armarIntervalos(int cant)
         {
             intervalos = new Intervalo[cant];
@@ -56,11 +55,11 @@ namespace TP3___SIM.Logica
             return intervalos;
         }
 
-        public Intervalo[] armarIntervalos(int cant,int limiteS, int limiteI)
+        public Intervalo[] armarUniforme(int cant, int limiteS, int limiteI)
         {
             intervalos = new Intervalo[cant];
             double paso = Math.Round(((double) (limiteS-limiteI) / (double) cant), 2);
-            double desde = 0;
+            double desde = limiteI;
             double hasta = desde + paso;
             double frecEsperada = (numeros.Count() / cant);
 
@@ -95,13 +94,67 @@ namespace TP3___SIM.Logica
             return intervalos;
         }
 
-        public void feExponencial(double lambda,double N)
+        public Intervalo[] armarExponencial(int cant, int limiteS, int limiteI, double lambda)
         {
-            foreach (Intervalo i in intervalos)
+            intervalos = new Intervalo[cant];
+            double paso = Math.Round(((double)(limiteS - limiteI) / (double)cant), 2);
+            double desde = 0;
+            double hasta = desde + paso;
+
+            List<double> aux = numeros;
+
+            for (int i = 0; i < cant; i++)
             {
-                i.ProbConMc= ((1 - Math.Exp(-lambda * i.Hasta)) - (1 - Math.Exp(-lambda * i.Desde)));
-                i.FrecuenciaEsperada = i.ProbConMc *N;
-            }            
+                double frecEsperada = feExponencial(desde, hasta, lambda, cant);
+                intervalos[i] = new Intervalo(desde, hasta, frecEsperada, 0);
+
+                for (int j = 0; j < aux.Count(); j++)
+                {
+                    if (aux.ElementAt(j) <= intervalos[i].Hasta)
+                    {
+                        intervalos[i].aumentarFO();
+                        aux.RemoveAt(j);
+                        j--;
+                    }
+                }
+                desde = hasta;
+                hasta += paso;
+            }
+            return intervalos;
+        }
+
+        public Intervalo[] armarNormal(int cant, int limiteS, int limiteI, double media, double desvEstandar)
+        {
+            intervalos = new Intervalo[cant];
+            double paso = Math.Round(((double)(limiteS - limiteI) / (double)cant), 2);
+            double desde = 0;
+            double hasta = desde + paso;
+
+            List<double> aux = numeros;
+
+            for (int i = 0; i < cant; i++)
+            {
+                double frecEsperada = feNormal(desde, hasta, media, desvEstandar);
+                intervalos[i] = new Intervalo(desde, hasta, frecEsperada, 0);
+
+                for (int j = 0; j < aux.Count(); j++)
+                {
+                    if (aux.ElementAt(j) <= intervalos[i].Hasta)
+                    {
+                        intervalos[i].aumentarFO();
+                        aux.RemoveAt(j);
+                        j--;
+                    }
+                }
+                desde = hasta;
+                hasta += paso;
+            }
+            return intervalos;
+        }
+
+        public double feExponencial(double desde, double hasta, double lambda, double N)
+        {
+            return ((1 - Math.Exp(-lambda * hasta)) - (1 - Math.Exp(-lambda * desde))) * N;
         }
         //=((EXP(-0,5*((G4-Media)/DesvStd)^2))/(DesvStd*RAIZ(2*PI())))*(F4-E4)
 

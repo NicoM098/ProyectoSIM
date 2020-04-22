@@ -10,7 +10,7 @@ namespace TP3___SIM.Logica
     {
         double estadistico;
 
-        public double calEstadisticoPrueba(int frecEsperada, int frecObservada)
+        public double calEstadisticoPrueba(double frecEsperada, int frecObservada)
         {
             double estPru = Math.Pow((frecEsperada - frecObservada), 2) / frecEsperada;
             return estPru;
