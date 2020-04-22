@@ -10,15 +10,19 @@ namespace TP3___SIM.Logica
     {
         private double desde;
         private double hasta;
-        private int frecuenciaEsperada;
+        private double frecuenciaEsperada;
         private int frecuenciaObservada;
+        private double marcaClase;
+        private double probConMc;
+        private double probAcum;
 
-        public Intervalo(double desde, double hasta, int fe, int fo)
+        public Intervalo(double desde, double hasta, double fe, int fo)
         {
             this.Desde = desde;
             this.Hasta = hasta;
             this.FrecuenciaEsperada = fe;
             this.FrecuenciaObservada = fo;
+            this.MarcaClase = (Desde + Hasta) / (double) 2;            
         }
 
         public double Desde
@@ -43,11 +47,15 @@ namespace TP3___SIM.Logica
         public double Desde { get => desde; set => desde = value; }
         public double Hasta { get => hasta; set => hasta = value; }*/
 
-        public int FrecuenciaEsperada
+        public double FrecuenciaEsperada
         {
             get { return frecuenciaEsperada; }
             set { frecuenciaEsperada = value; }
         }
+
+        public double ProbConMc { get => probConMc; set => probConMc = value; }
+        public double ProbAcum { get => probAcum; set => probAcum = value; }
+        public double MarcaClase { get => marcaClase; set => marcaClase = value; }
 
         /*ublic int FrecuenciaObservada { get => frecuenciaObservada; set => frecuenciaObservada = value; }*/
 

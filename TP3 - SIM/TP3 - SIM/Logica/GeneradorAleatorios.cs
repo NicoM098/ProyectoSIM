@@ -17,6 +17,9 @@ namespace TP3___SIM.Logica
         private List<double> numeros;
         private object oGeneradorAleatorios;
         public static Random rnd = new Random();
+        private double lambda;
+        private double media;
+        private double desvEstandar;
 
         //METODOS GET Y SET
 
@@ -63,7 +66,7 @@ namespace TP3___SIM.Logica
             }
 
             double media = acumulador / cantidad;
-            double lambda = 1 / media;
+            lambda = 1 / media;
 
             for (int i = 0; i < cantidad; i++)
             {
@@ -86,7 +89,7 @@ namespace TP3___SIM.Logica
 
             numeros.Clear();
 
-            double media = numerosUniformes.Average();
+            media = numerosUniformes.Average();
 
             for (int i = 0; i < cant; i++)
             {
@@ -94,7 +97,7 @@ namespace TP3___SIM.Logica
             }
 
             double varianza = ((double)1 / (double)(cant - 1)) * aux;
-            double desvEstandar = Math.Sqrt(varianza);
+            desvEstandar = Math.Sqrt(varianza);
 
             //Todo: preguntar al profe que pasa si se ingresa cant impar
             for (int i = 0; i < cant; i+=2)
