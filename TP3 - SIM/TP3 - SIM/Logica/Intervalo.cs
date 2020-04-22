@@ -12,9 +12,6 @@ namespace TP3___SIM.Logica
         private double hasta;
         private int frecuenciaEsperada;
         private int frecuenciaObservada;
-        private double marcaClase;
-        private double probAcumulada;
-        private double probConMC;
 
         public Intervalo(double desde, double hasta, int fe, int fo)
         {
