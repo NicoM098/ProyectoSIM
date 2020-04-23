@@ -313,7 +313,7 @@ namespace TP3___SIM.Formularios
             this.btn_graficar.TabIndex = 72;
             this.btn_graficar.Text = "Graficar";
             this.btn_graficar.UseVisualStyleBackColor = true;
-            this.btn_graficar.Click += new System.EventHandler(this.btn_graficar_Click);
+            this.btn_graficar.Click += new System.EventHandler(this.btn_graficar_Click_1);
             // 
             // btn_limpiar
             // 
@@ -373,7 +373,7 @@ namespace TP3___SIM.Formularios
 
         private void btn_graficar_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+
         }
 
         #endregion

@@ -87,10 +87,10 @@ namespace TP3___SIM.Logica
         }
 
 
-        public Intervalo[] armarNormal(int cant, int limiteS, int limiteI, double media, double desvEstandar)
+        public Intervalo[] armarNormal(int cant, double limiteS, double limiteI, double media, double desvEstandar)
         {
             intervalos = new Intervalo[cant];
-            double paso = Math.Round(((double)(limiteS - limiteI) / (double)cant), 2);
+            double paso = (double)(limiteS - limiteI) / (double)cant;
             double desde = limiteI;
             double hasta = desde + paso;
 
@@ -98,7 +98,7 @@ namespace TP3___SIM.Logica
 
             for (int i = 0; i < cant; i++)
             {
-                double frecEsperada = feNormal(desde, hasta, media, desvEstandar);
+                double frecEsperada = Math.Truncate(feNormal(desde, hasta, media, desvEstandar) * 10000) / 10000;
                 intervalos[i] = new Intervalo(desde, hasta, frecEsperada, 0);
 
                 for (int j = 0; j < aux.Count(); j++)

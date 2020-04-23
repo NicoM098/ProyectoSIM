@@ -39,6 +39,10 @@ namespace TP3___SIM.Logica
             set { numeros = value; }
         }
 
+        public double Media { get => media; set => media = value; }
+
+        public double DesvEstandar { get => desvEstandar; set => desvEstandar = value; }
+
         //CONSTRUCTOR
         public GeneradorAleatorios()
         {
@@ -58,7 +62,6 @@ namespace TP3___SIM.Logica
 
             for (int i = 0; i < cantidad; i++)
             {
-                
                 double x = rnd.NextDouble();
                 numerosAleatorios.Add(x);
 
@@ -70,12 +73,16 @@ namespace TP3___SIM.Logica
 
             for (int i = 0; i < cantidad; i++)
             {
-
                 double x = 0;
 
                 x = Math.Log(1 - numerosAleatorios.ElementAt(i)) / (-lambda);
+
                 Numeros.Add(x);
             }
+
+            min = Numeros.Min();
+            max = Numeros.Max();
+
             return Numeros;
         }
 
@@ -109,8 +116,12 @@ namespace TP3___SIM.Logica
                 double N2 = Math.Truncate((((Math.Sqrt(-2 * Math.Log(rnd1))) * Math.Sin(2 * Math.PI * rnd2)) * desvEstandar + media)*10000) / 10000;
 
                 numeros.Add(N1);
-                numeros.Add(N2);
+                numeros.Add(N2); 
             }
+
+            min = numeros.Min();
+            max = numeros.Max();
+
             return numeros;
         }
 
@@ -136,6 +147,9 @@ namespace TP3___SIM.Logica
 
                 numeros.Add(x);
             }
+
+            min = numeros.Min();
+            max = numeros.Max();
 
             return numeros;
         }

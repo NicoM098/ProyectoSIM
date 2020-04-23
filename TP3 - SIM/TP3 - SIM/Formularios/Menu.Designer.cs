@@ -39,7 +39,7 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(118, 19);
+            this.lblTitulo.Location = new System.Drawing.Point(103, 22);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(316, 21);
             this.lblTitulo.TabIndex = 12;
@@ -58,7 +58,7 @@
             // btnDisExponencial
             // 
             this.btnDisExponencial.Font = new System.Drawing.Font("Microsoft PhagsPa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDisExponencial.Location = new System.Drawing.Point(213, 92);
+            this.btnDisExponencial.Location = new System.Drawing.Point(198, 92);
             this.btnDisExponencial.Name = "btnDisExponencial";
             this.btnDisExponencial.Size = new System.Drawing.Size(126, 72);
             this.btnDisExponencial.TabIndex = 10;
@@ -69,7 +69,7 @@
             // btnDisNormal
             // 
             this.btnDisNormal.Font = new System.Drawing.Font("Microsoft PhagsPa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDisNormal.Location = new System.Drawing.Point(412, 92);
+            this.btnDisNormal.Location = new System.Drawing.Point(378, 92);
             this.btnDisNormal.Name = "btnDisNormal";
             this.btnDisNormal.Size = new System.Drawing.Size(126, 72);
             this.btnDisNormal.TabIndex = 9;
@@ -80,7 +80,7 @@
             // btnDisUniforme
             // 
             this.btnDisUniforme.Font = new System.Drawing.Font("Microsoft PhagsPa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDisUniforme.Location = new System.Drawing.Point(14, 92);
+            this.btnDisUniforme.Location = new System.Drawing.Point(18, 92);
             this.btnDisUniforme.Name = "btnDisUniforme";
             this.btnDisUniforme.Size = new System.Drawing.Size(126, 72);
             this.btnDisUniforme.TabIndex = 8;
@@ -92,13 +92,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 185);
+            this.ClientSize = new System.Drawing.Size(521, 185);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.lblSeleccion);
             this.Controls.Add(this.btnDisExponencial);
             this.Controls.Add(this.btnDisNormal);
             this.Controls.Add(this.btnDisUniforme);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Menu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.ResumeLayout(false);
             this.PerformLayout();

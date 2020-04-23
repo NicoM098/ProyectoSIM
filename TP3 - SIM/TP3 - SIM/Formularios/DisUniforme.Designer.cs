@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtCantidad = new System.Windows.Forms.MaskedTextBox();
             this.txtLimSup = new System.Windows.Forms.MaskedTextBox();
@@ -39,8 +39,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btnGraficar = new System.Windows.Forms.Button();
-            this.btn_limpiar = new System.Windows.Forms.Button();
-            this.btn_calcular = new System.Windows.Forms.Button();
+            this.btnLimpiarCampos = new System.Windows.Forms.Button();
+            this.btnCalcular = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.lblChi = new System.Windows.Forms.Label();
             this.lblChiCuadrado = new System.Windows.Forms.Label();
@@ -179,29 +179,29 @@
             this.btnGraficar.UseVisualStyleBackColor = true;
             this.btnGraficar.Click += new System.EventHandler(this.btn_graficar_Click);
             // 
-            // btn_limpiar
+            // btnLimpiarCampos
             // 
-            this.btn_limpiar.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_limpiar.Location = new System.Drawing.Point(171, 967);
-            this.btn_limpiar.Margin = new System.Windows.Forms.Padding(6);
-            this.btn_limpiar.Name = "btn_limpiar";
-            this.btn_limpiar.Size = new System.Drawing.Size(144, 34);
-            this.btn_limpiar.TabIndex = 7;
-            this.btn_limpiar.Text = "Limpiar Campos";
-            this.btn_limpiar.UseVisualStyleBackColor = true;
-            this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
+            this.btnLimpiarCampos.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(171, 967);
+            this.btnLimpiarCampos.Margin = new System.Windows.Forms.Padding(6);
+            this.btnLimpiarCampos.Name = "btnLimpiarCampos";
+            this.btnLimpiarCampos.Size = new System.Drawing.Size(144, 34);
+            this.btnLimpiarCampos.TabIndex = 7;
+            this.btnLimpiarCampos.Text = "Limpiar Campos";
+            this.btnLimpiarCampos.UseVisualStyleBackColor = true;
+            this.btnLimpiarCampos.Click += new System.EventHandler(this.btn_limpiar_Click);
             // 
-            // btn_calcular
+            // btnCalcular
             // 
-            this.btn_calcular.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_calcular.Location = new System.Drawing.Point(343, 967);
-            this.btn_calcular.Margin = new System.Windows.Forms.Padding(6);
-            this.btn_calcular.Name = "btn_calcular";
-            this.btn_calcular.Size = new System.Drawing.Size(103, 35);
-            this.btn_calcular.TabIndex = 4;
-            this.btn_calcular.Text = "Calcular";
-            this.btn_calcular.UseVisualStyleBackColor = true;
-            this.btn_calcular.Click += new System.EventHandler(this.btn_calcular_Click);
+            this.btnCalcular.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCalcular.Location = new System.Drawing.Point(343, 967);
+            this.btnCalcular.Margin = new System.Windows.Forms.Padding(6);
+            this.btnCalcular.Name = "btnCalcular";
+            this.btnCalcular.Size = new System.Drawing.Size(103, 35);
+            this.btnCalcular.TabIndex = 4;
+            this.btnCalcular.Text = "Calcular";
+            this.btnCalcular.UseVisualStyleBackColor = true;
+            this.btnCalcular.Click += new System.EventHandler(this.btn_calcular_Click);
             // 
             // groupBox6
             // 
@@ -336,36 +336,36 @@
             this.histogramaGenerado.BackColor = System.Drawing.Color.Transparent;
             this.histogramaGenerado.BorderlineColor = System.Drawing.Color.Black;
             this.histogramaGenerado.BorderlineWidth = 3;
-            chartArea3.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
-            chartArea3.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea3.AxisX.Title = "Intervalos";
-            chartArea3.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
-            chartArea3.AxisX.TitleFont = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea3.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
-            chartArea3.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea3.AxisY.Maximum = 100D;
-            chartArea3.AxisY.Minimum = 0D;
-            chartArea3.AxisY.Title = "Frecuencia";
-            chartArea3.AxisY.TitleAlignment = System.Drawing.StringAlignment.Far;
-            chartArea3.AxisY.TitleFont = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea3.BackColor = System.Drawing.Color.Transparent;
-            chartArea3.IsSameFontSizeForAllAxes = true;
-            chartArea3.Name = "ChartArea1";
-            this.histogramaGenerado.ChartAreas.Add(chartArea3);
-            legend3.Enabled = false;
-            legend3.Name = "Legend1";
-            this.histogramaGenerado.Legends.Add(legend3);
-            this.histogramaGenerado.Location = new System.Drawing.Point(18, 75);
+            chartArea1.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
+            chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea1.AxisX.Title = "Intervalos";
+            chartArea1.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
+            chartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea1.AxisY.Maximum = 100D;
+            chartArea1.AxisY.Minimum = 0D;
+            chartArea1.AxisY.Title = "Frecuencia";
+            chartArea1.AxisY.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea1.AxisY.TitleFont = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.IsSameFontSizeForAllAxes = true;
+            chartArea1.Name = "ChartArea1";
+            this.histogramaGenerado.ChartAreas.Add(chartArea1);
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            this.histogramaGenerado.Legends.Add(legend1);
+            this.histogramaGenerado.Location = new System.Drawing.Point(-44, 75);
             this.histogramaGenerado.Name = "histogramaGenerado";
             this.histogramaGenerado.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series3.ChartArea = "ChartArea1";
-            series3.Color = System.Drawing.Color.SlateBlue;
-            series3.IsValueShownAsLabel = true;
-            series3.IsXValueIndexed = true;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.histogramaGenerado.Series.Add(series3);
-            this.histogramaGenerado.Size = new System.Drawing.Size(1291, 423);
+            series1.ChartArea = "ChartArea1";
+            series1.Color = System.Drawing.Color.SlateBlue;
+            series1.IsValueShownAsLabel = true;
+            series1.IsXValueIndexed = true;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.histogramaGenerado.Series.Add(series1);
+            this.histogramaGenerado.Size = new System.Drawing.Size(1353, 423);
             this.histogramaGenerado.TabIndex = 10;
             this.histogramaGenerado.Text = "chart1";
             // 
@@ -451,9 +451,9 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnGraficar);
             this.Controls.Add(this.groupBox6);
-            this.Controls.Add(this.btn_limpiar);
+            this.Controls.Add(this.btnLimpiarCampos);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.btn_calcular);
+            this.Controls.Add(this.btnCalcular);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvNumerosAleatorios);
             this.Controls.Add(this.lblTitulo);
@@ -490,8 +490,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnGraficar;
-        private System.Windows.Forms.Button btn_limpiar;
-        private System.Windows.Forms.Button btn_calcular;
+        private System.Windows.Forms.Button btnLimpiarCampos;
+        private System.Windows.Forms.Button btnCalcular;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label lblChi;
         private System.Windows.Forms.Label lblChiCuadrado;

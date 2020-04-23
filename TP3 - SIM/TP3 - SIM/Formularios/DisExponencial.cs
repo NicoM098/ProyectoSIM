@@ -88,5 +88,10 @@ namespace TP3___SIM.Formularios
 
             btn_graficar.Enabled = false;
         }
+
+        private void btn_graficar_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
