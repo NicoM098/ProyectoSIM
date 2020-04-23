@@ -21,21 +21,31 @@ namespace TP3___SIM.Formularios
         public DisUniforme()
         {
             InitializeComponent();
-            oGeneradorAleatorios = new GeneradorAleatorios();
-        }
 
-        private void DisUniforme_Load(object sender, EventArgs e)
-        {
             cbo_cantIntervalos.Enabled = false;
             btnGraficar.Enabled = false;
             lblChi.Text = "";
+            oGeneradorAleatorios = new GeneradorAleatorios();
         }
 
         private bool ValidarCampos()
         {
-            if (txtCantidad.Text == "")
+            if (txtCantidad.Text == "" || txtLimSup.Text == "" || txtLimInf.Text == "")
             {
+                MessageBox.Show("Debe completar los parametros requeridos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
+            else
+            {
+                if (int.Parse(txtLimSup.Text) <= int.Parse(txtLimInf.Text))
+                {
+                    txtLimInf.Text = "";
+                    txtLimSup.Text = "";
+                    txtLimInf.Focus();
+
+                    MessageBox.Show("Ingrese limites validos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
             }
             return true;
         }
@@ -57,11 +67,6 @@ namespace TP3___SIM.Formularios
 
                 List<double> numeros = new List<double>();
 
-
-                //ESTA ES LA LLAMADA AL METODO DE GENERAR ALEATORIOS
-                //HAY QUE SOLUCIONAR EL GENERAR NUMEROS ALEATORIOS, HACER UNA LISTA E ITERAR SOBRE ELLA PARA HACER LAS OPERACIONES
-                //Hay otras soluciones con problemas
-
                 int contador = 0;
                 numeros = oGeneradorAleatorios.generadorUniforme(limInf, limSup, cantidad);
 
@@ -74,15 +79,33 @@ namespace TP3___SIM.Formularios
                 cbo_cantIntervalos.Enabled = true;
                 btnGraficar.Enabled = true;
             }
-            else
-            {
-                MessageBox.Show("Debe completar los parametros requeridos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void btn_limpiar_Click(object sender, EventArgs e)
         {
-            
+            //Limpiar textbox
+            txtCantidad.Text = "";
+            txtLimInf.Text = "";
+            txtLimSup.Text = "";
+
+            //Limpiar dgv
+            dgvNumerosAleatorios.Refresh();
+            dgvNumerosAleatorios.Rows.Clear();
+            dgwJiCuadrado.Refresh();
+            dgwJiCuadrado.Rows.Clear();
+
+            //Limpiar chart
+            histogramaGenerado.Series.Clear();
+
+            //Resetear combobox
+            cbo_cantIntervalos.SelectedIndex = -1;
+            cbo_cantIntervalos.Enabled = false;
+
+            //Limpiar labels
+            lblChi.Text = "";
+
+            //Setear botones
+            btnGraficar.Enabled = false;
         }
 
         private void btn_graficar_Click(object sender, EventArgs e)
@@ -137,6 +160,66 @@ namespace TP3___SIM.Formularios
             else
             {
                 MessageBox.Show("Debe seleccionar la cantidad de Intervalos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void txtCantidad_MouseClick(object sender, MouseEventArgs e)
+        {
+            //This method will prevent the cursor from being positioned in the middle 
+            //of a textbox when the user clicks in it.
+            MaskedTextBox textBox = sender as MaskedTextBox;
+
+            if (textBox != null)
+            {
+                this.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    int pos = textBox.SelectionStart;
+
+                    if (pos > textBox.Text.Length)
+                        pos = textBox.Text.Length;
+
+                    textBox.Select(pos, 0);
+                });
+            }
+        }
+
+        private void txtLimInf_MouseClick(object sender, MouseEventArgs e)
+        {
+            //This method will prevent the cursor from being positioned in the middle 
+            //of a textbox when the user clicks in it.
+            MaskedTextBox textBox = sender as MaskedTextBox;
+
+            if (textBox != null)
+            {
+                this.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    int pos = textBox.SelectionStart;
+
+                    if (pos > textBox.Text.Length)
+                        pos = textBox.Text.Length;
+
+                    textBox.Select(pos, 0);
+                });
+            }
+        }
+
+        private void txtLimSup_MouseClick(object sender, MouseEventArgs e)
+        {
+            //This method will prevent the cursor from being positioned in the middle 
+            //of a textbox when the user clicks in it.
+            MaskedTextBox textBox = sender as MaskedTextBox;
+
+            if (textBox != null)
+            {
+                this.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    int pos = textBox.SelectionStart;
+
+                    if (pos > textBox.Text.Length)
+                        pos = textBox.Text.Length;
+
+                    textBox.Select(pos, 0);
+                });
             }
         }
     }

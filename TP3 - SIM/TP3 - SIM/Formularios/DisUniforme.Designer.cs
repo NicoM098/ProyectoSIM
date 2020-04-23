@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCantidad = new System.Windows.Forms.MaskedTextBox();
             this.txtLimSup = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtLimInf = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtCantidad = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnGraficar = new System.Windows.Forms.Button();
             this.btn_limpiar = new System.Windows.Forms.Button();
@@ -73,11 +73,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtCantidad);
             this.groupBox1.Controls.Add(this.txtLimSup);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtLimInf);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtCantidad);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft PhagsPa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(21, 90);
@@ -88,6 +88,22 @@
             this.groupBox1.TabIndex = 77;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parámetros";
+            // 
+            // txtCantidad
+            // 
+            this.txtCantidad.AllowPromptAsInput = false;
+            this.txtCantidad.HidePromptOnLeave = true;
+            this.txtCantidad.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
+            this.txtCantidad.Location = new System.Drawing.Point(243, 32);
+            this.txtCantidad.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCantidad.Mask = "99999999";
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.PromptChar = ' ';
+            this.txtCantidad.ResetOnPrompt = false;
+            this.txtCantidad.Size = new System.Drawing.Size(121, 27);
+            this.txtCantidad.TabIndex = 1;
+            this.txtCantidad.ValidatingType = typeof(int);
+            this.txtCantidad.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtCantidad_MouseClick);
             // 
             // txtLimSup
             // 
@@ -101,8 +117,9 @@
             this.txtLimSup.PromptChar = ' ';
             this.txtLimSup.ResetOnPrompt = false;
             this.txtLimSup.Size = new System.Drawing.Size(121, 27);
-            this.txtLimSup.TabIndex = 72;
+            this.txtLimSup.TabIndex = 3;
             this.txtLimSup.ValidatingType = typeof(int);
+            this.txtLimSup.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtLimSup_MouseClick);
             // 
             // label3
             // 
@@ -126,8 +143,9 @@
             this.txtLimInf.PromptChar = ' ';
             this.txtLimInf.ResetOnPrompt = false;
             this.txtLimInf.Size = new System.Drawing.Size(121, 27);
-            this.txtLimInf.TabIndex = 70;
+            this.txtLimInf.TabIndex = 2;
             this.txtLimInf.ValidatingType = typeof(int);
+            this.txtLimInf.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtLimInf_MouseClick);
             // 
             // label2
             // 
@@ -138,21 +156,6 @@
             this.label2.Size = new System.Drawing.Size(105, 20);
             this.label2.TabIndex = 71;
             this.label2.Text = "Limite Inferior:";
-            // 
-            // txtCantidad
-            // 
-            this.txtCantidad.AllowPromptAsInput = false;
-            this.txtCantidad.HidePromptOnLeave = true;
-            this.txtCantidad.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.txtCantidad.Location = new System.Drawing.Point(245, 32);
-            this.txtCantidad.Margin = new System.Windows.Forms.Padding(6);
-            this.txtCantidad.Mask = "99999999";
-            this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.PromptChar = ' ';
-            this.txtCantidad.ResetOnPrompt = false;
-            this.txtCantidad.Size = new System.Drawing.Size(121, 27);
-            this.txtCantidad.TabIndex = 68;
-            this.txtCantidad.ValidatingType = typeof(int);
             // 
             // label8
             // 
@@ -167,11 +170,11 @@
             // btnGraficar
             // 
             this.btnGraficar.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGraficar.Location = new System.Drawing.Point(474, 966);
+            this.btnGraficar.Location = new System.Drawing.Point(474, 967);
             this.btnGraficar.Margin = new System.Windows.Forms.Padding(6);
             this.btnGraficar.Name = "btnGraficar";
             this.btnGraficar.Size = new System.Drawing.Size(103, 35);
-            this.btnGraficar.TabIndex = 76;
+            this.btnGraficar.TabIndex = 6;
             this.btnGraficar.Text = "Graficar";
             this.btnGraficar.UseVisualStyleBackColor = true;
             this.btnGraficar.Click += new System.EventHandler(this.btn_graficar_Click);
@@ -183,7 +186,7 @@
             this.btn_limpiar.Margin = new System.Windows.Forms.Padding(6);
             this.btn_limpiar.Name = "btn_limpiar";
             this.btn_limpiar.Size = new System.Drawing.Size(144, 34);
-            this.btn_limpiar.TabIndex = 75;
+            this.btn_limpiar.TabIndex = 7;
             this.btn_limpiar.Text = "Limpiar Campos";
             this.btn_limpiar.UseVisualStyleBackColor = true;
             this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
@@ -191,11 +194,11 @@
             // btn_calcular
             // 
             this.btn_calcular.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_calcular.Location = new System.Drawing.Point(343, 966);
+            this.btn_calcular.Location = new System.Drawing.Point(343, 967);
             this.btn_calcular.Margin = new System.Windows.Forms.Padding(6);
             this.btn_calcular.Name = "btn_calcular";
             this.btn_calcular.Size = new System.Drawing.Size(103, 35);
-            this.btn_calcular.TabIndex = 74;
+            this.btn_calcular.TabIndex = 4;
             this.btn_calcular.Text = "Calcular";
             this.btn_calcular.UseVisualStyleBackColor = true;
             this.btn_calcular.Click += new System.EventHandler(this.btn_calcular_Click);
@@ -205,12 +208,12 @@
             this.groupBox6.Controls.Add(this.lblChi);
             this.groupBox6.Controls.Add(this.lblChiCuadrado);
             this.groupBox6.Controls.Add(this.label17);
-            this.groupBox6.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.Font = new System.Drawing.Font("Microsoft PhagsPa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.Location = new System.Drawing.Point(591, 921);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.groupBox6.Size = new System.Drawing.Size(284, 80);
+            this.groupBox6.Size = new System.Drawing.Size(284, 81);
             this.groupBox6.TabIndex = 73;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Chi Cuadrado Observado";
@@ -218,11 +221,11 @@
             // lblChi
             // 
             this.lblChi.AutoSize = true;
-            this.lblChi.Font = new System.Drawing.Font("Microsoft PhagsPa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChi.Location = new System.Drawing.Point(92, 42);
+            this.lblChi.Font = new System.Drawing.Font("Microsoft PhagsPa", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChi.Location = new System.Drawing.Point(110, 33);
             this.lblChi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblChi.Name = "lblChi";
-            this.lblChi.Size = new System.Drawing.Size(12, 20);
+            this.lblChi.Size = new System.Drawing.Size(14, 24);
             this.lblChi.TabIndex = 2;
             this.lblChi.Text = ".";
             // 
@@ -232,7 +235,7 @@
             this.lblChiCuadrado.Location = new System.Drawing.Point(56, 45);
             this.lblChiCuadrado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblChiCuadrado.Name = "lblChiCuadrado";
-            this.lblChiCuadrado.Size = new System.Drawing.Size(0, 17);
+            this.lblChiCuadrado.Size = new System.Drawing.Size(0, 20);
             this.lblChiCuadrado.TabIndex = 1;
             // 
             // label17
@@ -240,7 +243,7 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(16, 37);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(0, 17);
+            this.label17.Size = new System.Drawing.Size(0, 20);
             this.label17.TabIndex = 0;
             // 
             // groupBox4
@@ -330,34 +333,38 @@
             // 
             // histogramaGenerado
             // 
+            this.histogramaGenerado.BackColor = System.Drawing.Color.Transparent;
             this.histogramaGenerado.BorderlineColor = System.Drawing.Color.Black;
             this.histogramaGenerado.BorderlineWidth = 3;
-            chartArea1.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
-            chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea1.AxisX.Title = "Intervalos";
-            chartArea1.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
-            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
-            chartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea1.AxisY.Maximum = 100D;
-            chartArea1.AxisY.Minimum = 0D;
-            chartArea1.AxisY.Title = "Frecuencia";
-            chartArea1.AxisY.TitleAlignment = System.Drawing.StringAlignment.Far;
-            chartArea1.Name = "ChartArea1";
-            this.histogramaGenerado.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.histogramaGenerado.Legends.Add(legend1);
+            chartArea3.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
+            chartArea3.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea3.AxisX.Title = "Intervalos";
+            chartArea3.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea3.AxisX.TitleFont = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea3.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
+            chartArea3.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea3.AxisY.Maximum = 100D;
+            chartArea3.AxisY.Minimum = 0D;
+            chartArea3.AxisY.Title = "Frecuencia";
+            chartArea3.AxisY.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea3.AxisY.TitleFont = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea3.BackColor = System.Drawing.Color.Transparent;
+            chartArea3.IsSameFontSizeForAllAxes = true;
+            chartArea3.Name = "ChartArea1";
+            this.histogramaGenerado.ChartAreas.Add(chartArea3);
+            legend3.Enabled = false;
+            legend3.Name = "Legend1";
+            this.histogramaGenerado.Legends.Add(legend3);
             this.histogramaGenerado.Location = new System.Drawing.Point(18, 75);
             this.histogramaGenerado.Name = "histogramaGenerado";
             this.histogramaGenerado.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series1.ChartArea = "ChartArea1";
-            series1.Color = System.Drawing.Color.SlateBlue;
-            series1.IsValueShownAsLabel = true;
-            series1.IsXValueIndexed = true;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.histogramaGenerado.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Color = System.Drawing.Color.SlateBlue;
+            series3.IsValueShownAsLabel = true;
+            series3.IsXValueIndexed = true;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.histogramaGenerado.Series.Add(series3);
             this.histogramaGenerado.Size = new System.Drawing.Size(1291, 423);
             this.histogramaGenerado.TabIndex = 10;
             this.histogramaGenerado.Text = "chart1";
@@ -384,7 +391,7 @@
             this.cbo_cantIntervalos.Margin = new System.Windows.Forms.Padding(6);
             this.cbo_cantIntervalos.Name = "cbo_cantIntervalos";
             this.cbo_cantIntervalos.Size = new System.Drawing.Size(180, 28);
-            this.cbo_cantIntervalos.TabIndex = 9;
+            this.cbo_cantIntervalos.TabIndex = 5;
             // 
             // lblTitulo
             // 
@@ -452,6 +459,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "DisUniforme";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -480,7 +488,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MaskedTextBox txtLimInf;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox txtCantidad;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnGraficar;
         private System.Windows.Forms.Button btn_limpiar;
@@ -506,5 +513,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn OrdenNumeros;
         private System.Windows.Forms.DataGridView dgvNumerosAleatorios;
         private System.Windows.Forms.DataVisualization.Charting.Chart histogramaGenerado;
+        private System.Windows.Forms.MaskedTextBox txtCantidad;
     }
 }
