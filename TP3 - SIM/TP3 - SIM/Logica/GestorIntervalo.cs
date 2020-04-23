@@ -57,10 +57,10 @@ namespace TP3___SIM.Logica
         }
 
 
-        public Intervalo[] armarExponencial(int cant, int limiteS, int limiteI, double lambda)
+        public Intervalo[] armarExponencial(int cant, double limiteS, double limiteI, double lambda)
         {
             intervalos = new Intervalo[cant];
-            double paso = Math.Round(((double)(limiteS - limiteI) / (double)cant), 2);
+            double paso = (double)(limiteS - limiteI) / (double)cant;
             double desde = limiteI;
             double hasta = desde + paso;
 
@@ -68,7 +68,7 @@ namespace TP3___SIM.Logica
 
             for (int i = 0; i < cant; i++)
             {
-                double frecEsperada = feExponencial(desde, hasta, lambda, cant);
+                double frecEsperada = Math.Truncate(feExponencial(desde, hasta, lambda, cant) * 10000) / 10000;
                 intervalos[i] = new Intervalo(desde, hasta, frecEsperada, 0);
 
                 for (int j = 0; j < aux.Count(); j++)

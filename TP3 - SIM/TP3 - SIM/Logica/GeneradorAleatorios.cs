@@ -43,6 +43,8 @@ namespace TP3___SIM.Logica
 
         public double DesvEstandar { get => desvEstandar; set => desvEstandar = value; }
 
+        public double Lambda { get => lambda; set => lambda = value; }
+
         //CONSTRUCTOR
         public GeneradorAleatorios()
         {
@@ -75,7 +77,7 @@ namespace TP3___SIM.Logica
             {
                 double x = 0;
 
-                x = Math.Log(1 - numerosAleatorios.ElementAt(i)) / (-lambda);
+                x = Math.Truncate((Math.Log(1 - numerosAleatorios.ElementAt(i)) / (-lambda)) * 10000) / 10000;
 
                 Numeros.Add(x);
             }
