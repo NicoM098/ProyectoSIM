@@ -60,17 +60,15 @@ namespace TP3___SIM.Logica
 
             //ACA habría que calcular el lambda, si queremos pasar por parametro la media..
             //
-            double acumulador = 0;
 
             for (int i = 0; i < cantidad; i++)
             {
                 double x = rnd.NextDouble();
                 numerosAleatorios.Add(x);
-
-                acumulador += x;
             }
 
-            double media = acumulador / cantidad;
+            double media = numerosAleatorios.Average();
+
             lambda = 1 / media;
 
             for (int i = 0; i < cantidad; i++)
@@ -84,6 +82,8 @@ namespace TP3___SIM.Logica
 
             min = Numeros.Min();
             max = Numeros.Max();
+
+            MessageBox.Show("Maximo: " + max.ToString());
 
             return Numeros;
         }
