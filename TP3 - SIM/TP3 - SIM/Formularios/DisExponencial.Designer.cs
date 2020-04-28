@@ -98,7 +98,7 @@ namespace TP3___SIM.Formularios
             this.txtLambda.AllowPromptAsInput = false;
             this.txtLambda.HidePromptOnLeave = true;
             this.txtLambda.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.txtLambda.Location = new System.Drawing.Point(278, 85);
+            this.txtLambda.Location = new System.Drawing.Point(278, 82);
             this.txtLambda.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtLambda.Mask = "99999999";
             this.txtLambda.Name = "txtLambda";
@@ -225,7 +225,7 @@ namespace TP3___SIM.Formularios
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox4.Size = new System.Drawing.Size(879, 378);
+            this.groupBox4.Size = new System.Drawing.Size(888, 378);
             this.groupBox4.TabIndex = 67;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Calculo del Estadistico de Prueba";
@@ -245,7 +245,7 @@ namespace TP3___SIM.Formularios
             this.dgwJiCuadrado.Margin = new System.Windows.Forms.Padding(4);
             this.dgwJiCuadrado.Name = "dgwJiCuadrado";
             this.dgwJiCuadrado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgwJiCuadrado.Size = new System.Drawing.Size(862, 331);
+            this.dgwJiCuadrado.Size = new System.Drawing.Size(870, 331);
             this.dgwJiCuadrado.TabIndex = 42;
             // 
             // dataGridViewTextBoxColumn1
@@ -472,7 +472,7 @@ namespace TP3___SIM.Formularios
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1924, 1013);
             this.Controls.Add(this.lblGrados);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnGraficar);

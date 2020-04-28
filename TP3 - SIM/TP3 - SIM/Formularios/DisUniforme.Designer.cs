@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtCantidad = new System.Windows.Forms.MaskedTextBox();
             this.txtLimSup = new System.Windows.Forms.MaskedTextBox();
@@ -83,10 +83,10 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft PhagsPa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(21, 90);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox1.Size = new System.Drawing.Size(556, 159);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.groupBox1.Size = new System.Drawing.Size(494, 144);
             this.groupBox1.TabIndex = 77;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parámetros";
@@ -96,13 +96,13 @@
             this.txtCantidad.AllowPromptAsInput = false;
             this.txtCantidad.HidePromptOnLeave = true;
             this.txtCantidad.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.txtCantidad.Location = new System.Drawing.Point(243, 32);
+            this.txtCantidad.Location = new System.Drawing.Point(241, 29);
             this.txtCantidad.Margin = new System.Windows.Forms.Padding(4);
             this.txtCantidad.Mask = "99999999";
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.PromptChar = ' ';
             this.txtCantidad.ResetOnPrompt = false;
-            this.txtCantidad.Size = new System.Drawing.Size(121, 27);
+            this.txtCantidad.Size = new System.Drawing.Size(108, 27);
             this.txtCantidad.TabIndex = 1;
             this.txtCantidad.ValidatingType = typeof(int);
             this.txtCantidad.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtCantidad_MouseClick);
@@ -112,13 +112,13 @@
             this.txtLimSup.AllowPromptAsInput = false;
             this.txtLimSup.HidePromptOnLeave = true;
             this.txtLimSup.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.txtLimSup.Location = new System.Drawing.Point(129, 106);
-            this.txtLimSup.Margin = new System.Windows.Forms.Padding(6);
+            this.txtLimSup.Location = new System.Drawing.Point(126, 96);
+            this.txtLimSup.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtLimSup.Mask = "99999999";
             this.txtLimSup.Name = "txtLimSup";
             this.txtLimSup.PromptChar = ' ';
             this.txtLimSup.ResetOnPrompt = false;
-            this.txtLimSup.Size = new System.Drawing.Size(121, 27);
+            this.txtLimSup.Size = new System.Drawing.Size(108, 27);
             this.txtLimSup.TabIndex = 3;
             this.txtLimSup.ValidatingType = typeof(int);
             this.txtLimSup.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtLimSup_MouseClick);
@@ -126,8 +126,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 109);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label3.Location = new System.Drawing.Point(11, 99);
+            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 20);
             this.label3.TabIndex = 73;
@@ -138,13 +138,13 @@
             this.txtLimInf.AllowPromptAsInput = false;
             this.txtLimInf.HidePromptOnLeave = true;
             this.txtLimInf.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.txtLimInf.Location = new System.Drawing.Point(129, 69);
-            this.txtLimInf.Margin = new System.Windows.Forms.Padding(6);
+            this.txtLimInf.Location = new System.Drawing.Point(126, 62);
+            this.txtLimInf.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtLimInf.Mask = "99999999";
             this.txtLimInf.Name = "txtLimInf";
             this.txtLimInf.PromptChar = ' ';
             this.txtLimInf.ResetOnPrompt = false;
-            this.txtLimInf.Size = new System.Drawing.Size(121, 27);
+            this.txtLimInf.Size = new System.Drawing.Size(108, 27);
             this.txtLimInf.TabIndex = 2;
             this.txtLimInf.ValidatingType = typeof(int);
             this.txtLimInf.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtLimInf_MouseClick);
@@ -152,8 +152,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 72);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label2.Location = new System.Drawing.Point(11, 65);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 20);
             this.label2.TabIndex = 71;
@@ -162,8 +162,8 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 35);
-            this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label8.Location = new System.Drawing.Point(11, 32);
+            this.label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(221, 20);
             this.label8.TabIndex = 69;
@@ -172,8 +172,8 @@
             // btnGraficar
             // 
             this.btnGraficar.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGraficar.Location = new System.Drawing.Point(474, 697);
-            this.btnGraficar.Margin = new System.Windows.Forms.Padding(6);
+            this.btnGraficar.Location = new System.Drawing.Point(474, 967);
+            this.btnGraficar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnGraficar.Name = "btnGraficar";
             this.btnGraficar.Size = new System.Drawing.Size(103, 35);
             this.btnGraficar.TabIndex = 6;
@@ -184,8 +184,8 @@
             // btnLimpiarCampos
             // 
             this.btnLimpiarCampos.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiarCampos.Location = new System.Drawing.Point(171, 714);
-            this.btnLimpiarCampos.Margin = new System.Windows.Forms.Padding(6);
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(171, 967);
+            this.btnLimpiarCampos.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
             this.btnLimpiarCampos.Size = new System.Drawing.Size(144, 34);
             this.btnLimpiarCampos.TabIndex = 7;
@@ -196,8 +196,8 @@
             // btnCalcular
             // 
             this.btnCalcular.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalcular.Location = new System.Drawing.Point(343, 697);
-            this.btnCalcular.Margin = new System.Windows.Forms.Padding(6);
+            this.btnCalcular.Location = new System.Drawing.Point(343, 967);
+            this.btnCalcular.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(103, 35);
             this.btnCalcular.TabIndex = 4;
@@ -211,11 +211,11 @@
             this.groupBox6.Controls.Add(this.lblChiCuadrado);
             this.groupBox6.Controls.Add(this.label17);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft PhagsPa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(600, 664);
+            this.groupBox6.Location = new System.Drawing.Point(591, 921);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.groupBox6.Size = new System.Drawing.Size(284, 81);
+            this.groupBox6.Size = new System.Drawing.Size(252, 73);
             this.groupBox6.TabIndex = 73;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Chi Cuadrado Observado";
@@ -224,7 +224,7 @@
             // 
             this.lblChi.AutoSize = true;
             this.lblChi.Font = new System.Drawing.Font("Microsoft PhagsPa", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChi.Location = new System.Drawing.Point(110, 33);
+            this.lblChi.Location = new System.Drawing.Point(98, 30);
             this.lblChi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblChi.Name = "lblChi";
             this.lblChi.Size = new System.Drawing.Size(14, 24);
@@ -234,7 +234,7 @@
             // lblChiCuadrado
             // 
             this.lblChiCuadrado.AutoSize = true;
-            this.lblChiCuadrado.Location = new System.Drawing.Point(56, 45);
+            this.lblChiCuadrado.Location = new System.Drawing.Point(50, 41);
             this.lblChiCuadrado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblChiCuadrado.Name = "lblChiCuadrado";
             this.lblChiCuadrado.Size = new System.Drawing.Size(0, 20);
@@ -243,7 +243,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(16, 37);
+            this.label17.Location = new System.Drawing.Point(14, 33);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(0, 20);
             this.label17.TabIndex = 0;
@@ -253,11 +253,11 @@
             this.groupBox4.Controls.Add(this.dgwJiCuadrado);
             this.groupBox4.Controls.Add(this.label14);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft PhagsPa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(591, 263);
+            this.groupBox4.Location = new System.Drawing.Point(591, 533);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.groupBox4.Size = new System.Drawing.Size(879, 378);
+            this.groupBox4.Size = new System.Drawing.Size(888, 378);
             this.groupBox4.TabIndex = 72;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Calculo del Estadistico de Prueba";
@@ -277,7 +277,7 @@
             this.dgwJiCuadrado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgwJiCuadrado.Name = "dgwJiCuadrado";
             this.dgwJiCuadrado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgwJiCuadrado.Size = new System.Drawing.Size(862, 331);
+            this.dgwJiCuadrado.Size = new System.Drawing.Size(870, 331);
             this.dgwJiCuadrado.TabIndex = 42;
             // 
             // dataGridViewTextBoxColumn1
@@ -313,7 +313,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(16, 37);
+            this.label14.Location = new System.Drawing.Point(14, 33);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(0, 20);
             this.label14.TabIndex = 0;
@@ -324,10 +324,10 @@
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.cbo_cantIntervalos);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft PhagsPa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(591, -255);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(6);
+            this.groupBox2.Location = new System.Drawing.Point(591, 15);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.groupBox2.Size = new System.Drawing.Size(1318, 507);
             this.groupBox2.TabIndex = 71;
             this.groupBox2.TabStop = false;
@@ -338,35 +338,35 @@
             this.histogramaGenerado.BackColor = System.Drawing.Color.Transparent;
             this.histogramaGenerado.BorderlineColor = System.Drawing.Color.Black;
             this.histogramaGenerado.BorderlineWidth = 3;
-            chartArea2.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
-            chartArea2.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea2.AxisX.Title = "Intervalos";
-            chartArea2.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
-            chartArea2.AxisX.TitleFont = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
-            chartArea2.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea2.AxisY.Maximum = 100D;
-            chartArea2.AxisY.Minimum = 0D;
-            chartArea2.AxisY.Title = "Frecuencia";
-            chartArea2.AxisY.TitleAlignment = System.Drawing.StringAlignment.Far;
-            chartArea2.AxisY.TitleFont = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.BackColor = System.Drawing.Color.Transparent;
-            chartArea2.IsSameFontSizeForAllAxes = true;
-            chartArea2.Name = "ChartArea1";
-            this.histogramaGenerado.ChartAreas.Add(chartArea2);
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            this.histogramaGenerado.Legends.Add(legend2);
+            chartArea7.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
+            chartArea7.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea7.AxisX.Title = "Intervalos";
+            chartArea7.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea7.AxisX.TitleFont = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea7.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
+            chartArea7.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea7.AxisY.Maximum = 100D;
+            chartArea7.AxisY.Minimum = 0D;
+            chartArea7.AxisY.Title = "Frecuencia";
+            chartArea7.AxisY.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea7.AxisY.TitleFont = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea7.BackColor = System.Drawing.Color.Transparent;
+            chartArea7.IsSameFontSizeForAllAxes = true;
+            chartArea7.Name = "ChartArea1";
+            this.histogramaGenerado.ChartAreas.Add(chartArea7);
+            legend7.Enabled = false;
+            legend7.Name = "Legend1";
+            this.histogramaGenerado.Legends.Add(legend7);
             this.histogramaGenerado.Location = new System.Drawing.Point(-44, 75);
             this.histogramaGenerado.Name = "histogramaGenerado";
             this.histogramaGenerado.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series2.ChartArea = "ChartArea1";
-            series2.Color = System.Drawing.Color.SlateBlue;
-            series2.IsValueShownAsLabel = true;
-            series2.IsXValueIndexed = true;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.histogramaGenerado.Series.Add(series2);
+            series7.ChartArea = "ChartArea1";
+            series7.Color = System.Drawing.Color.SlateBlue;
+            series7.IsValueShownAsLabel = true;
+            series7.IsXValueIndexed = true;
+            series7.Legend = "Legend1";
+            series7.Name = "Series1";
+            this.histogramaGenerado.Series.Add(series7);
             this.histogramaGenerado.Size = new System.Drawing.Size(1353, 423);
             this.histogramaGenerado.TabIndex = 10;
             this.histogramaGenerado.Text = "chart1";
@@ -375,7 +375,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(14, 38);
-            this.label9.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label9.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(161, 20);
             this.label9.TabIndex = 9;
@@ -390,17 +390,17 @@
             "15",
             "20"});
             this.cbo_cantIntervalos.Location = new System.Drawing.Point(189, 35);
-            this.cbo_cantIntervalos.Margin = new System.Windows.Forms.Padding(6);
+            this.cbo_cantIntervalos.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.cbo_cantIntervalos.Name = "cbo_cantIntervalos";
-            this.cbo_cantIntervalos.Size = new System.Drawing.Size(180, 28);
+            this.cbo_cantIntervalos.Size = new System.Drawing.Size(160, 28);
             this.cbo_cantIntervalos.TabIndex = 5;
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(17, -249);
-            this.lblTitulo.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblTitulo.Location = new System.Drawing.Point(17, 21);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(167, 21);
             this.lblTitulo.TabIndex = 69;
@@ -410,8 +410,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft PhagsPa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, -217);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label1.Location = new System.Drawing.Point(17, 53);
+            this.label1.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(560, 20);
             this.label1.TabIndex = 68;
@@ -438,37 +438,37 @@
             this.dgvNumerosAleatorios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.OrdenNumeros,
             this.generados});
-            this.dgvNumerosAleatorios.Location = new System.Drawing.Point(21, -9);
-            this.dgvNumerosAleatorios.Margin = new System.Windows.Forms.Padding(6);
+            this.dgvNumerosAleatorios.Location = new System.Drawing.Point(21, 243);
+            this.dgvNumerosAleatorios.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.dgvNumerosAleatorios.Name = "dgvNumerosAleatorios";
             this.dgvNumerosAleatorios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvNumerosAleatorios.Size = new System.Drawing.Size(556, 694);
+            this.dgvNumerosAleatorios.Size = new System.Drawing.Size(556, 712);
             this.dgvNumerosAleatorios.TabIndex = 70;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(898, 664);
+            this.label4.Location = new System.Drawing.Point(925, 921);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(141, 21);
+            this.label4.Size = new System.Drawing.Size(133, 19);
             this.label4.TabIndex = 78;
             this.label4.Text = "Grados de libertad:";
             // 
             // lblGrados
             // 
             this.lblGrados.AutoSize = true;
-            this.lblGrados.Location = new System.Drawing.Point(1055, 668);
+            this.lblGrados.Location = new System.Drawing.Point(1064, 921);
             this.lblGrados.Name = "lblGrados";
-            this.lblGrados.Size = new System.Drawing.Size(16, 21);
+            this.lblGrados.Size = new System.Drawing.Size(14, 19);
             this.lblGrados.TabIndex = 79;
             this.lblGrados.Text = "-";
             // 
             // DisUniforme
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1924, 1013);
             this.Controls.Add(this.lblGrados);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
@@ -481,7 +481,7 @@
             this.Controls.Add(this.dgvNumerosAleatorios);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "DisUniforme";
