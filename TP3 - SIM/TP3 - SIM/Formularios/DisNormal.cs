@@ -23,38 +23,27 @@ namespace TP3___SIM.Formularios
             cbo_cantIntervalos.Enabled = false;
             btnGraficar.Enabled = false;
             lblChi.Text = "";
-        }
-
-        private bool ValidarCampos()
-        {
-            if (txtCantidad.Text == "")
-            {
-                MessageBox.Show("Debe completar los parametros requeridos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            else
-            {
-                if ((int.Parse(txtCantidad.Text) % 2) != 0)
-                {
-                    txtCantidad.Text = "";
-                    txtCantidad.Focus();
-                    MessageBox.Show("Debe ingresar una cantidad par", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return false;
-                }
-            }
-            return true;
-        }
+        }      
 
 
         private void btn_calcular_Click(object sender, EventArgs e)
         {
             dgvNumerosAleatorios.Rows.Clear();
             int cantidad;
+            double media;
+            double desviacion;
 
             if (ValidarCampos())
             {
+
+                
                 cantidad = int.Parse(txtCantidad.Text);
-                List<double> lista = oGeneradorAleatorios.generadorNormal(cantidad);
+                media = double.Parse(txtMedia.Text);
+                desviacion = double.Parse(txtDesviacion.Text);
+
+                List<double> lista = oGeneradorAleatorios.generadorNormal(cantidad,media,desviacion);
+               
+               
 
                 int i = 0;
                 foreach (double aleatorio in lista)
@@ -65,31 +54,10 @@ namespace TP3___SIM.Formularios
                 cbo_cantIntervalos.Enabled = true;
                 btnGraficar.Enabled = true;
             }
-        }
-
-        private void btn_limpiar_Click(object sender, EventArgs e)
-        {
-            //Limpiar textbox
-            txtCantidad.Text = "";
-
-            //Limpiar dgv
-            dgvNumerosAleatorios.Refresh();
-            dgvNumerosAleatorios.Rows.Clear();
-            dgwJiCuadrado.Refresh();
-            dgwJiCuadrado.Rows.Clear();
-
-            //Limpiar chart
-            histogramaGenerado.Series.Clear();
-
-            //Resetear combobox
-            cbo_cantIntervalos.SelectedIndex = -1;
-            cbo_cantIntervalos.Enabled = false;
-
-            //Limpiar labels
-            lblChi.Text = "";
-
-            //Setear botones
-            btnGraficar.Enabled = false;
+            else
+            {
+                MessageBox.Show("Debe completar los parametros requeridos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btn_graficar_Click(object sender, EventArgs e)
@@ -111,7 +79,7 @@ namespace TP3___SIM.Formularios
 
                 double limInf = oGeneradorAleatorios.Min;
                 double limSup = oGeneradorAleatorios.Max;
-                double media = oGeneradorAleatorios.Media;
+                double media = oGeneradorAleatorios.Media;                
                 double desvEstandar = oGeneradorAleatorios.DesvEstandar;
 
                 intervalos = oGestorIntervalo.armarNormal(numIntervalos, limSup, limInf, media, desvEstandar);
@@ -140,8 +108,8 @@ namespace TP3___SIM.Formularios
 
                 lblChi.Text = acumEstadisticoPrueba.ToString();
 
-                int gradosLibertad = numIntervalos - 1;
-
+                int gradosLibertad = numIntervalos - 1 - 2;
+                lblGrados.Text = gradosLibertad.ToString();
                 histogramaGenerado.ChartAreas[0].AxisY.Maximum = listaEnteros.Max() + 2;
 
                 btnGraficar.Enabled = false;
@@ -150,6 +118,57 @@ namespace TP3___SIM.Formularios
             {
                 MessageBox.Show("Debe seleccionar la cantidad de Intervalos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+
+        //Limpiar
+
+        private void btn_limpiar_Click(object sender, EventArgs e)
+        {
+            //Limpiar textbox
+            txtCantidad.Text = "";
+            txtMedia.Text = "";
+            txtDesviacion.Text = "";
+
+            //Limpiar dgv
+            dgvNumerosAleatorios.Refresh();
+            dgvNumerosAleatorios.Rows.Clear();
+            dgwJiCuadrado.Refresh();
+            dgwJiCuadrado.Rows.Clear();
+
+            //Limpiar chart
+            histogramaGenerado.Series.Clear();
+
+            //Resetear combobox
+            cbo_cantIntervalos.SelectedIndex = -1;
+            cbo_cantIntervalos.Enabled = false;
+
+            //Limpiar labels
+            lblChi.Text = "";
+            lblGrados.Text = "";
+
+
+            //Setear botones
+            btnGraficar.Enabled = false;
+        }
+
+        //Validacion
+
+        private bool ValidarCampos()
+        {
+            if (txtCantidad.Text == "")
+            {
+                return false;
+            }            
+            if (txtMedia.Text == "")
+            {
+                return false;
+            }
+            if (txtDesviacion.Text == "")
+            {
+                return false;
+            }
+            return true;
         }
 
         private void txtCantidad_MouseClick(object sender, MouseEventArgs e)

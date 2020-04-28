@@ -9,10 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TP3___SIM.Logica;
 
+
 namespace TP3___SIM.Formularios
 {
     public partial class DisUniforme : Form
     {
+        //Todo: calcular grados de libertad y ver histograma
         private int limSup = 0;
         private int limInf = 0;
         private int cantidad = 0;
@@ -61,10 +63,10 @@ namespace TP3___SIM.Formularios
 
             if (ValidarCampos())
             {
-                limInf = int.Parse(txtLimInf.Text);
-                limSup = int.Parse(txtLimSup.Text);
+                limInf = Math.Min(int.Parse(txtLimInf.Text), int.Parse(txtLimSup.Text));
+                limSup = Math.Max(int.Parse(txtLimInf.Text), int.Parse(txtLimSup.Text));
                 cantidad = int.Parse(txtCantidad.Text);
-
+                MessageBox.Show("Sup" + limSup.ToString() + "Inf" + limInf.ToString());
                 List<double> numeros = new List<double>();
 
                 int contador = 0;
@@ -103,6 +105,8 @@ namespace TP3___SIM.Formularios
 
             //Limpiar labels
             lblChi.Text = "";
+            lblGrados.Text = "";
+
 
             //Setear botones
             btnGraficar.Enabled = false;
@@ -152,7 +156,7 @@ namespace TP3___SIM.Formularios
                 lblChi.Text = acumEstadisticoPrueba.ToString();
 
                 int gradosLibertad = numIntervalos - 1;
-
+                lblGrados.Text = gradosLibertad.ToString();
                 histogramaGenerado.ChartAreas[0].AxisY.Maximum = listaEnteros.Max()+2;
 
                 btnGraficar.Enabled = false;

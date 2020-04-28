@@ -29,15 +29,7 @@ namespace TP3___SIM.Formularios
             lblChi.Text = "";
         }
 
-        private bool ValidarCampos()
-        {
-            if (txtCantidad.Text == "")
-            {
-                MessageBox.Show("Debe completar los parametros requeridos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            return true;
-        }
+        
 
 
         private void btn_calcular_Click(object sender, EventArgs e)
@@ -48,7 +40,19 @@ namespace TP3___SIM.Formularios
             if (ValidarCampos())
             {
                 cantidad = int.Parse(txtCantidad.Text);
-                List<double> lista = oGeneradorAleatorios.generadorExponencial(cantidad);
+                double lambda=0;
+                if (txtMedia.Text!="")
+                {
+                    lambda = double.Parse(txtMedia.Text) / (double) cantidad;
+                }
+                else
+                {
+                    if (txtLambda.Text != "")
+                    {
+                        lambda = double.Parse(txtLambda.Text);
+                    }
+                }
+                List<double> lista = oGeneradorAleatorios.generadorExponencial(cantidad,lambda);
 
                 int i = 0;
                 foreach (double aleatorio in lista)
@@ -59,32 +63,13 @@ namespace TP3___SIM.Formularios
                 cbo_cantIntervalos.Enabled = true;
                 btnGraficar.Enabled = true;
             }
+            else
+            {
+                MessageBox.Show("Debe completar los parametros requeridos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
-        private void btn_limpiar_Click(object sender, EventArgs e)
-        {
-            //Limpiar textbox
-            txtCantidad.Text = "";
-
-            //Limpiar dgv
-            dgvNumerosAleatorios.Refresh();
-            dgvNumerosAleatorios.Rows.Clear();
-            dgwJiCuadrado.Refresh();
-            dgwJiCuadrado.Rows.Clear();
-
-            //Limpiar chart
-            histogramaGenerado.Series.Clear();
-
-            //Resetear combobox
-            cbo_cantIntervalos.SelectedIndex = -1;
-            cbo_cantIntervalos.Enabled = false;
-
-            //Limpiar labels
-            lblChi.Text = "";
-
-            //Setear botones
-            btnGraficar.Enabled = false;
-        }
 
         private void btnGraficar_Click(object sender, EventArgs e)
         {
@@ -133,7 +118,8 @@ namespace TP3___SIM.Formularios
 
                 lblChi.Text = acumEstadisticoPrueba.ToString();
 
-                int gradosLibertad = numIntervalos - 1;
+                int gradosLibertad = numIntervalos - 1 - 1;
+                lblGrados.Text = gradosLibertad.ToString();
 
                 histogramaGenerado.ChartAreas[0].AxisY.Maximum = listaEnteros.Max() + 2;
 
@@ -142,6 +128,97 @@ namespace TP3___SIM.Formularios
             else
             {
                 MessageBox.Show("Debe seleccionar la cantidad de Intervalos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+
+        
+
+
+
+
+
+        //Limpiar
+
+        private void btn_limpiar_Click(object sender, EventArgs e)
+        {
+            //Limpiar textbox
+            txtCantidad.Text = "";
+            txtLambda.Text = "";
+            txtMedia.Text = "";
+
+            //Limpiar dgv
+            dgvNumerosAleatorios.Refresh();
+            dgvNumerosAleatorios.Rows.Clear();
+            dgwJiCuadrado.Refresh();
+            dgwJiCuadrado.Rows.Clear();
+
+            //Limpiar chart
+            histogramaGenerado.Series.Clear();
+
+            //Resetear combobox
+            cbo_cantIntervalos.SelectedIndex = -1;
+            cbo_cantIntervalos.Enabled = false;
+
+            //Limpiar labels
+            lblChi.Text = "";
+            lblGrados.Text = "";
+
+            //Setear botones
+            btnGraficar.Enabled = false;
+        }
+
+
+        //Validaciones
+
+        private bool ValidarCampos()
+        {
+            if (txtCantidad.Text == "")
+            { 
+                return false;
+            }
+            if (txtLambda.ReadOnly == false && txtLambda.Text == "")
+            {
+                return false;
+            }
+            else
+            {
+                if (txtMedia.ReadOnly == false && txtMedia.Text == "")
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private void txtMedia_TextChanged(object sender, EventArgs e)
+        {  
+            modoLectura(txtLambda, txtMedia); 
+        }
+
+        private void txtMedia_Click(object sender, EventArgs e)
+        {
+            modoLectura(txtLambda, txtMedia);
+        }
+
+        private void txtLambda_Click(object sender, EventArgs e)
+        {
+           
+            modoLectura(txtMedia, txtLambda);
+        }
+
+        private void txtLambda_TextChanged(object sender, EventArgs e)
+        {
+            modoLectura(txtMedia, txtLambda);
+        }
+
+
+        private void modoLectura(MaskedTextBox t1,MaskedTextBox t2)
+        {
+            if (t1.Text == "")
+            {
+                t1.ReadOnly = true;
+                t2.ReadOnly = false;
             }
         }
 

@@ -105,7 +105,7 @@ namespace TP3___SIM.Logica
 
             for (int i = 0; i < cant; i++)
             {
-                double frecEsperada = Math.Truncate(feNormal(desde, hasta, media, desvEstandar) * 10000) / 10000;
+                double frecEsperada = Math.Truncate(feNormal(desde, hasta, media, desvEstandar) * 10000) / 10000;           
                 intervalos[i] = new Intervalo(desde, hasta, frecEsperada, 0);
 
                 for (int j = 0; j < aux.Count(); j++)
@@ -132,7 +132,7 @@ namespace TP3___SIM.Logica
 
         public double feNormal(double desde, double hasta, double media, double desvEstandar)
         {
-            double mc = (desde + hasta) / (double)2;
+            double mc = Math.Round((desde + hasta) / (double)2,6); //Redondeo a 6 decimales para que no me de periodico
             double fe = (Math.Exp(-0.5 * (Math.Pow(((mc - media) / desvEstandar), 2)))/(desvEstandar*Math.Sqrt(2*Math.PI)))*(hasta-desde);
             return fe;
         }
