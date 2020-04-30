@@ -70,9 +70,10 @@ namespace TP3___SIM.Logica
             {
                 double x = 0;
 
-                x = Math.Truncate((Math.Log(1 - numerosAleatorios.ElementAt(i)) / (-lambda)) * 10000) / 10000;
+                double aleatorio = numerosAleatorios.ElementAt(i);
+                if (aleatorio == 1) aleatorio = 0.9999f;
 
-                //x = ((double)-1 / lambda) * Math.Log(1 - numerosAleatorios.ElementAt(i));
+                x = Math.Truncate((Math.Log(1 - aleatorio) / (-lambda)) * 10000) / 10000;
 
                 Numeros.Add(x);
             }
@@ -101,6 +102,9 @@ namespace TP3___SIM.Logica
             {
                 double rnd1 = numerosUniformes.ElementAt(i);
                 double rnd2 = numerosUniformes.ElementAt(i + 1);
+
+                if (rnd1 == 0) rnd1 = 0.00001f;
+                if (rnd2 == 0) rnd2 = 0.00001f;
 
                 double N1 = Math.Truncate((((Math.Sqrt(-2 * Math.Log(rnd1))) * Math.Cos(2 * Math.PI * rnd2)) * desvEstandar + media) * 10000) / 10000;
                 numeros.Add(N1);

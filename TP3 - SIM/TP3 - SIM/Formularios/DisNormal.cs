@@ -92,23 +92,23 @@ namespace TP3___SIM.Formularios
                 {
                     listaEnteros.Add(intervalos[i].FrecuenciaObservada);
                     histogramaGenerado.Series[0].Points.AddXY(i, intervalos[i].FrecuenciaObservada);
-                    histogramaGenerado.Series[0].Points[i].AxisLabel = "[" + intervalos[i].Desde + " - " + intervalos[i].Hasta + "]";
+                    histogramaGenerado.Series[0].Points[i].AxisLabel = "[" + Math.Round(intervalos[i].Desde,4) + " - " + Math.Round(intervalos[i].Hasta,4) + "]";
                     histogramaGenerado.Series[0].IsValueShownAsLabel = true;
                     histogramaGenerado.Series[1].Points.AddXY(i, intervalos[i].FrecuenciaEsperada);
-                    histogramaGenerado.Series[1].Points[i].AxisLabel = "[" + intervalos[i].Desde + " - " + intervalos[i].Hasta + "]";
+                    histogramaGenerado.Series[1].Points[i].AxisLabel = "[" + Math.Round(intervalos[i].Desde, 4) + " - " + Math.Round(intervalos[i].Hasta, 4) + "]";
                     histogramaGenerado.Series[1].IsValueShownAsLabel = true;
 
                     EstadisticoPrueba jiCuadrado = new EstadisticoPrueba();
                     double c = Math.Round((jiCuadrado.calEstadisticoPrueba(intervalos[i].FrecuenciaEsperada, intervalos[i].FrecuenciaObservada)), 2);
                     acumEstadisticoPrueba += c;
-                    dgwJiCuadrado.Rows.Add("[" + intervalos[i].Desde + " - " + intervalos[i].Hasta + "]", intervalos[i].FrecuenciaObservada, intervalos[i].FrecuenciaEsperada, c, Math.Round(acumEstadisticoPrueba, 2));
+                    dgwJiCuadrado.Rows.Add("[" + Math.Round(intervalos[i].Desde, 4) + " - " + Math.Round(intervalos[i].Hasta, 4) + "]", intervalos[i].FrecuenciaObservada, intervalos[i].FrecuenciaEsperada, c, Math.Round(acumEstadisticoPrueba, 2));
                 }
 
                 lblChi.Text = acumEstadisticoPrueba.ToString();
 
                 int gradosLibertad = numIntervalos - 1;
                 lblGrados.Text = gradosLibertad.ToString();
-                histogramaGenerado.ChartAreas[0].AxisY.Maximum = listaEnteros.Max() + 10;
+                histogramaGenerado.ChartAreas[0].AxisY.Maximum = listaEnteros.Max() + 50;
 
                 btnGraficar.Enabled = false;
             }
@@ -187,6 +187,42 @@ namespace TP3___SIM.Formularios
                     textBox.Select(pos, 0);
                 });
             }
+        }
+
+        private void txtMedia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '-' && (sender as TextBox).Text.Length > 0)
+                e.Handled = true;
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+               (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+               (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == '-' && (sender as TextBox).Text.Length > 0)
+                e.Handled = true;
         }
     }
 }

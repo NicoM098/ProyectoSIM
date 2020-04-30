@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btnGraficar = new System.Windows.Forms.Button();
             this.btnLimpiarCampos = new System.Windows.Forms.Button();
             this.btnCalcular = new System.Windows.Forms.Button();
@@ -54,9 +54,7 @@
             this.OrdenNumeros = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.generados = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtDesviacion = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtMedia = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -66,6 +64,8 @@
             this.lblGrados = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtMedia = new System.Windows.Forms.TextBox();
+            this.txtDesviacion = new System.Windows.Forms.TextBox();
             this.groupBox6.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwJiCuadrado)).BeginInit();
@@ -191,30 +191,35 @@
             // 
             this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn1.HeaderText = "Intervalo";
+            this.dataGridViewTextBoxColumn1.MaxInputLength = 10000000;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn2.HeaderText = "fo";
+            this.dataGridViewTextBoxColumn2.MaxInputLength = 10000000;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn3.HeaderText = "fe";
+            this.dataGridViewTextBoxColumn3.MaxInputLength = 10000000;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn4.HeaderText = "C";
+            this.dataGridViewTextBoxColumn4.MaxInputLength = 10000000;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn5.HeaderText = "C(AC)";
+            this.dataGridViewTextBoxColumn5.MaxInputLength = 10000000;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // label14
@@ -245,35 +250,35 @@
             this.histogramaGenerado.BackColor = System.Drawing.Color.Transparent;
             this.histogramaGenerado.BorderlineColor = System.Drawing.Color.Black;
             this.histogramaGenerado.BorderlineWidth = 3;
-            chartArea1.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
-            chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea1.AxisX.Title = "Intervalos";
-            chartArea1.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
-            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
-            chartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea1.AxisY.Maximum = 100D;
-            chartArea1.AxisY.Minimum = 0D;
-            chartArea1.AxisY.Title = "Frecuencia";
-            chartArea1.AxisY.TitleAlignment = System.Drawing.StringAlignment.Far;
-            chartArea1.AxisY.TitleFont = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.IsSameFontSizeForAllAxes = true;
-            chartArea1.Name = "ChartArea1";
-            this.histogramaGenerado.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.histogramaGenerado.Legends.Add(legend1);
+            chartArea2.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
+            chartArea2.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea2.AxisX.Title = "Intervalos";
+            chartArea2.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea2.AxisX.TitleFont = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
+            chartArea2.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea2.AxisY.Maximum = 100D;
+            chartArea2.AxisY.Minimum = 0D;
+            chartArea2.AxisY.Title = "Frecuencia";
+            chartArea2.AxisY.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea2.AxisY.TitleFont = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.IsSameFontSizeForAllAxes = true;
+            chartArea2.Name = "ChartArea1";
+            this.histogramaGenerado.ChartAreas.Add(chartArea2);
+            legend2.Enabled = false;
+            legend2.Name = "Legend1";
+            this.histogramaGenerado.Legends.Add(legend2);
             this.histogramaGenerado.Location = new System.Drawing.Point(-44, 75);
             this.histogramaGenerado.Name = "histogramaGenerado";
             this.histogramaGenerado.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
-            series1.ChartArea = "ChartArea1";
-            series1.Color = System.Drawing.Color.CadetBlue;
-            series1.IsValueShownAsLabel = true;
-            series1.IsXValueIndexed = true;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.histogramaGenerado.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Color = System.Drawing.Color.CadetBlue;
+            series2.IsValueShownAsLabel = true;
+            series2.IsXValueIndexed = true;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.histogramaGenerado.Series.Add(series2);
             this.histogramaGenerado.Size = new System.Drawing.Size(1353, 423);
             this.histogramaGenerado.TabIndex = 11;
             this.histogramaGenerado.Text = "chart1";
@@ -332,8 +337,8 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtDesviacion);
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtMedia);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtCantidad);
             this.groupBox1.Controls.Add(this.label8);
@@ -347,21 +352,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parámetros";
             // 
-            // txtDesviacion
-            // 
-            this.txtDesviacion.AllowPromptAsInput = false;
-            this.txtDesviacion.HidePromptOnLeave = true;
-            this.txtDesviacion.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.txtDesviacion.Location = new System.Drawing.Point(165, 116);
-            this.txtDesviacion.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtDesviacion.Mask = "99999999";
-            this.txtDesviacion.Name = "txtDesviacion";
-            this.txtDesviacion.PromptChar = ' ';
-            this.txtDesviacion.ResetOnPrompt = false;
-            this.txtDesviacion.Size = new System.Drawing.Size(108, 27);
-            this.txtDesviacion.TabIndex = 13;
-            this.txtDesviacion.ValidatingType = typeof(int);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -371,21 +361,6 @@
             this.label3.Size = new System.Drawing.Size(145, 20);
             this.label3.TabIndex = 12;
             this.label3.Text = "Desviación estandar:";
-            // 
-            // txtMedia
-            // 
-            this.txtMedia.AllowPromptAsInput = false;
-            this.txtMedia.HidePromptOnLeave = true;
-            this.txtMedia.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.txtMedia.Location = new System.Drawing.Point(74, 75);
-            this.txtMedia.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtMedia.Mask = "99999999";
-            this.txtMedia.Name = "txtMedia";
-            this.txtMedia.PromptChar = ' ';
-            this.txtMedia.ResetOnPrompt = false;
-            this.txtMedia.Size = new System.Drawing.Size(108, 27);
-            this.txtMedia.TabIndex = 11;
-            this.txtMedia.ValidatingType = typeof(int);
             // 
             // label2
             // 
@@ -489,6 +464,22 @@
             this.label7.Size = new System.Drawing.Size(0, 20);
             this.label7.TabIndex = 0;
             // 
+            // txtMedia
+            // 
+            this.txtMedia.Location = new System.Drawing.Point(72, 75);
+            this.txtMedia.Name = "txtMedia";
+            this.txtMedia.Size = new System.Drawing.Size(100, 27);
+            this.txtMedia.TabIndex = 14;
+            this.txtMedia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMedia_KeyPress);
+            // 
+            // txtDesviacion
+            // 
+            this.txtDesviacion.Location = new System.Drawing.Point(163, 116);
+            this.txtDesviacion.Name = "txtDesviacion";
+            this.txtDesviacion.Size = new System.Drawing.Size(100, 27);
+            this.txtDesviacion.TabIndex = 15;
+            this.txtDesviacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
             // DisNormal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
@@ -542,11 +533,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dgwJiCuadrado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label9;
@@ -560,13 +546,18 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataVisualization.Charting.Chart histogramaGenerado;
-        private System.Windows.Forms.MaskedTextBox txtDesviacion;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.MaskedTextBox txtMedia;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label lblGrados;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.TextBox txtMedia;
+        private System.Windows.Forms.TextBox txtDesviacion;
     }
 }

@@ -202,7 +202,6 @@ namespace TP3___SIM.Formularios
 
         private void txtLambda_Click(object sender, EventArgs e)
         {
-           
             modoLectura(txtMedia, txtLambda);
         }
 
@@ -212,7 +211,7 @@ namespace TP3___SIM.Formularios
         }
 
 
-        private void modoLectura(MaskedTextBox t1,MaskedTextBox t2)
+        private void modoLectura(TextBox t1,TextBox t2)
         {
             if (t1.Text == "")
             {
@@ -238,6 +237,36 @@ namespace TP3___SIM.Formularios
 
                     textBox.Select(pos, 0);
                 });
+            }
+        }
+
+        private void txtMedia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+               (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtLambda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+               (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
             }
         }
     }

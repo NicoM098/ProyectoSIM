@@ -30,13 +30,13 @@ namespace TP3___SIM.Formularios
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtLambda = new System.Windows.Forms.MaskedTextBox();
+            this.txtMedia = new System.Windows.Forms.TextBox();
+            this.txtLambda = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtMedia = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -80,9 +80,9 @@ namespace TP3___SIM.Formularios
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtMedia);
             this.groupBox1.Controls.Add(this.txtLambda);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtMedia);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtCantidad);
             this.groupBox1.Controls.Add(this.label8);
@@ -96,22 +96,25 @@ namespace TP3___SIM.Formularios
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parámetros";
             // 
+            // txtMedia
+            // 
+            this.txtMedia.Location = new System.Drawing.Point(72, 82);
+            this.txtMedia.Name = "txtMedia";
+            this.txtMedia.Size = new System.Drawing.Size(100, 27);
+            this.txtMedia.TabIndex = 2;
+            this.txtMedia.Click += new System.EventHandler(this.txtMedia_Click);
+            this.txtMedia.TextChanged += new System.EventHandler(this.txtMedia_TextChanged);
+            this.txtMedia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMedia_KeyPress);
+            // 
             // txtLambda
             // 
-            this.txtLambda.AllowPromptAsInput = false;
-            this.txtLambda.HidePromptOnLeave = true;
-            this.txtLambda.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.txtLambda.Location = new System.Drawing.Point(278, 82);
-            this.txtLambda.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtLambda.Mask = "99999999";
+            this.txtLambda.Location = new System.Drawing.Point(276, 82);
             this.txtLambda.Name = "txtLambda";
-            this.txtLambda.PromptChar = ' ';
-            this.txtLambda.ResetOnPrompt = false;
-            this.txtLambda.Size = new System.Drawing.Size(108, 27);
-            this.txtLambda.TabIndex = 13;
-            this.txtLambda.ValidatingType = typeof(int);
+            this.txtLambda.Size = new System.Drawing.Size(100, 27);
+            this.txtLambda.TabIndex = 3;
             this.txtLambda.Click += new System.EventHandler(this.txtLambda_Click);
             this.txtLambda.TextChanged += new System.EventHandler(this.txtLambda_TextChanged);
+            this.txtLambda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLambda_KeyPress);
             // 
             // label3
             // 
@@ -122,23 +125,6 @@ namespace TP3___SIM.Formularios
             this.label3.Size = new System.Drawing.Size(79, 20);
             this.label3.TabIndex = 12;
             this.label3.Text = "o Lambda:";
-            // 
-            // txtMedia
-            // 
-            this.txtMedia.AllowPromptAsInput = false;
-            this.txtMedia.HidePromptOnLeave = true;
-            this.txtMedia.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.txtMedia.Location = new System.Drawing.Point(71, 82);
-            this.txtMedia.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtMedia.Mask = "99999999";
-            this.txtMedia.Name = "txtMedia";
-            this.txtMedia.PromptChar = ' ';
-            this.txtMedia.ResetOnPrompt = false;
-            this.txtMedia.Size = new System.Drawing.Size(108, 27);
-            this.txtMedia.TabIndex = 10;
-            this.txtMedia.ValidatingType = typeof(int);
-            this.txtMedia.Click += new System.EventHandler(this.txtMedia_Click);
-            this.txtMedia.TextChanged += new System.EventHandler(this.txtMedia_TextChanged);
             // 
             // label2
             // 
@@ -309,35 +295,35 @@ namespace TP3___SIM.Formularios
             this.histogramaGenerado.BackColor = System.Drawing.Color.Transparent;
             this.histogramaGenerado.BorderlineColor = System.Drawing.Color.Black;
             this.histogramaGenerado.BorderlineWidth = 3;
-            chartArea1.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
-            chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea1.AxisX.Title = "Intervalos";
-            chartArea1.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
-            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
-            chartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea1.AxisY.Maximum = 100D;
-            chartArea1.AxisY.Minimum = 0D;
-            chartArea1.AxisY.Title = "Frecuencia";
-            chartArea1.AxisY.TitleAlignment = System.Drawing.StringAlignment.Far;
-            chartArea1.AxisY.TitleFont = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.IsSameFontSizeForAllAxes = true;
-            chartArea1.Name = "ChartArea1";
-            this.histogramaGenerado.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.histogramaGenerado.Legends.Add(legend1);
+            chartArea2.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
+            chartArea2.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea2.AxisX.Title = "Intervalos";
+            chartArea2.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea2.AxisX.TitleFont = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
+            chartArea2.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea2.AxisY.Maximum = 100D;
+            chartArea2.AxisY.Minimum = 0D;
+            chartArea2.AxisY.Title = "Frecuencia";
+            chartArea2.AxisY.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea2.AxisY.TitleFont = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.IsSameFontSizeForAllAxes = true;
+            chartArea2.Name = "ChartArea1";
+            this.histogramaGenerado.ChartAreas.Add(chartArea2);
+            legend2.Enabled = false;
+            legend2.Name = "Legend1";
+            this.histogramaGenerado.Legends.Add(legend2);
             this.histogramaGenerado.Location = new System.Drawing.Point(-44, 75);
             this.histogramaGenerado.Name = "histogramaGenerado";
             this.histogramaGenerado.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series1.ChartArea = "ChartArea1";
-            series1.Color = System.Drawing.Color.Crimson;
-            series1.IsValueShownAsLabel = true;
-            series1.IsXValueIndexed = true;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.histogramaGenerado.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Color = System.Drawing.Color.Crimson;
+            series2.IsValueShownAsLabel = true;
+            series2.IsXValueIndexed = true;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.histogramaGenerado.Series.Add(series2);
             this.histogramaGenerado.Size = new System.Drawing.Size(1353, 423);
             this.histogramaGenerado.TabIndex = 12;
             this.histogramaGenerado.Text = "chart1";
@@ -364,7 +350,7 @@ namespace TP3___SIM.Formularios
             this.cbo_cantIntervalos.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.cbo_cantIntervalos.Name = "cbo_cantIntervalos";
             this.cbo_cantIntervalos.Size = new System.Drawing.Size(160, 28);
-            this.cbo_cantIntervalos.TabIndex = 3;
+            this.cbo_cantIntervalos.TabIndex = 7;
             // 
             // dgvNumerosAleatorios
             // 
@@ -423,7 +409,7 @@ namespace TP3___SIM.Formularios
             this.btnGraficar.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnGraficar.Name = "btnGraficar";
             this.btnGraficar.Size = new System.Drawing.Size(103, 35);
-            this.btnGraficar.TabIndex = 4;
+            this.btnGraficar.TabIndex = 5;
             this.btnGraficar.Text = "Graficar";
             this.btnGraficar.UseVisualStyleBackColor = true;
             this.btnGraficar.Click += new System.EventHandler(this.btnGraficar_Click);
@@ -435,7 +421,7 @@ namespace TP3___SIM.Formularios
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(144, 34);
-            this.btnLimpiar.TabIndex = 5;
+            this.btnLimpiar.TabIndex = 6;
             this.btnLimpiar.Text = "Limpiar Campos";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
@@ -447,7 +433,7 @@ namespace TP3___SIM.Formularios
             this.btnCalcular.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(103, 35);
-            this.btnCalcular.TabIndex = 2;
+            this.btnCalcular.TabIndex = 4;
             this.btnCalcular.Text = "Calcular";
             this.btnCalcular.UseVisualStyleBackColor = true;
             this.btnCalcular.Click += new System.EventHandler(this.btn_calcular_Click);
@@ -571,13 +557,13 @@ namespace TP3___SIM.Formularios
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnCalcular;
         private System.Windows.Forms.DataVisualization.Charting.Chart histogramaGenerado;
-        private System.Windows.Forms.MaskedTextBox txtLambda;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.MaskedTextBox txtMedia;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label lblGrados;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtLambda;
+        private System.Windows.Forms.TextBox txtMedia;
     }
 }
