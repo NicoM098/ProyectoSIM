@@ -62,8 +62,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblGrados = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox6.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwJiCuadrado)).BeginInit();
@@ -71,6 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.histogramaGenerado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNumerosAleatorios)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGraficar
@@ -115,7 +118,7 @@
             this.groupBox6.Controls.Add(this.lblChiCuadrado);
             this.groupBox6.Controls.Add(this.label17);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft PhagsPa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(591, 921);
+            this.groupBox6.Location = new System.Drawing.Point(1476, 533);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -161,7 +164,7 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox4.Size = new System.Drawing.Size(879, 378);
+            this.groupBox4.Size = new System.Drawing.Size(879, 469);
             this.groupBox4.TabIndex = 72;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Calculo del Estadistico de Prueba";
@@ -181,7 +184,7 @@
             this.dgwJiCuadrado.Margin = new System.Windows.Forms.Padding(4);
             this.dgwJiCuadrado.Name = "dgwJiCuadrado";
             this.dgwJiCuadrado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgwJiCuadrado.Size = new System.Drawing.Size(862, 331);
+            this.dgwJiCuadrado.Size = new System.Drawing.Size(862, 424);
             this.dgwJiCuadrado.TabIndex = 42;
             // 
             // dataGridViewTextBoxColumn1
@@ -443,23 +446,48 @@
             this.label1.Text = "Para generar la secuencia de numeros aleatorios, ingrese los siguientes parametro" +
     "s:";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.lblGrados);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft PhagsPa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(1476, 622);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox3.Size = new System.Drawing.Size(284, 81);
+            this.groupBox3.TabIndex = 73;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Grados de Libertad";
+            // 
             // lblGrados
             // 
             this.lblGrados.AutoSize = true;
-            this.lblGrados.Location = new System.Drawing.Point(1053, 921);
+            this.lblGrados.Font = new System.Drawing.Font("Microsoft PhagsPa", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGrados.Location = new System.Drawing.Point(110, 33);
+            this.lblGrados.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGrados.Name = "lblGrados";
-            this.lblGrados.Size = new System.Drawing.Size(14, 19);
-            this.lblGrados.TabIndex = 81;
-            this.lblGrados.Text = "-";
+            this.lblGrados.Size = new System.Drawing.Size(14, 24);
+            this.lblGrados.TabIndex = 2;
+            this.lblGrados.Text = ".";
             // 
-            // label4
+            // label6
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(914, 921);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(133, 19);
-            this.label4.TabIndex = 80;
-            this.label4.Text = "Grados de libertad:";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(49, 41);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 20);
+            this.label6.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(15, 34);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 20);
+            this.label7.TabIndex = 0;
             // 
             // DisNormal
             // 
@@ -467,9 +495,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1924, 1013);
-            this.Controls.Add(this.lblGrados);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnGraficar);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.btnLimpiarCampos);
             this.Controls.Add(this.groupBox4);
@@ -497,6 +524,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvNumerosAleatorios)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -535,7 +564,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MaskedTextBox txtMedia;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label lblGrados;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

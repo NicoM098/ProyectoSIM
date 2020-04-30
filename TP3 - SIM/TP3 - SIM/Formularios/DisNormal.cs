@@ -13,6 +13,9 @@ namespace TP3___SIM.Formularios
 {
     public partial class DisNormal : Form
     {
+        double media;
+        double desviacion;
+
         private readonly GeneradorAleatorios oGeneradorAleatorios;
 
         public DisNormal()
@@ -30,21 +33,17 @@ namespace TP3___SIM.Formularios
         {
             dgvNumerosAleatorios.Rows.Clear();
             int cantidad;
-            double media;
-            double desviacion;
+            media = 0;
+            desviacion = 0;
 
             if (ValidarCampos())
             {
-
-                
                 cantidad = int.Parse(txtCantidad.Text);
                 media = double.Parse(txtMedia.Text);
                 desviacion = double.Parse(txtDesviacion.Text);
 
-                List<double> lista = oGeneradorAleatorios.generadorNormal(cantidad,media,desviacion);
+                List<double> lista = oGeneradorAleatorios.generadorNormal(cantidad, media, desviacion);
                
-               
-
                 int i = 0;
                 foreach (double aleatorio in lista)
                 {
@@ -79,10 +78,9 @@ namespace TP3___SIM.Formularios
 
                 double limInf = oGeneradorAleatorios.Min;
                 double limSup = oGeneradorAleatorios.Max;
-                double media = oGeneradorAleatorios.Media;                
-                double desvEstandar = oGeneradorAleatorios.DesvEstandar;
+                int cantidad = int.Parse(txtCantidad.Text);
 
-                intervalos = oGestorIntervalo.armarNormal(numIntervalos, limSup, limInf, media, desvEstandar);
+                intervalos = oGestorIntervalo.armarNormal(numIntervalos, limSup, limInf, media, desviacion, cantidad);
 
                 //Generacion grafico
                 List<int> listaEnteros = new List<int>();
@@ -108,9 +106,9 @@ namespace TP3___SIM.Formularios
 
                 lblChi.Text = acumEstadisticoPrueba.ToString();
 
-                int gradosLibertad = numIntervalos - 1 - 2;
+                int gradosLibertad = numIntervalos - 1;
                 lblGrados.Text = gradosLibertad.ToString();
-                histogramaGenerado.ChartAreas[0].AxisY.Maximum = listaEnteros.Max() + 2;
+                histogramaGenerado.ChartAreas[0].AxisY.Maximum = listaEnteros.Max() + 10;
 
                 btnGraficar.Enabled = false;
             }

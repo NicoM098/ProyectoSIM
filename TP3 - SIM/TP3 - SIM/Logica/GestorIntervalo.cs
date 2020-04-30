@@ -58,22 +58,22 @@ namespace TP3___SIM.Logica
         }
 
 
-        public Intervalo[] armarExponencial(int cant, double limiteS, double limiteI, double lambda)
+        public Intervalo[] armarExponencial(int cant, double limiteS, double limiteI, double lambda, int N)
         {
             intervalos = new Intervalo[cant];
             double paso = (double)(limiteS) / (double)cant;
             double desde = 0;
             double hasta = desde + paso;
 
-            double acumulador = 0;
+            //double acumulador = 0;
 
             List<double> aux = numeros;
 
             for (int i = 0; i < cant; i++)
             {
-                double frecEsperada = Math.Truncate(feExponencial(desde, hasta, lambda, cant) * 10000) / 10000;
+                double frecEsperada = Math.Truncate(feExponencial(desde, hasta, lambda, N) * 10000) / 10000;
 
-                acumulador += ((1 - Math.Exp(-lambda * hasta)) - (1 - Math.Exp(-lambda * desde)));
+                //acumulador += ((1 - Math.Exp(-lambda * hasta)) - (1 - Math.Exp(-lambda * desde)));
 
                 intervalos[i] = new Intervalo(desde, hasta, frecEsperada, 0);
 
@@ -94,7 +94,7 @@ namespace TP3___SIM.Logica
         }
 
 
-        public Intervalo[] armarNormal(int cant, double limiteS, double limiteI, double media, double desvEstandar)
+        public Intervalo[] armarNormal(int cant, double limiteS, double limiteI, double media, double desvEstandar, int N)
         {
             intervalos = new Intervalo[cant];
             double paso = (double)(limiteS - limiteI) / (double)cant;
@@ -105,7 +105,7 @@ namespace TP3___SIM.Logica
 
             for (int i = 0; i < cant; i++)
             {
-                double frecEsperada = Math.Truncate(feNormal(desde, hasta, media, desvEstandar) * 10000) / 10000;           
+                double frecEsperada = Math.Truncate(feNormal(desde, hasta, media, desvEstandar, N) * 10000) / 10000;           
                 intervalos[i] = new Intervalo(desde, hasta, frecEsperada, 0);
 
                 for (int j = 0; j < aux.Count(); j++)
@@ -130,10 +130,10 @@ namespace TP3___SIM.Logica
         }
 
 
-        public double feNormal(double desde, double hasta, double media, double desvEstandar)
+        public double feNormal(double desde, double hasta, double media, double desvEstandar, int N)
         {
             double mc = Math.Round((desde + hasta) / (double)2,6); //Redondeo a 6 decimales para que no me de periodico
-            double fe = (Math.Exp(-0.5 * (Math.Pow(((mc - media) / desvEstandar), 2)))/(desvEstandar*Math.Sqrt(2*Math.PI)))*(hasta-desde);
+            double fe = ((Math.Exp(-0.5 * (Math.Pow(((mc - media) / desvEstandar), 2)))/(desvEstandar*Math.Sqrt(2*Math.PI)))*(hasta-desde)) * N;
             return fe;
         }
     }

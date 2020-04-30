@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtCantidad = new System.Windows.Forms.MaskedTextBox();
             this.txtLimSup = new System.Windows.Forms.MaskedTextBox();
@@ -62,8 +62,10 @@
             this.generados = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrdenNumeros = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvNumerosAleatorios = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblGrados = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -71,6 +73,7 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.histogramaGenerado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNumerosAleatorios)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -83,9 +86,9 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft PhagsPa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(21, 90);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(5);
             this.groupBox1.Size = new System.Drawing.Size(494, 144);
             this.groupBox1.TabIndex = 77;
             this.groupBox1.TabStop = false;
@@ -113,7 +116,7 @@
             this.txtLimSup.HidePromptOnLeave = true;
             this.txtLimSup.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
             this.txtLimSup.Location = new System.Drawing.Point(126, 96);
-            this.txtLimSup.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtLimSup.Margin = new System.Windows.Forms.Padding(5);
             this.txtLimSup.Mask = "99999999";
             this.txtLimSup.Name = "txtLimSup";
             this.txtLimSup.PromptChar = ' ';
@@ -139,7 +142,7 @@
             this.txtLimInf.HidePromptOnLeave = true;
             this.txtLimInf.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
             this.txtLimInf.Location = new System.Drawing.Point(126, 62);
-            this.txtLimInf.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtLimInf.Margin = new System.Windows.Forms.Padding(5);
             this.txtLimInf.Mask = "99999999";
             this.txtLimInf.Name = "txtLimInf";
             this.txtLimInf.PromptChar = ' ';
@@ -173,7 +176,7 @@
             // 
             this.btnGraficar.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGraficar.Location = new System.Drawing.Point(474, 967);
-            this.btnGraficar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnGraficar.Margin = new System.Windows.Forms.Padding(5);
             this.btnGraficar.Name = "btnGraficar";
             this.btnGraficar.Size = new System.Drawing.Size(103, 35);
             this.btnGraficar.TabIndex = 6;
@@ -185,7 +188,7 @@
             // 
             this.btnLimpiarCampos.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarCampos.Location = new System.Drawing.Point(171, 967);
-            this.btnLimpiarCampos.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnLimpiarCampos.Margin = new System.Windows.Forms.Padding(5);
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
             this.btnLimpiarCampos.Size = new System.Drawing.Size(144, 34);
             this.btnLimpiarCampos.TabIndex = 7;
@@ -197,7 +200,7 @@
             // 
             this.btnCalcular.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCalcular.Location = new System.Drawing.Point(343, 967);
-            this.btnCalcular.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnCalcular.Margin = new System.Windows.Forms.Padding(5);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(103, 35);
             this.btnCalcular.TabIndex = 4;
@@ -211,7 +214,7 @@
             this.groupBox6.Controls.Add(this.lblChiCuadrado);
             this.groupBox6.Controls.Add(this.label17);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft PhagsPa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(591, 921);
+            this.groupBox6.Location = new System.Drawing.Point(1485, 533);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -257,7 +260,7 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.groupBox4.Size = new System.Drawing.Size(888, 378);
+            this.groupBox4.Size = new System.Drawing.Size(888, 469);
             this.groupBox4.TabIndex = 72;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Calculo del Estadistico de Prueba";
@@ -277,7 +280,7 @@
             this.dgwJiCuadrado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgwJiCuadrado.Name = "dgwJiCuadrado";
             this.dgwJiCuadrado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgwJiCuadrado.Size = new System.Drawing.Size(870, 331);
+            this.dgwJiCuadrado.Size = new System.Drawing.Size(870, 422);
             this.dgwJiCuadrado.TabIndex = 42;
             // 
             // dataGridViewTextBoxColumn1
@@ -325,9 +328,9 @@
             this.groupBox2.Controls.Add(this.cbo_cantIntervalos);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft PhagsPa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(591, 15);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(5);
             this.groupBox2.Size = new System.Drawing.Size(1318, 507);
             this.groupBox2.TabIndex = 71;
             this.groupBox2.TabStop = false;
@@ -338,35 +341,35 @@
             this.histogramaGenerado.BackColor = System.Drawing.Color.Transparent;
             this.histogramaGenerado.BorderlineColor = System.Drawing.Color.Black;
             this.histogramaGenerado.BorderlineWidth = 3;
-            chartArea7.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
-            chartArea7.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea7.AxisX.Title = "Intervalos";
-            chartArea7.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
-            chartArea7.AxisX.TitleFont = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea7.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
-            chartArea7.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea7.AxisY.Maximum = 100D;
-            chartArea7.AxisY.Minimum = 0D;
-            chartArea7.AxisY.Title = "Frecuencia";
-            chartArea7.AxisY.TitleAlignment = System.Drawing.StringAlignment.Far;
-            chartArea7.AxisY.TitleFont = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea7.BackColor = System.Drawing.Color.Transparent;
-            chartArea7.IsSameFontSizeForAllAxes = true;
-            chartArea7.Name = "ChartArea1";
-            this.histogramaGenerado.ChartAreas.Add(chartArea7);
-            legend7.Enabled = false;
-            legend7.Name = "Legend1";
-            this.histogramaGenerado.Legends.Add(legend7);
+            chartArea2.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
+            chartArea2.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea2.AxisX.Title = "Intervalos";
+            chartArea2.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea2.AxisX.TitleFont = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.Lines;
+            chartArea2.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea2.AxisY.Maximum = 100D;
+            chartArea2.AxisY.Minimum = 0D;
+            chartArea2.AxisY.Title = "Frecuencia";
+            chartArea2.AxisY.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea2.AxisY.TitleFont = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.IsSameFontSizeForAllAxes = true;
+            chartArea2.Name = "ChartArea1";
+            this.histogramaGenerado.ChartAreas.Add(chartArea2);
+            legend2.Enabled = false;
+            legend2.Name = "Legend1";
+            this.histogramaGenerado.Legends.Add(legend2);
             this.histogramaGenerado.Location = new System.Drawing.Point(-44, 75);
             this.histogramaGenerado.Name = "histogramaGenerado";
             this.histogramaGenerado.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series7.ChartArea = "ChartArea1";
-            series7.Color = System.Drawing.Color.SlateBlue;
-            series7.IsValueShownAsLabel = true;
-            series7.IsXValueIndexed = true;
-            series7.Legend = "Legend1";
-            series7.Name = "Series1";
-            this.histogramaGenerado.Series.Add(series7);
+            series2.ChartArea = "ChartArea1";
+            series2.Color = System.Drawing.Color.SlateBlue;
+            series2.IsValueShownAsLabel = true;
+            series2.IsXValueIndexed = true;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.histogramaGenerado.Series.Add(series2);
             this.histogramaGenerado.Size = new System.Drawing.Size(1353, 423);
             this.histogramaGenerado.TabIndex = 10;
             this.histogramaGenerado.Text = "chart1";
@@ -390,7 +393,7 @@
             "15",
             "20"});
             this.cbo_cantIntervalos.Location = new System.Drawing.Point(189, 35);
-            this.cbo_cantIntervalos.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cbo_cantIntervalos.Margin = new System.Windows.Forms.Padding(5);
             this.cbo_cantIntervalos.Name = "cbo_cantIntervalos";
             this.cbo_cantIntervalos.Size = new System.Drawing.Size(160, 28);
             this.cbo_cantIntervalos.TabIndex = 5;
@@ -439,29 +442,54 @@
             this.OrdenNumeros,
             this.generados});
             this.dgvNumerosAleatorios.Location = new System.Drawing.Point(21, 243);
-            this.dgvNumerosAleatorios.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dgvNumerosAleatorios.Margin = new System.Windows.Forms.Padding(5);
             this.dgvNumerosAleatorios.Name = "dgvNumerosAleatorios";
             this.dgvNumerosAleatorios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNumerosAleatorios.Size = new System.Drawing.Size(556, 712);
             this.dgvNumerosAleatorios.TabIndex = 70;
             // 
-            // label4
+            // groupBox3
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(925, 921);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(133, 19);
-            this.label4.TabIndex = 78;
-            this.label4.Text = "Grados de libertad:";
+            this.groupBox3.Controls.Add(this.lblGrados);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft PhagsPa", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(1485, 616);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.groupBox3.Size = new System.Drawing.Size(252, 73);
+            this.groupBox3.TabIndex = 73;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Grados de Libertad";
             // 
             // lblGrados
             // 
             this.lblGrados.AutoSize = true;
-            this.lblGrados.Location = new System.Drawing.Point(1064, 921);
+            this.lblGrados.Font = new System.Drawing.Font("Microsoft PhagsPa", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGrados.Location = new System.Drawing.Point(98, 30);
+            this.lblGrados.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGrados.Name = "lblGrados";
-            this.lblGrados.Size = new System.Drawing.Size(14, 19);
-            this.lblGrados.TabIndex = 79;
-            this.lblGrados.Text = "-";
+            this.lblGrados.Size = new System.Drawing.Size(14, 24);
+            this.lblGrados.TabIndex = 2;
+            this.lblGrados.Text = ".";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(50, 41);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 20);
+            this.label6.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(14, 33);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 20);
+            this.label7.TabIndex = 0;
             // 
             // DisUniforme
             // 
@@ -469,10 +497,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1924, 1013);
-            this.Controls.Add(this.lblGrados);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnGraficar);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.btnLimpiarCampos);
             this.Controls.Add(this.groupBox4);
@@ -499,6 +526,8 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.histogramaGenerado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNumerosAleatorios)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -537,7 +566,9 @@
         private System.Windows.Forms.DataGridView dgvNumerosAleatorios;
         private System.Windows.Forms.DataVisualization.Charting.Chart histogramaGenerado;
         private System.Windows.Forms.MaskedTextBox txtCantidad;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label lblGrados;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

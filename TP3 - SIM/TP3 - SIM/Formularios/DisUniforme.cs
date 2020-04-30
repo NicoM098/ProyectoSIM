@@ -66,7 +66,7 @@ namespace TP3___SIM.Formularios
                 limInf = Math.Min(int.Parse(txtLimInf.Text), int.Parse(txtLimSup.Text));
                 limSup = Math.Max(int.Parse(txtLimInf.Text), int.Parse(txtLimSup.Text));
                 cantidad = int.Parse(txtCantidad.Text);
-                MessageBox.Show("Sup" + limSup.ToString() + "Inf" + limInf.ToString());
+
                 List<double> numeros = new List<double>();
 
                 int contador = 0;
@@ -157,7 +157,7 @@ namespace TP3___SIM.Formularios
 
                 int gradosLibertad = numIntervalos - 1;
                 lblGrados.Text = gradosLibertad.ToString();
-                histogramaGenerado.ChartAreas[0].AxisY.Maximum = listaEnteros.Max()+2;
+                histogramaGenerado.ChartAreas[0].AxisY.Maximum = listaEnteros.Max()+5;
 
                 btnGraficar.Enabled = false;
             }

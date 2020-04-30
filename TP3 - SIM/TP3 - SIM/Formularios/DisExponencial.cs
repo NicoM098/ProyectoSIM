@@ -13,8 +13,10 @@ using TP3___SIM.Logica;
 
 namespace TP3___SIM.Formularios
 {
+
     public partial class DisExponencial : Form
     {
+        private double lambda;
 
         private readonly GeneradorAleatorios oGeneradorAleatorios;
 
@@ -40,10 +42,14 @@ namespace TP3___SIM.Formularios
             if (ValidarCampos())
             {
                 cantidad = int.Parse(txtCantidad.Text);
-                double lambda=0;
-                if (txtMedia.Text!="")
+                lambda = 0;
+
+                if (txtMedia.Text != "")
                 {
-                    lambda = double.Parse(txtMedia.Text) / (double) cantidad;
+                    //REVISAR
+                    //lambda = double.Parse(txtMedia.Text) / (double) cantidad;
+
+                    lambda = (double) 1 / double.Parse(txtMedia.Text);
                 }
                 else
                 {
@@ -52,6 +58,7 @@ namespace TP3___SIM.Formularios
                         lambda = double.Parse(txtLambda.Text);
                     }
                 }
+
                 List<double> lista = oGeneradorAleatorios.generadorExponencial(cantidad,lambda);
 
                 int i = 0;
@@ -66,7 +73,6 @@ namespace TP3___SIM.Formularios
             else
             {
                 MessageBox.Show("Debe completar los parametros requeridos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
         }
 
@@ -90,9 +96,9 @@ namespace TP3___SIM.Formularios
 
                 double limInf = oGeneradorAleatorios.Min;
                 double limSup = oGeneradorAleatorios.Max;
-                double lambda = oGeneradorAleatorios.Lambda;
+                int N = int.Parse(txtCantidad.Text);
 
-                intervalos = oGestorIntervalo.armarExponencial(numIntervalos, limSup, limInf, lambda);
+                intervalos = oGestorIntervalo.armarExponencial(numIntervalos, limSup, limInf, lambda, N);
 
                 //Generacion grafico
                 List<int> listaEnteros = new List<int>();
@@ -118,10 +124,10 @@ namespace TP3___SIM.Formularios
 
                 lblChi.Text = acumEstadisticoPrueba.ToString();
 
-                int gradosLibertad = numIntervalos - 1 - 1;
+                int gradosLibertad = numIntervalos - 1;
                 lblGrados.Text = gradosLibertad.ToString();
 
-                histogramaGenerado.ChartAreas[0].AxisY.Maximum = listaEnteros.Max() + 2;
+                histogramaGenerado.ChartAreas[0].AxisY.Maximum = listaEnteros.Max() + 10;
 
                 btnGraficar.Enabled = false;
             }
@@ -130,13 +136,6 @@ namespace TP3___SIM.Formularios
                 MessageBox.Show("Debe seleccionar la cantidad de Intervalos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
-
-        
-
-
-
-
 
         //Limpiar
 
