@@ -7,17 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TP4___SIM.Logica;
 
 namespace TP4___SIM
 {
     public partial class Principal : Form
     {
-        private TP4___SIM.Logica.Generador oGenerador = new Logica.Generador();
+        private Generador oGenerador = new Generador();
+        private Almacenamiento oAlmacenamiento = new Almacenamiento();
 
         List<double> probAcumulada = new List<double>();
 
         int Desde;
         int Hasta;
+        int cantidadVuelos;
 
         double GananciaAcumulada = 0;
 
@@ -69,7 +72,8 @@ namespace TP4___SIM
         {
             if (ValidarCampos())
             {
-                int cantidadVuelos;
+                dgvMonteCarlo.Rows.Clear();
+
                 int estrategia;
 
                 double gananciaPasajero;
@@ -182,6 +186,7 @@ namespace TP4___SIM
                 if (aux > 1)
                 {
                     MessageBox.Show("La suma de las probabilidades no debe ser mayor a 1", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    break;
                 }
                 else
                 {
@@ -199,15 +204,22 @@ namespace TP4___SIM
             if (!double.TryParse(e.FormattedValue.ToString(),
                 out newDouble) || newDouble < 0)
             {
-                dgv_probabilidades.Rows[e.RowIndex].ErrorText = "El valor ingresado debe ser un double mayor a 0";
-
                 e.Cancel = true;
+                dgv_probabilidades.Rows[e.RowIndex].ErrorText = "El valor ingresado debe ser un double mayor a 0";
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void btnMostrar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            dgvMonteCarlo.Rows.Clear();
+            oAlmacenamiento.readData(dgvMonteCarlo, Desde, Hasta, cantidadVuelos);
+        }
+
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            oAlmacenamiento.saveData(dgvMonteCarlo);
         }
     }
 }
