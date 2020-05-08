@@ -85,8 +85,8 @@ namespace TP4___SIM
                 cantidadVuelos = int.Parse(txtNroVuelos.Text);
                 Desde = int.Parse(txtDesde.Text);
                 Hasta = int.Parse(txtHasta.Text);
-                gananciaPasajero = int.Parse(txtGanancia.Text);
-                costoReprog = int.Parse(txtCosto.Text);
+                gananciaPasajero = double.Parse(txtGanancia.Text);
+                costoReprog = double.Parse(txtCosto.Text);
                 estrategia = int.Parse(cmbEstrategia.SelectedItem.ToString());
 
                 lblTituloEstrategia.Text = "Estrategia de Sobreventa de " + estrategia.ToString() + " Reservas posibles";
@@ -140,8 +140,19 @@ namespace TP4___SIM
 
                 double GananciaPromedio = Math.Round((GananciaAcumulada / (double)cantidadVuelos), 2);
 
-                txtGananciaProm.Text = GananciaPromedio.ToString();
+                cargarDatosEstrategias(estrategia, gananciaPasajero, costoReprog, GananciaPromedio);
             }
+        }
+
+
+        private void cargarDatosEstrategias(int nroReservas, double gananciaPasajero, double costoReprog, double gananciaProm)
+        {
+            lblMaxReservas.Text = nroReservas.ToString();
+            lblGananciaPasajero.Text = "$" + gananciaPasajero.ToString();
+            lblCostoReprog.Text = "$" + costoReprog.ToString();
+            lblGananciaProm.Text = "$" + gananciaProm.ToString();
+            lblEstrategiaOptima.Text = "Estrategia " + nroReservas.ToString();
+            groupBoxEstrategia.Text = "Estrategia de " + nroReservas + " Reservas";
         }
 
 
