@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TP4___SIM.Logica;
+using System.IO;
 
 namespace TP4___SIM
 {
@@ -15,20 +16,21 @@ namespace TP4___SIM
     {
         private Generador oGenerador = new Generador();
         private Almacenamiento oAlmacenamiento = new Almacenamiento();
-
         List<double> probAcumulada = new List<double>();
 
         int Desde;
         int Hasta;
         int cantidadVuelos;
-
         double GananciaAcumulada = 0;
 
+        
         public Principal()
         {
             InitializeComponent();
         }
 
+
+        //Validaciones de todos los datos
         private bool ValidarCampos()
         {
             if (txtNroVuelos.Text == "" || txtCosto.Text == "" || txtGanancia.Text == "" || cmbEstrategia.SelectedIndex == -1)
@@ -38,35 +40,45 @@ namespace TP4___SIM
             }
             else
             {
-                if (txtDesde.Text == "" && txtHasta.Text == "")
-                {
-                    Desde = 1;
-                    Hasta = int.Parse(txtNroVuelos.Text);
-
-                    txtDesde.Text = Desde.ToString();
-                    txtHasta.Text = Hasta.ToString();
-                }
-                else if (txtDesde.Text == "" || txtHasta.Text == "")
-                {
-                    txtDesde.Text = "";
-                    txtHasta.Text = "";
-                    txtDesde.Focus();
-
-                    MessageBox.Show("Ingrese parametros correctos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-                else if (int.Parse(txtHasta.Text) <= int.Parse(txtDesde.Text))
-                {
-                    txtDesde.Text = "";
-                    txtHasta.Text = "";
-                    txtDesde.Focus();
-
-                    MessageBox.Show("Ingrese valores 'Desde' y 'Hasta' validos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
+                validarDesdeHata();
             }
             return true;
         }
+
+        //Validacion del desde y el hasta
+        public bool validarDesdeHata()
+        {
+            if (txtDesde.Text == "" && txtHasta.Text == "")
+            {
+                Desde = 1;
+                Hasta = int.Parse(txtNroVuelos.Text);
+
+                txtDesde.Text = Desde.ToString();
+                txtHasta.Text = Hasta.ToString();
+            }
+            else if (txtDesde.Text == "" || txtHasta.Text == "")
+            {
+                txtDesde.Text = "";
+                txtHasta.Text = "";
+                txtDesde.Focus();
+
+                MessageBox.Show("Ingrese parametros correctos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (int.Parse(txtHasta.Text) <= int.Parse(txtDesde.Text))
+            {
+                txtDesde.Text = "";
+                txtHasta.Text = "";
+                txtDesde.Focus();
+
+                MessageBox.Show("Ingrese valores 'Desde' y 'Hasta' validos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
+
+        //Iniciar Simulacion
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
@@ -98,7 +110,15 @@ namespace TP4___SIM
 
                     probAcumulada.Add(aux);
                 }
+                string[] array = new string[dgvMonteCarlo.Columns.Count];
 
+                for (int i = 1; i < dgvMonteCarlo.Columns.Count; i++)
+                {
+                    array[i] = dgvMonteCarlo.Columns[i].HeaderText;
+                }
+
+                oAlmacenamiento.newFile();
+                oAlmacenamiento.saveData(array);
                 for (int i = 0; i < cantidadVuelos; i++)
                 {
                     int NroVuelo = i + 1;
@@ -136,6 +156,8 @@ namespace TP4___SIM
                     {
                         dgvMonteCarlo.Rows.Add(NroVuelo, RNDAsistencia, Asistencias, Inasistencias, CantPasajeros, PasajerosReprogramados, GananciaVuelo, CostoReprog, GananciaNeta, GananciaAcumulada);
                     }
+                    array = new string[] { NroVuelo.ToString(), RNDAsistencia.ToString(), Asistencias.ToString(), Inasistencias.ToString(), CantPasajeros.ToString(), PasajerosReprogramados.ToString(), GananciaVuelo.ToString(), CostoReprog.ToString(), GananciaNeta.ToString(), GananciaAcumulada.ToString() };
+                    oAlmacenamiento.saveData(array);
                 }
 
                 double GananciaPromedio = Math.Round((GananciaAcumulada / (double)cantidadVuelos), 2);
@@ -166,7 +188,6 @@ namespace TP4___SIM
                 {
                     return j;
                 }
-
                 j++;
             }
             return j;
@@ -192,11 +213,12 @@ namespace TP4___SIM
 
             for (int i = 0; i < dgv_probabilidades.Rows.Count; i++)
             {
-                aux += Convert.ToDouble(dgv_probabilidades.Rows[i].Cells[1].Value.ToString());
+                aux += double.Parse(dgv_probabilidades.Rows[i].Cells[1].Value.ToString());
 
                 if (aux > 1)
                 {
                     MessageBox.Show("La suma de las probabilidades no debe ser mayor a 1", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                   
                     break;
                 }
                 else
@@ -212,8 +234,8 @@ namespace TP4___SIM
             double newDouble;
 
             if (dgv_probabilidades.Rows[e.RowIndex].IsNewRow) { return; }
-            if (!double.TryParse(e.FormattedValue.ToString(),
-                out newDouble) || newDouble < 0)
+
+            if (!double.TryParse(e.FormattedValue.ToString(), out newDouble) || newDouble < 0)
             {
                 e.Cancel = true;
                 dgv_probabilidades.Rows[e.RowIndex].ErrorText = "El valor ingresado debe ser un double mayor a 0";
@@ -224,13 +246,46 @@ namespace TP4___SIM
         private void btnMostrar_Click(object sender, EventArgs e)
         {
             dgvMonteCarlo.Rows.Clear();
-            oAlmacenamiento.readData(dgvMonteCarlo, Desde, Hasta, cantidadVuelos);
+            StreamReader sr = new StreamReader(oAlmacenamiento.Ruta);
+            string currentRow = sr.ReadLine(); //La primera linea son los titulos de las columnas
+            if(validarDesdeHata())
+            {
+                Desde = int.Parse(txtDesde.Text);
+                Hasta = int.Parse(txtHasta.Text);
+                while (!sr.EndOfStream)
+                {
+                    currentRow = sr.ReadLine();
+                    string[] cells = currentRow.Split(';');
+
+                    if ((int.Parse(cells[0]) >= Desde && int.Parse(cells[0]) <= Hasta) || int.Parse(cells[0]) == cantidadVuelos)
+                    {
+                        dgvMonteCarlo.Rows.Add(cells);
+                    }
+
+                }
+            }         
+
+
         }
 
-
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            oAlmacenamiento.saveData(dgvMonteCarlo);
+            //Limpiamos text
+            txtDesde.Text = "";
+            txtHasta.Text = "";
+            txtNroVuelos.Text = "";
+            txtGanancia.Text = "";
+            txtCosto.Text = "";
+            txtGananciaProm.Text = "";
+
+            //Limpiamos los grid
+            dgvMonteCarlo.Rows.Clear();
+            for (int i = 0; i < dgv_probabilidades.Rows.Count; i++)
+            {
+                dgv_probabilidades.Rows[i].Cells[1].Value = 0;
+                dgv_probabilidades.Rows[i].Cells[2].Value = 0;
+
+            }
         }
     }
 }
