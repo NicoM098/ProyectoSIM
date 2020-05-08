@@ -235,7 +235,7 @@ namespace TP4___SIM
         private void btnMostrar_Click(object sender, EventArgs e)
         {
             dgvMonteCarlo.Rows.Clear();
-            StreamReader sr = new StreamReader("C:\\Users\\famil\\Desktop\\Simulacion.csv");
+            StreamReader sr = new StreamReader(oAlmacenamiento.Ruta);
             string currentRow = sr.ReadLine(); //La primera linea son los titulos de las columnas
             if(validarDesdeHata())
             {

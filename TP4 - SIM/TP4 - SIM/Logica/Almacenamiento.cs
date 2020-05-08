@@ -15,14 +15,16 @@ namespace TP4___SIM.Logica
         public Almacenamiento()
         {
             //ruta = "C:\\Hola.csv";
-            ruta = "C:\\Users\\famil\\Desktop\\Simulacion.csv";
+            Ruta = "C:\\Users\\famil\\Desktop\\Simulacion.csv";
         }
+
+        public string Ruta { get => ruta; set => ruta = value; }
 
         public void newFile()
         {
-            if (File.Exists(ruta))
+            if (File.Exists(Ruta))
             {
-                File.Delete(ruta);
+                File.Delete(Ruta);
             }
         }
 
@@ -34,7 +36,7 @@ namespace TP4___SIM.Logica
             {
                 data += row[i] + ";";
             }
-            using (System.IO.StreamWriter file =new System.IO.StreamWriter(ruta, true))
+            using (System.IO.StreamWriter file =new System.IO.StreamWriter(Ruta, true))
             {
                 file.WriteLine(data);
             }            
