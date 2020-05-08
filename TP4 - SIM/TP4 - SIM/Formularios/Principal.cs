@@ -45,6 +45,7 @@ namespace TP4___SIM
             return true;
         }
 
+
         //Validacion del desde y el hasta
         public bool validarDesdeHata()
         {
@@ -110,15 +111,19 @@ namespace TP4___SIM
 
                     probAcumulada.Add(aux);
                 }
+
+                //Carga de datos en el excel
                 string[] array = new string[dgvMonteCarlo.Columns.Count];
 
-                for (int i = 1; i < dgvMonteCarlo.Columns.Count; i++)
+                for (int i = 0; i < dgvMonteCarlo.Columns.Count; i++)
                 {
                     array[i] = dgvMonteCarlo.Columns[i].HeaderText;
                 }
 
                 oAlmacenamiento.newFile();
                 oAlmacenamiento.saveData(array);
+
+
                 for (int i = 0; i < cantidadVuelos; i++)
                 {
                     int NroVuelo = i + 1;
@@ -156,13 +161,17 @@ namespace TP4___SIM
                     {
                         dgvMonteCarlo.Rows.Add(NroVuelo, RNDAsistencia, Asistencias, Inasistencias, CantPasajeros, PasajerosReprogramados, GananciaVuelo, CostoReprog, GananciaNeta, GananciaAcumulada);
                     }
+
                     array = new string[] { NroVuelo.ToString(), RNDAsistencia.ToString(), Asistencias.ToString(), Inasistencias.ToString(), CantPasajeros.ToString(), PasajerosReprogramados.ToString(), GananciaVuelo.ToString(), CostoReprog.ToString(), GananciaNeta.ToString(), GananciaAcumulada.ToString() };
+
                     oAlmacenamiento.saveData(array);
                 }
 
                 double GananciaPromedio = Math.Round((GananciaAcumulada / (double)cantidadVuelos), 2);
 
                 cargarDatosEstrategias(estrategia, gananciaPasajero, costoReprog, GananciaPromedio);
+
+                btnIniciar.Enabled = false;
             }
         }
 
@@ -173,8 +182,23 @@ namespace TP4___SIM
             lblGananciaPasajero.Text = "$" + gananciaPasajero.ToString();
             lblCostoReprog.Text = "$" + costoReprog.ToString();
             lblGananciaProm.Text = "$" + gananciaProm.ToString();
-            lblEstrategiaOptima.Text = "Estrategia " + nroReservas.ToString();
             groupBoxEstrategia.Text = "Estrategia de " + nroReservas + " Reservas";
+
+            if (gananciaProm > 2800)
+            {
+                lblEstrategiaOptima.Text = "Estrategia " + nroReservas.ToString();
+                lblEstrategiaOptima.Visible = true;
+            }
+            else if (gananciaProm == 2800)
+            {
+                lblTextoConclusion.Text = "En pos de maximizar la utilidad, cualquiera de las dos estrategias es óptima";
+                lblEstrategiaOptima.Visible = false;
+            }
+            else
+            {
+                lblEstrategiaOptima.Text = "Estrategia Original";
+                lblEstrategiaOptima.Visible = true;
+            }  
         }
 
 
@@ -198,14 +222,18 @@ namespace TP4___SIM
         {
             dgv_probabilidades.Rows.Clear();
             int estrategia;
-            estrategia = int.Parse(cmbEstrategia.SelectedItem.ToString());
 
-            for (int i = 28; i <= estrategia; i++)
+            if (cmbEstrategia.SelectedItem != null)
             {
-                dgv_probabilidades.Rows.Add(i, 0);
-            }
-        }
+                estrategia = int.Parse(cmbEstrategia.SelectedItem.ToString());
 
+                for (int i = 28; i <= estrategia; i++)
+                {
+                    dgv_probabilidades.Rows.Add(i, 0);
+                }
+            }
+            
+        }
 
         private void dgv_probabilidades_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
@@ -228,6 +256,7 @@ namespace TP4___SIM
             }
         }
 
+
         private void dgv_probabilidades_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             dgv_probabilidades.Rows[e.RowIndex].ErrorText = "";
@@ -246,12 +275,15 @@ namespace TP4___SIM
         private void btnMostrar_Click(object sender, EventArgs e)
         {
             dgvMonteCarlo.Rows.Clear();
+
             StreamReader sr = new StreamReader(oAlmacenamiento.Ruta);
             string currentRow = sr.ReadLine(); //La primera linea son los titulos de las columnas
+
             if(validarDesdeHata())
             {
                 Desde = int.Parse(txtDesde.Text);
                 Hasta = int.Parse(txtHasta.Text);
+
                 while (!sr.EndOfStream)
                 {
                     currentRow = sr.ReadLine();
@@ -261,31 +293,80 @@ namespace TP4___SIM
                     {
                         dgvMonteCarlo.Rows.Add(cells);
                     }
-
                 }
             }         
-
-
         }
+        
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            //Limpiamos text
+            txtNroVuelos.Text = "";
+            txtCosto.Text = "";
+            txtGanancia.Text = "";
+            cmbEstrategia.SelectedIndex = -1;
             txtDesde.Text = "";
             txtHasta.Text = "";
-            txtNroVuelos.Text = "";
-            txtGanancia.Text = "";
-            txtCosto.Text = "";
-            txtGananciaProm.Text = "";
 
-            //Limpiamos los grid
             dgvMonteCarlo.Rows.Clear();
-            for (int i = 0; i < dgv_probabilidades.Rows.Count; i++)
-            {
-                dgv_probabilidades.Rows[i].Cells[1].Value = 0;
-                dgv_probabilidades.Rows[i].Cells[2].Value = 0;
+            dgv_probabilidades.Rows.Clear();
 
+            lblMaxReservas.Text = "";
+            lblGananciaPasajero.Text = "";
+            lblCostoReprog.Text = "";
+            lblGananciaProm.Text = "";
+            lblEstrategiaOptima.Text = "Estrategia N";
+            lblTituloEstrategia.Text = "Estrategia de Sobreventa de N Reservas";
+            groupBoxEstrategia.Text = "Estrategia de N Reservas";
+
+            btnIniciar.Enabled = true;
+        }
+
+        private void validarEntero(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
+        }
+
+        private void validarDouble(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+               (e.KeyChar != ','))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtGanancia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validarDouble(sender, e);
+        }
+
+        private void txtCosto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validarDouble(sender, e);
+        }
+
+        private void txtNroVuelos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validarEntero(sender, e);
+        }
+
+        private void txtDesde_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validarEntero(sender, e);
+        }
+
+        private void txtHasta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validarEntero(sender, e);
         }
     }
 }

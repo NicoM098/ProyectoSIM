@@ -14,8 +14,8 @@ namespace TP4___SIM.Logica
        
         public Almacenamiento()
         {
-            //ruta = "C:\\Hola.csv";
-            Ruta = "C:\\Users\\famil\\Desktop\\Simulacion.csv";
+            Ruta = "C:\\Hola.csv";
+            //Ruta = "C:\\Users\\famil\\Desktop\\Simulacion.csv";
         }
 
         public string Ruta { get => ruta; set => ruta = value; }

@@ -37,18 +37,37 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.lblTitulo2 = new System.Windows.Forms.Label();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.panelResumen = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelResultado = new System.Windows.Forms.Panel();
             this.lblResultados = new System.Windows.Forms.Label();
             this.panelParametros = new System.Windows.Forms.Panel();
             this.lblParametros = new System.Windows.Forms.Label();
             this.panelPrincipal = new System.Windows.Forms.Panel();
+            this.panelResumen2 = new System.Windows.Forms.Panel();
+            this.lblEstrategiaOptima = new System.Windows.Forms.Label();
+            this.lblTextoConclusion = new System.Windows.Forms.Label();
+            this.lblConclusion = new System.Windows.Forms.Label();
+            this.groupBoxEstrategia = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblCostoReprog = new System.Windows.Forms.Label();
+            this.lblGananciaProm = new System.Windows.Forms.Label();
+            this.lblGananciaPasajero = new System.Windows.Forms.Label();
+            this.lblMaxReservas = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.groupBoxEstOri = new System.Windows.Forms.GroupBox();
+            this.lblCostoReprogOri = new System.Windows.Forms.Label();
+            this.lblGananciaPromOri = new System.Windows.Forms.Label();
+            this.lblGananciaPasajeroOri = new System.Windows.Forms.Label();
+            this.lblReservasOri = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Panel();
             this.lblTituloEstrategia = new System.Windows.Forms.Label();
-            this.txtGananciaProm = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.dgvMonteCarlo = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,7 +81,7 @@
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelParametros2 = new System.Windows.Forms.Panel();
             this.btnMostrar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnIniciar = new System.Windows.Forms.Button();
             this.lblReprogramacion = new System.Windows.Forms.Label();
             this.txtCosto = new System.Windows.Forms.TextBox();
@@ -80,11 +99,16 @@
             this.lblDesde = new System.Windows.Forms.Label();
             this.txtNroVuelos = new System.Windows.Forms.TextBox();
             this.lblNroVuelos = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelTitulo.SuspendLayout();
             this.panelContenedor.SuspendLayout();
+            this.panelResumen.SuspendLayout();
             this.panelResultado.SuspendLayout();
             this.panelParametros.SuspendLayout();
             this.panelPrincipal.SuspendLayout();
+            this.panelResumen2.SuspendLayout();
+            this.groupBoxEstrategia.SuspendLayout();
+            this.groupBoxEstOri.SuspendLayout();
             this.lblTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMonteCarlo)).BeginInit();
             this.panelParametros2.SuspendLayout();
@@ -94,11 +118,12 @@
             // panelTitulo
             // 
             this.panelTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(26)))), ((int)(((byte)(32)))));
+            this.panelTitulo.Controls.Add(this.panel1);
             this.panelTitulo.Controls.Add(this.lblTitulo2);
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitulo.Location = new System.Drawing.Point(0, 0);
             this.panelTitulo.Name = "panelTitulo";
-            this.panelTitulo.Size = new System.Drawing.Size(1370, 81);
+            this.panelTitulo.Size = new System.Drawing.Size(1678, 81);
             this.panelTitulo.TabIndex = 0;
             // 
             // lblTitulo2
@@ -107,7 +132,7 @@
             this.lblTitulo2.AutoSize = true;
             this.lblTitulo2.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTitulo2.Location = new System.Drawing.Point(386, 26);
+            this.lblTitulo2.Location = new System.Drawing.Point(540, 26);
             this.lblTitulo2.Name = "lblTitulo2";
             this.lblTitulo2.Size = new System.Drawing.Size(638, 32);
             this.lblTitulo2.TabIndex = 0;
@@ -115,29 +140,50 @@
             // 
             // panelContenedor
             // 
+            this.panelContenedor.Controls.Add(this.panelResumen);
             this.panelContenedor.Controls.Add(this.panelResultado);
             this.panelContenedor.Controls.Add(this.panelParametros);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelContenedor.Location = new System.Drawing.Point(0, 81);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(200, 668);
+            this.panelContenedor.Size = new System.Drawing.Size(200, 948);
             this.panelContenedor.TabIndex = 1;
+            // 
+            // panelResumen
+            // 
+            this.panelResumen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
+            this.panelResumen.Controls.Add(this.label1);
+            this.panelResumen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelResumen.Location = new System.Drawing.Point(0, 777);
+            this.panelResumen.Name = "panelResumen";
+            this.panelResumen.Size = new System.Drawing.Size(200, 171);
+            this.panelResumen.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label1.Location = new System.Drawing.Point(28, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(147, 97);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Resumen de los Resultados";
             // 
             // panelResultado
             // 
             this.panelResultado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(30)))), ((int)(((byte)(35)))));
             this.panelResultado.Controls.Add(this.lblResultados);
-            this.panelResultado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelResultado.Location = new System.Drawing.Point(0, 231);
+            this.panelResultado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelResultado.Location = new System.Drawing.Point(0, 203);
             this.panelResultado.Name = "panelResultado";
-            this.panelResultado.Size = new System.Drawing.Size(200, 437);
+            this.panelResultado.Size = new System.Drawing.Size(200, 574);
             this.panelResultado.TabIndex = 3;
             // 
             // lblResultados
             // 
             this.lblResultados.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResultados.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblResultados.Location = new System.Drawing.Point(28, 246);
+            this.lblResultados.Location = new System.Drawing.Point(28, 196);
             this.lblResultados.Name = "lblResultados";
             this.lblResultados.Size = new System.Drawing.Size(147, 97);
             this.lblResultados.TabIndex = 0;
@@ -150,7 +196,7 @@
             this.panelParametros.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelParametros.Location = new System.Drawing.Point(0, 0);
             this.panelParametros.Name = "panelParametros";
-            this.panelParametros.Size = new System.Drawing.Size(200, 231);
+            this.panelParametros.Size = new System.Drawing.Size(200, 203);
             this.panelParametros.TabIndex = 2;
             // 
             // lblParametros
@@ -170,62 +216,239 @@
             // panelPrincipal
             // 
             this.panelPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.panelPrincipal.Controls.Add(this.panelResumen2);
             this.panelPrincipal.Controls.Add(this.lblTitulo);
             this.panelPrincipal.Controls.Add(this.panelParametros2);
             this.panelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelPrincipal.Location = new System.Drawing.Point(200, 81);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(1170, 668);
+            this.panelPrincipal.Size = new System.Drawing.Size(1478, 948);
             this.panelPrincipal.TabIndex = 2;
+            // 
+            // panelResumen2
+            // 
+            this.panelResumen2.AutoScroll = true;
+            this.panelResumen2.AutoScrollMinSize = new System.Drawing.Size(1478, 154);
+            this.panelResumen2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(51)))), ((int)(((byte)(71)))));
+            this.panelResumen2.Controls.Add(this.lblEstrategiaOptima);
+            this.panelResumen2.Controls.Add(this.lblTextoConclusion);
+            this.panelResumen2.Controls.Add(this.lblConclusion);
+            this.panelResumen2.Controls.Add(this.groupBoxEstrategia);
+            this.panelResumen2.Controls.Add(this.groupBoxEstOri);
+            this.panelResumen2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelResumen2.Location = new System.Drawing.Point(0, 777);
+            this.panelResumen2.Name = "panelResumen2";
+            this.panelResumen2.Size = new System.Drawing.Size(1478, 171);
+            this.panelResumen2.TabIndex = 2;
+            // 
+            // lblEstrategiaOptima
+            // 
+            this.lblEstrategiaOptima.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblEstrategiaOptima.AutoSize = true;
+            this.lblEstrategiaOptima.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstrategiaOptima.ForeColor = System.Drawing.Color.Red;
+            this.lblEstrategiaOptima.Location = new System.Drawing.Point(1137, 113);
+            this.lblEstrategiaOptima.Name = "lblEstrategiaOptima";
+            this.lblEstrategiaOptima.Size = new System.Drawing.Size(151, 28);
+            this.lblEstrategiaOptima.TabIndex = 3;
+            this.lblEstrategiaOptima.Text = "Estrategia N";
+            // 
+            // lblTextoConclusion
+            // 
+            this.lblTextoConclusion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTextoConclusion.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextoConclusion.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblTextoConclusion.Location = new System.Drawing.Point(1137, 54);
+            this.lblTextoConclusion.Name = "lblTextoConclusion";
+            this.lblTextoConclusion.Size = new System.Drawing.Size(299, 102);
+            this.lblTextoConclusion.TabIndex = 2;
+            this.lblTextoConclusion.Text = "En pos de maximizar la utilizad, es óptima la";
+            // 
+            // lblConclusion
+            // 
+            this.lblConclusion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblConclusion.AutoSize = true;
+            this.lblConclusion.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConclusion.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblConclusion.Location = new System.Drawing.Point(1136, 14);
+            this.lblConclusion.Name = "lblConclusion";
+            this.lblConclusion.Size = new System.Drawing.Size(148, 28);
+            this.lblConclusion.TabIndex = 1;
+            this.lblConclusion.Text = "Conclusión:";
+            // 
+            // groupBoxEstrategia
+            // 
+            this.groupBoxEstrategia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBoxEstrategia.Controls.Add(this.label2);
+            this.groupBoxEstrategia.Controls.Add(this.label3);
+            this.groupBoxEstrategia.Controls.Add(this.label5);
+            this.groupBoxEstrategia.Controls.Add(this.lblCostoReprog);
+            this.groupBoxEstrategia.Controls.Add(this.lblGananciaProm);
+            this.groupBoxEstrategia.Controls.Add(this.lblGananciaPasajero);
+            this.groupBoxEstrategia.Controls.Add(this.lblMaxReservas);
+            this.groupBoxEstrategia.Controls.Add(this.label6);
+            this.groupBoxEstrategia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxEstrategia.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBoxEstrategia.Location = new System.Drawing.Point(562, 14);
+            this.groupBoxEstrategia.Name = "groupBoxEstrategia";
+            this.groupBoxEstrategia.Size = new System.Drawing.Size(553, 136);
+            this.groupBoxEstrategia.TabIndex = 0;
+            this.groupBoxEstrategia.TabStop = false;
+            this.groupBoxEstrategia.Text = "Estrategia de N Reservas";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(282, 64);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(192, 19);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Costo Reprogramación:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 99);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(172, 19);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Ganancia Promedio:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(17, 64);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(193, 19);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Ganancia por Pasajero:";
+            // 
+            // lblCostoReprog
+            // 
+            this.lblCostoReprog.AutoSize = true;
+            this.lblCostoReprog.Location = new System.Drawing.Point(471, 64);
+            this.lblCostoReprog.Name = "lblCostoReprog";
+            this.lblCostoReprog.Size = new System.Drawing.Size(13, 19);
+            this.lblCostoReprog.TabIndex = 0;
+            this.lblCostoReprog.Text = ".";
+            // 
+            // lblGananciaProm
+            // 
+            this.lblGananciaProm.AutoSize = true;
+            this.lblGananciaProm.Location = new System.Drawing.Point(186, 99);
+            this.lblGananciaProm.Name = "lblGananciaProm";
+            this.lblGananciaProm.Size = new System.Drawing.Size(13, 19);
+            this.lblGananciaProm.TabIndex = 0;
+            this.lblGananciaProm.Text = ".";
+            // 
+            // lblGananciaPasajero
+            // 
+            this.lblGananciaPasajero.AutoSize = true;
+            this.lblGananciaPasajero.Location = new System.Drawing.Point(208, 64);
+            this.lblGananciaPasajero.Name = "lblGananciaPasajero";
+            this.lblGananciaPasajero.Size = new System.Drawing.Size(13, 19);
+            this.lblGananciaPasajero.TabIndex = 0;
+            this.lblGananciaPasajero.Text = ".";
+            // 
+            // lblMaxReservas
+            // 
+            this.lblMaxReservas.AutoSize = true;
+            this.lblMaxReservas.Location = new System.Drawing.Point(171, 30);
+            this.lblMaxReservas.Name = "lblMaxReservas";
+            this.lblMaxReservas.Size = new System.Drawing.Size(13, 19);
+            this.lblMaxReservas.TabIndex = 0;
+            this.lblMaxReservas.Text = ".";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(17, 30);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(156, 19);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Nro. Máx. Reservas:";
+            // 
+            // groupBoxEstOri
+            // 
+            this.groupBoxEstOri.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBoxEstOri.Controls.Add(this.lblCostoReprogOri);
+            this.groupBoxEstOri.Controls.Add(this.lblGananciaPromOri);
+            this.groupBoxEstOri.Controls.Add(this.lblGananciaPasajeroOri);
+            this.groupBoxEstOri.Controls.Add(this.lblReservasOri);
+            this.groupBoxEstOri.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxEstOri.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBoxEstOri.Location = new System.Drawing.Point(29, 14);
+            this.groupBoxEstOri.Name = "groupBoxEstOri";
+            this.groupBoxEstOri.Size = new System.Drawing.Size(510, 136);
+            this.groupBoxEstOri.TabIndex = 0;
+            this.groupBoxEstOri.TabStop = false;
+            this.groupBoxEstOri.Text = "Estrategia Original";
+            // 
+            // lblCostoReprogOri
+            // 
+            this.lblCostoReprogOri.AutoSize = true;
+            this.lblCostoReprogOri.Location = new System.Drawing.Point(262, 66);
+            this.lblCostoReprogOri.Name = "lblCostoReprogOri";
+            this.lblCostoReprogOri.Size = new System.Drawing.Size(232, 19);
+            this.lblCostoReprogOri.TabIndex = 0;
+            this.lblCostoReprogOri.Text = "Costo Reprogramación: $150";
+            // 
+            // lblGananciaPromOri
+            // 
+            this.lblGananciaPromOri.AutoSize = true;
+            this.lblGananciaPromOri.Location = new System.Drawing.Point(17, 100);
+            this.lblGananciaPromOri.Name = "lblGananciaPromOri";
+            this.lblGananciaPromOri.Size = new System.Drawing.Size(221, 19);
+            this.lblGananciaPromOri.TabIndex = 0;
+            this.lblGananciaPromOri.Text = "Ganancia Promedio: $2800";
+            // 
+            // lblGananciaPasajeroOri
+            // 
+            this.lblGananciaPasajeroOri.AutoSize = true;
+            this.lblGananciaPasajeroOri.Location = new System.Drawing.Point(17, 66);
+            this.lblGananciaPasajeroOri.Name = "lblGananciaPasajeroOri";
+            this.lblGananciaPasajeroOri.Size = new System.Drawing.Size(233, 19);
+            this.lblGananciaPasajeroOri.TabIndex = 0;
+            this.lblGananciaPasajeroOri.Text = "Ganancia por Pasajero: $100";
+            // 
+            // lblReservasOri
+            // 
+            this.lblReservasOri.AutoSize = true;
+            this.lblReservasOri.Location = new System.Drawing.Point(17, 32);
+            this.lblReservasOri.Name = "lblReservasOri";
+            this.lblReservasOri.Size = new System.Drawing.Size(178, 19);
+            this.lblReservasOri.TabIndex = 0;
+            this.lblReservasOri.Text = "Nro. Máx. Reservas: 30";
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoScroll = true;
-            this.lblTitulo.AutoScrollMinSize = new System.Drawing.Size(1476, 658);
+            this.lblTitulo.AutoScrollMinSize = new System.Drawing.Size(1478, 549);
             this.lblTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(46)))), ((int)(((byte)(53)))));
+            this.lblTitulo.Controls.Add(this.btnMostrar);
             this.lblTitulo.Controls.Add(this.lblTituloEstrategia);
-            this.lblTitulo.Controls.Add(this.txtGananciaProm);
-            this.lblTitulo.Controls.Add(this.label4);
             this.lblTitulo.Controls.Add(this.dgvMonteCarlo);
-            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitulo.Location = new System.Drawing.Point(0, 231);
+            this.lblTitulo.Controls.Add(this.lblDesde);
+            this.lblTitulo.Controls.Add(this.txtDesde);
+            this.lblTitulo.Controls.Add(this.lblHasta);
+            this.lblTitulo.Controls.Add(this.txtHasta);
+            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblTitulo.Location = new System.Drawing.Point(0, 203);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(1170, 437);
+            this.lblTitulo.Size = new System.Drawing.Size(1478, 574);
             this.lblTitulo.TabIndex = 1;
             // 
             // lblTituloEstrategia
             // 
+            this.lblTituloEstrategia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTituloEstrategia.AutoSize = true;
             this.lblTituloEstrategia.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloEstrategia.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTituloEstrategia.Location = new System.Drawing.Point(24, 29);
+            this.lblTituloEstrategia.Location = new System.Drawing.Point(24, 27);
             this.lblTituloEstrategia.Name = "lblTituloEstrategia";
             this.lblTituloEstrategia.Size = new System.Drawing.Size(432, 25);
             this.lblTituloEstrategia.TabIndex = 5;
             this.lblTituloEstrategia.Text = "\"Estrategia de Sobreventa\" de N Reservas";
-            // 
-            // txtGananciaProm
-            // 
-            this.txtGananciaProm.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtGananciaProm.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtGananciaProm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGananciaProm.Location = new System.Drawing.Point(1333, 607);
-            this.txtGananciaProm.Name = "txtGananciaProm";
-            this.txtGananciaProm.ReadOnly = true;
-            this.txtGananciaProm.Size = new System.Drawing.Size(117, 26);
-            this.txtGananciaProm.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label4.Location = new System.Drawing.Point(1155, 611);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(172, 19);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Ganancia Promedio:";
             // 
             // dgvMonteCarlo
             // 
@@ -265,7 +488,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvMonteCarlo.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvMonteCarlo.EnableHeadersVisualStyles = false;
-            this.dgvMonteCarlo.Location = new System.Drawing.Point(29, 78);
+            this.dgvMonteCarlo.Location = new System.Drawing.Point(24, 73);
             this.dgvMonteCarlo.Name = "dgvMonteCarlo";
             this.dgvMonteCarlo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -277,8 +500,8 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvMonteCarlo.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvMonteCarlo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMonteCarlo.Size = new System.Drawing.Size(1421, 512);
-            this.dgvMonteCarlo.TabIndex = 1;
+            this.dgvMonteCarlo.Size = new System.Drawing.Size(1427, 485);
+            this.dgvMonteCarlo.TabIndex = 81;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -343,10 +566,9 @@
             // panelParametros2
             // 
             this.panelParametros2.AutoScroll = true;
-            this.panelParametros2.AutoScrollMinSize = new System.Drawing.Size(1476, 231);
+            this.panelParametros2.AutoScrollMinSize = new System.Drawing.Size(1478, 203);
             this.panelParametros2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(40)))), ((int)(((byte)(50)))));
-            this.panelParametros2.Controls.Add(this.btnMostrar);
-            this.panelParametros2.Controls.Add(this.button1);
+            this.panelParametros2.Controls.Add(this.btnLimpiar);
             this.panelParametros2.Controls.Add(this.btnIniciar);
             this.panelParametros2.Controls.Add(this.lblReprogramacion);
             this.panelParametros2.Controls.Add(this.txtCosto);
@@ -355,63 +577,63 @@
             this.panelParametros2.Controls.Add(this.dgv_probabilidades);
             this.panelParametros2.Controls.Add(this.cmbEstrategia);
             this.panelParametros2.Controls.Add(this.lblEstrategia);
-            this.panelParametros2.Controls.Add(this.txtHasta);
-            this.panelParametros2.Controls.Add(this.lblHasta);
-            this.panelParametros2.Controls.Add(this.txtDesde);
-            this.panelParametros2.Controls.Add(this.lblDesde);
             this.panelParametros2.Controls.Add(this.txtNroVuelos);
             this.panelParametros2.Controls.Add(this.lblNroVuelos);
             this.panelParametros2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelParametros2.Location = new System.Drawing.Point(0, 0);
             this.panelParametros2.Name = "panelParametros2";
-            this.panelParametros2.Size = new System.Drawing.Size(1170, 231);
+            this.panelParametros2.Size = new System.Drawing.Size(1478, 203);
             this.panelParametros2.TabIndex = 0;
             // 
             // btnMostrar
             // 
+            this.btnMostrar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnMostrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMostrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMostrar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnMostrar.Location = new System.Drawing.Point(382, 187);
+            this.btnMostrar.Location = new System.Drawing.Point(1278, 15);
             this.btnMostrar.Name = "btnMostrar";
-            this.btnMostrar.Size = new System.Drawing.Size(173, 41);
-            this.btnMostrar.TabIndex = 21;
+            this.btnMostrar.Size = new System.Drawing.Size(173, 37);
+            this.btnMostrar.TabIndex = 9;
             this.btnMostrar.Text = "Cambiar intervalos";
             this.btnMostrar.UseVisualStyleBackColor = true;
             this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
             // 
-            // button1
+            // btnLimpiar
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.Location = new System.Drawing.Point(203, 187);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(173, 41);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Limpiar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnLimpiar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnLimpiar.Location = new System.Drawing.Point(246, 137);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(195, 41);
+            this.btnLimpiar.TabIndex = 6;
+            this.btnLimpiar.Text = "Limpiar Campos";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnIniciar
             // 
+            this.btnIniciar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIniciar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnIniciar.Location = new System.Drawing.Point(24, 187);
+            this.btnIniciar.Location = new System.Drawing.Point(29, 137);
             this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(173, 41);
-            this.btnIniciar.TabIndex = 18;
+            this.btnIniciar.Size = new System.Drawing.Size(195, 41);
+            this.btnIniciar.TabIndex = 5;
             this.btnIniciar.Text = "Iniciar Simulación";
             this.btnIniciar.UseVisualStyleBackColor = true;
             this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
             // 
             // lblReprogramacion
             // 
+            this.lblReprogramacion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblReprogramacion.AutoSize = true;
             this.lblReprogramacion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReprogramacion.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblReprogramacion.Location = new System.Drawing.Point(580, 142);
+            this.lblReprogramacion.Location = new System.Drawing.Point(484, 88);
             this.lblReprogramacion.Name = "lblReprogramacion";
             this.lblReprogramacion.Size = new System.Drawing.Size(218, 19);
             this.lblReprogramacion.TabIndex = 17;
@@ -419,19 +641,22 @@
             // 
             // txtCosto
             // 
+            this.txtCosto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCosto.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtCosto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCosto.Location = new System.Drawing.Point(804, 138);
+            this.txtCosto.Location = new System.Drawing.Point(708, 85);
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(121, 27);
-            this.txtCosto.TabIndex = 16;
+            this.txtCosto.TabIndex = 4;
+            this.txtCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCosto_KeyPress);
             // 
             // lblGanancia
             // 
+            this.lblGanancia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblGanancia.AutoSize = true;
             this.lblGanancia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGanancia.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblGanancia.Location = new System.Drawing.Point(580, 91);
+            this.lblGanancia.Location = new System.Drawing.Point(507, 35);
             this.lblGanancia.Name = "lblGanancia";
             this.lblGanancia.Size = new System.Drawing.Size(195, 19);
             this.lblGanancia.TabIndex = 15;
@@ -439,12 +664,14 @@
             // 
             // txtGanancia
             // 
+            this.txtGanancia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtGanancia.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtGanancia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGanancia.Location = new System.Drawing.Point(781, 87);
+            this.txtGanancia.Location = new System.Drawing.Point(708, 32);
             this.txtGanancia.Name = "txtGanancia";
             this.txtGanancia.Size = new System.Drawing.Size(121, 27);
-            this.txtGanancia.TabIndex = 14;
+            this.txtGanancia.TabIndex = 3;
+            this.txtGanancia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGanancia_KeyPress);
             // 
             // dgv_probabilidades
             // 
@@ -477,7 +704,7 @@
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_probabilidades.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgv_probabilidades.EnableHeadersVisualStyles = false;
-            this.dgv_probabilidades.Location = new System.Drawing.Point(960, 15);
+            this.dgv_probabilidades.Location = new System.Drawing.Point(899, 17);
             this.dgv_probabilidades.Name = "dgv_probabilidades";
             this.dgv_probabilidades.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -489,8 +716,8 @@
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_probabilidades.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgv_probabilidades.RowHeadersVisible = false;
-            this.dgv_probabilidades.Size = new System.Drawing.Size(490, 192);
-            this.dgv_probabilidades.TabIndex = 9;
+            this.dgv_probabilidades.Size = new System.Drawing.Size(552, 172);
+            this.dgv_probabilidades.TabIndex = 80;
             this.dgv_probabilidades.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgv_probabilidades_CellValidating);
             this.dgv_probabilidades.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_probabilidades_CellValueChanged);
             // 
@@ -528,6 +755,7 @@
             // 
             // cmbEstrategia
             // 
+            this.cmbEstrategia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbEstrategia.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cmbEstrategia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstrategia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -537,37 +765,41 @@
             "32",
             "33",
             "34"});
-            this.cmbEstrategia.Location = new System.Drawing.Point(615, 26);
+            this.cmbEstrategia.Location = new System.Drawing.Point(323, 32);
             this.cmbEstrategia.Name = "cmbEstrategia";
             this.cmbEstrategia.Size = new System.Drawing.Size(121, 27);
-            this.cmbEstrategia.TabIndex = 7;
+            this.cmbEstrategia.TabIndex = 1;
             this.cmbEstrategia.SelectedIndexChanged += new System.EventHandler(this.cmbEstrategia_SelectedIndexChanged);
             // 
             // lblEstrategia
             // 
+            this.lblEstrategia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblEstrategia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEstrategia.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblEstrategia.Location = new System.Drawing.Point(357, 29);
+            this.lblEstrategia.Location = new System.Drawing.Point(74, 35);
             this.lblEstrategia.Name = "lblEstrategia";
-            this.lblEstrategia.Size = new System.Drawing.Size(252, 22);
+            this.lblEstrategia.Size = new System.Drawing.Size(249, 22);
             this.lblEstrategia.TabIndex = 6;
             this.lblEstrategia.Text = "Estrategia (Nro. Máx. Reservas):";
             // 
             // txtHasta
             // 
+            this.txtHasta.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtHasta.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtHasta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHasta.Location = new System.Drawing.Point(450, 138);
+            this.txtHasta.Location = new System.Drawing.Point(1141, 21);
             this.txtHasta.Name = "txtHasta";
             this.txtHasta.Size = new System.Drawing.Size(100, 27);
-            this.txtHasta.TabIndex = 5;
+            this.txtHasta.TabIndex = 8;
+            this.txtHasta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHasta_KeyPress);
             // 
             // lblHasta
             // 
+            this.lblHasta.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblHasta.AutoSize = true;
             this.lblHasta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHasta.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblHasta.Location = new System.Drawing.Point(382, 141);
+            this.lblHasta.Location = new System.Drawing.Point(1079, 24);
             this.lblHasta.Name = "lblHasta";
             this.lblHasta.Size = new System.Drawing.Size(56, 19);
             this.lblHasta.TabIndex = 4;
@@ -575,19 +807,22 @@
             // 
             // txtDesde
             // 
+            this.txtDesde.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDesde.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtDesde.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDesde.Location = new System.Drawing.Point(450, 87);
+            this.txtDesde.Location = new System.Drawing.Point(962, 21);
             this.txtDesde.Name = "txtDesde";
             this.txtDesde.Size = new System.Drawing.Size(100, 27);
-            this.txtDesde.TabIndex = 3;
+            this.txtDesde.TabIndex = 7;
+            this.txtDesde.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDesde_KeyPress);
             // 
             // lblDesde
             // 
+            this.lblDesde.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDesde.AutoSize = true;
             this.lblDesde.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDesde.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblDesde.Location = new System.Drawing.Point(382, 90);
+            this.lblDesde.Location = new System.Drawing.Point(895, 24);
             this.lblDesde.Name = "lblDesde";
             this.lblDesde.Size = new System.Drawing.Size(61, 19);
             this.lblDesde.TabIndex = 2;
@@ -595,41 +830,61 @@
             // 
             // txtNroVuelos
             // 
+            this.txtNroVuelos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNroVuelos.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNroVuelos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNroVuelos.Location = new System.Drawing.Point(228, 87);
+            this.txtNroVuelos.Location = new System.Drawing.Point(323, 85);
             this.txtNroVuelos.Name = "txtNroVuelos";
             this.txtNroVuelos.Size = new System.Drawing.Size(121, 27);
-            this.txtNroVuelos.TabIndex = 1;
+            this.txtNroVuelos.TabIndex = 2;
+            this.txtNroVuelos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNroVuelos_KeyPress);
             // 
             // lblNroVuelos
             // 
+            this.lblNroVuelos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNroVuelos.AutoSize = true;
             this.lblNroVuelos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNroVuelos.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblNroVuelos.Location = new System.Drawing.Point(25, 90);
+            this.lblNroVuelos.Location = new System.Drawing.Point(120, 88);
             this.lblNroVuelos.Name = "lblNroVuelos";
             this.lblNroVuelos.Size = new System.Drawing.Size(197, 19);
             this.lblNroVuelos.TabIndex = 0;
             this.lblNroVuelos.Text = "Nro de Vuelos a Simular:";
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::TP4___SIM.Properties.Resources.airplane_78373;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Location = new System.Drawing.Point(45, 5);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(106, 70);
+            this.panel1.TabIndex = 1;
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1678, 1029);
             this.Controls.Add(this.panelPrincipal);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.panelTitulo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panelTitulo.ResumeLayout(false);
             this.panelTitulo.PerformLayout();
             this.panelContenedor.ResumeLayout(false);
+            this.panelResumen.ResumeLayout(false);
             this.panelResultado.ResumeLayout(false);
             this.panelParametros.ResumeLayout(false);
             this.panelParametros.PerformLayout();
             this.panelPrincipal.ResumeLayout(false);
+            this.panelResumen2.ResumeLayout(false);
+            this.panelResumen2.PerformLayout();
+            this.groupBoxEstrategia.ResumeLayout(false);
+            this.groupBoxEstrategia.PerformLayout();
+            this.groupBoxEstOri.ResumeLayout(false);
+            this.groupBoxEstOri.PerformLayout();
             this.lblTitulo.ResumeLayout(false);
             this.lblTitulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMonteCarlo)).EndInit();
@@ -666,8 +921,6 @@
         private System.Windows.Forms.Label lblDesde;
         private System.Windows.Forms.TextBox txtNroVuelos;
         private System.Windows.Forms.Label lblNroVuelos;
-        private System.Windows.Forms.TextBox txtGananciaProm;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dgvMonteCarlo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -684,7 +937,28 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProbabilidadAcum;
         private System.Windows.Forms.Button btnMostrar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Panel panelResumen;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panelResumen2;
+        private System.Windows.Forms.GroupBox groupBoxEstOri;
+        private System.Windows.Forms.Label lblCostoReprogOri;
+        private System.Windows.Forms.Label lblGananciaPromOri;
+        private System.Windows.Forms.Label lblGananciaPasajeroOri;
+        private System.Windows.Forms.Label lblReservasOri;
+        private System.Windows.Forms.GroupBox groupBoxEstrategia;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblMaxReservas;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblGananciaPasajero;
+        private System.Windows.Forms.Label lblCostoReprog;
+        private System.Windows.Forms.Label lblGananciaProm;
+        private System.Windows.Forms.Label lblEstrategiaOptima;
+        private System.Windows.Forms.Label lblTextoConclusion;
+        private System.Windows.Forms.Label lblConclusion;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
