@@ -18,6 +18,11 @@ namespace TP4___SIM.Logica
         public double generadorUniforme()
         {
             double random = rnd.NextDouble();
+
+            if (random == 0)
+            {
+                random = 0.0001;
+            }
             return random;
         }
     }

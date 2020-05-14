@@ -27,6 +27,8 @@ namespace TP4___SIM
         public Principal()
         {
             InitializeComponent();
+
+            cmbVersion.SelectedIndex = 0;
         }
 
 
@@ -40,7 +42,10 @@ namespace TP4___SIM
             }
             else
             {
-                validarDesdeHata();
+                if (validarDesdeHata() == false || validarProbabilidades() == false)
+                {
+                    return false;
+                }
             }
             return true;
         }
@@ -112,17 +117,20 @@ namespace TP4___SIM
                     probAcumulada.Add(aux);
                 }
 
-                //Carga de datos en el excel
                 string[] array = new string[dgvMonteCarlo.Columns.Count];
 
-                for (int i = 0; i < dgvMonteCarlo.Columns.Count; i++)
+                if (cmbVersion.SelectedIndex == 1)
                 {
-                    array[i] = dgvMonteCarlo.Columns[i].HeaderText;
+                    //Carga de datos en el excel
+                    for (int i = 0; i < dgvMonteCarlo.Columns.Count; i++)
+                    {
+                        array[i] = dgvMonteCarlo.Columns[i].HeaderText;
+                    }
+
+                    oAlmacenamiento.newFile();
+                    oAlmacenamiento.saveData(array);
                 }
-
-                oAlmacenamiento.newFile();
-                oAlmacenamiento.saveData(array);
-
+                
 
                 for (int i = 0; i < cantidadVuelos; i++)
                 {
@@ -164,7 +172,10 @@ namespace TP4___SIM
 
                     array = new string[] { NroVuelo.ToString(), RNDAsistencia.ToString(), Asistencias.ToString(), Inasistencias.ToString(), CantPasajeros.ToString(), PasajerosReprogramados.ToString(), GananciaVuelo.ToString(), CostoReprog.ToString(), GananciaNeta.ToString(), GananciaAcumulada.ToString() };
 
-                    oAlmacenamiento.saveData(array);
+                    if (cmbVersion.SelectedIndex == 1)
+                    {
+                        oAlmacenamiento.saveData(array);
+                    }
                 }
 
                 double GananciaPromedio = Math.Round((GananciaAcumulada / (double)cantidadVuelos), 2);
@@ -173,6 +184,23 @@ namespace TP4___SIM
 
                 btnIniciar.Enabled = false;
             }
+        }
+
+        private bool validarProbabilidades()
+        {
+            double aux;
+            for (int i = 0; i < dgv_probabilidades.Rows.Count; i++)
+            {
+                aux = double.Parse(dgv_probabilidades.Rows[i].Cells[1].Value.ToString());
+
+                if (aux == 0)
+                {
+                    MessageBox.Show("No puede ingresar probabilidades iguales a 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                    return false;
+                }
+            }
+            return true;
         }
 
 
@@ -267,6 +295,7 @@ namespace TP4___SIM
             if (!double.TryParse(e.FormattedValue.ToString(), out newDouble) || newDouble < 0)
             {
                 e.Cancel = true;
+                MessageBox.Show("El valor ingresado debe ser un double mayor a 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 dgv_probabilidades.Rows[e.RowIndex].ErrorText = "El valor ingresado debe ser un double mayor a 0";
             }
         }
@@ -367,6 +396,39 @@ namespace TP4___SIM
         private void txtHasta_KeyPress(object sender, KeyPressEventArgs e)
         {
             validarEntero(sender, e);
+        }
+
+        private void cmbVersion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbVersion.SelectedIndex == 0)
+            {
+                lblDesde.Parent = panelParametros2;
+                txtDesde.Parent = panelParametros2;
+                lblHasta.Parent = panelParametros2;
+                txtHasta.Parent = panelParametros2;
+
+                lblDesde.Location = new Point(484, 141);
+                txtDesde.Location = new Point(551, 138);
+                lblHasta.Location = new Point(667, 141);
+                txtHasta.Location = new Point(729, 138);
+
+                btnMostrar.Visible = false;
+            }
+
+            if (cmbVersion.SelectedIndex == 1)
+            {
+                lblDesde.Parent = panelResultado2;
+                txtDesde.Parent = panelResultado2;
+                lblHasta.Parent = panelResultado2;
+                txtHasta.Parent = panelResultado2;
+
+                lblDesde.Location = new Point(895, 24);
+                txtDesde.Location = new Point(962, 21);
+                lblHasta.Location = new Point(1078, 24);
+                txtHasta.Location = new Point(1140, 21);
+
+                btnMostrar.Visible = true;
+            }
         }
     }
 }
