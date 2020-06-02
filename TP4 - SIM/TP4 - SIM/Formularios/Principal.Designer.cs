@@ -39,6 +39,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.panelTitulo = new System.Windows.Forms.Panel();
+            this.lblVersion = new System.Windows.Forms.Label();
+            this.cmbVersion = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitulo2 = new System.Windows.Forms.Label();
             this.panelContenedor = new System.Windows.Forms.Panel();
@@ -81,16 +83,16 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblDesde = new System.Windows.Forms.Label();
-            this.txtDesde = new System.Windows.Forms.TextBox();
-            this.lblHasta = new System.Windows.Forms.Label();
-            this.txtHasta = new System.Windows.Forms.TextBox();
             this.panelParametros2 = new System.Windows.Forms.Panel();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnIniciar = new System.Windows.Forms.Button();
             this.lblReprogramacion = new System.Windows.Forms.Label();
+            this.lblDesde = new System.Windows.Forms.Label();
+            this.txtDesde = new System.Windows.Forms.TextBox();
             this.txtCosto = new System.Windows.Forms.TextBox();
+            this.txtHasta = new System.Windows.Forms.TextBox();
             this.lblGanancia = new System.Windows.Forms.Label();
+            this.lblHasta = new System.Windows.Forms.Label();
             this.txtGanancia = new System.Windows.Forms.TextBox();
             this.dgv_probabilidades = new System.Windows.Forms.DataGridView();
             this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,8 +102,6 @@
             this.lblEstrategia = new System.Windows.Forms.Label();
             this.txtNroVuelos = new System.Windows.Forms.TextBox();
             this.lblNroVuelos = new System.Windows.Forms.Label();
-            this.cmbVersion = new System.Windows.Forms.ComboBox();
-            this.lblVersion = new System.Windows.Forms.Label();
             this.panelTitulo.SuspendLayout();
             this.panelContenedor.SuspendLayout();
             this.panelResumen.SuspendLayout();
@@ -129,6 +129,35 @@
             this.panelTitulo.Name = "panelTitulo";
             this.panelTitulo.Size = new System.Drawing.Size(1694, 81);
             this.panelTitulo.TabIndex = 0;
+            // 
+            // lblVersion
+            // 
+            this.lblVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVersion.ForeColor = System.Drawing.Color.LightGray;
+            this.lblVersion.Location = new System.Drawing.Point(1552, 26);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(67, 18);
+            this.lblVersion.TabIndex = 3;
+            this.lblVersion.Text = "Versión:";
+            // 
+            // cmbVersion
+            // 
+            this.cmbVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbVersion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(26)))), ((int)(((byte)(32)))));
+            this.cmbVersion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbVersion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbVersion.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.cmbVersion.FormattingEnabled = true;
+            this.cmbVersion.Items.AddRange(new object[] {
+            "v1",
+            "v2"});
+            this.cmbVersion.Location = new System.Drawing.Point(1625, 25);
+            this.cmbVersion.Name = "cmbVersion";
+            this.cmbVersion.Size = new System.Drawing.Size(42, 24);
+            this.cmbVersion.TabIndex = 2;
+            this.cmbVersion.SelectedIndexChanged += new System.EventHandler(this.cmbVersion_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -260,7 +289,7 @@
             this.lblEstrategiaOptima.AutoSize = true;
             this.lblEstrategiaOptima.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEstrategiaOptima.ForeColor = System.Drawing.Color.Red;
-            this.lblEstrategiaOptima.Location = new System.Drawing.Point(1145, 133);
+            this.lblEstrategiaOptima.Location = new System.Drawing.Point(1160, 115);
             this.lblEstrategiaOptima.Name = "lblEstrategiaOptima";
             this.lblEstrategiaOptima.Size = new System.Drawing.Size(151, 28);
             this.lblEstrategiaOptima.TabIndex = 3;
@@ -271,7 +300,7 @@
             this.lblTextoConclusion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTextoConclusion.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTextoConclusion.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblTextoConclusion.Location = new System.Drawing.Point(1145, 74);
+            this.lblTextoConclusion.Location = new System.Drawing.Point(1160, 56);
             this.lblTextoConclusion.Name = "lblTextoConclusion";
             this.lblTextoConclusion.Size = new System.Drawing.Size(299, 102);
             this.lblTextoConclusion.TabIndex = 2;
@@ -283,7 +312,7 @@
             this.lblConclusion.AutoSize = true;
             this.lblConclusion.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConclusion.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblConclusion.Location = new System.Drawing.Point(1144, 34);
+            this.lblConclusion.Location = new System.Drawing.Point(1159, 16);
             this.lblConclusion.Name = "lblConclusion";
             this.lblConclusion.Size = new System.Drawing.Size(148, 28);
             this.lblConclusion.TabIndex = 1;
@@ -302,7 +331,7 @@
             this.groupBoxEstrategia.Controls.Add(this.label6);
             this.groupBoxEstrategia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEstrategia.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBoxEstrategia.Location = new System.Drawing.Point(570, 34);
+            this.groupBoxEstrategia.Location = new System.Drawing.Point(586, 16);
             this.groupBoxEstrategia.Name = "groupBoxEstrategia";
             this.groupBoxEstrategia.Size = new System.Drawing.Size(553, 136);
             this.groupBoxEstrategia.TabIndex = 0;
@@ -390,7 +419,7 @@
             this.groupBoxEstOri.Controls.Add(this.lblReservasOri);
             this.groupBoxEstOri.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEstOri.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBoxEstOri.Location = new System.Drawing.Point(37, 34);
+            this.groupBoxEstOri.Location = new System.Drawing.Point(53, 16);
             this.groupBoxEstOri.Name = "groupBoxEstOri";
             this.groupBoxEstOri.Size = new System.Drawing.Size(510, 136);
             this.groupBoxEstOri.TabIndex = 0;
@@ -453,7 +482,7 @@
             this.btnMostrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMostrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMostrar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnMostrar.Location = new System.Drawing.Point(1286, 15);
+            this.btnMostrar.Location = new System.Drawing.Point(1302, 15);
             this.btnMostrar.Name = "btnMostrar";
             this.btnMostrar.Size = new System.Drawing.Size(173, 37);
             this.btnMostrar.TabIndex = 9;
@@ -467,7 +496,7 @@
             this.lblTituloEstrategia.AutoSize = true;
             this.lblTituloEstrategia.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloEstrategia.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTituloEstrategia.Location = new System.Drawing.Point(32, 27);
+            this.lblTituloEstrategia.Location = new System.Drawing.Point(48, 27);
             this.lblTituloEstrategia.Name = "lblTituloEstrategia";
             this.lblTituloEstrategia.Size = new System.Drawing.Size(432, 25);
             this.lblTituloEstrategia.TabIndex = 5;
@@ -511,7 +540,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvMonteCarlo.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvMonteCarlo.EnableHeadersVisualStyles = false;
-            this.dgvMonteCarlo.Location = new System.Drawing.Point(32, 73);
+            this.dgvMonteCarlo.Location = new System.Drawing.Point(48, 73);
             this.dgvMonteCarlo.Name = "dgvMonteCarlo";
             this.dgvMonteCarlo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -586,52 +615,6 @@
             this.Column10.HeaderText = "Ganancia Acumulada";
             this.Column10.Name = "Column10";
             // 
-            // lblDesde
-            // 
-            this.lblDesde.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblDesde.AutoSize = true;
-            this.lblDesde.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDesde.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblDesde.Location = new System.Drawing.Point(492, 141);
-            this.lblDesde.Name = "lblDesde";
-            this.lblDesde.Size = new System.Drawing.Size(61, 19);
-            this.lblDesde.TabIndex = 2;
-            this.lblDesde.Text = "Desde:";
-            // 
-            // txtDesde
-            // 
-            this.txtDesde.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtDesde.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtDesde.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDesde.Location = new System.Drawing.Point(559, 138);
-            this.txtDesde.Name = "txtDesde";
-            this.txtDesde.Size = new System.Drawing.Size(100, 27);
-            this.txtDesde.TabIndex = 7;
-            this.txtDesde.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDesde_KeyPress);
-            // 
-            // lblHasta
-            // 
-            this.lblHasta.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblHasta.AutoSize = true;
-            this.lblHasta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHasta.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblHasta.Location = new System.Drawing.Point(675, 141);
-            this.lblHasta.Name = "lblHasta";
-            this.lblHasta.Size = new System.Drawing.Size(56, 19);
-            this.lblHasta.TabIndex = 4;
-            this.lblHasta.Text = "Hasta:";
-            // 
-            // txtHasta
-            // 
-            this.txtHasta.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtHasta.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtHasta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHasta.Location = new System.Drawing.Point(737, 138);
-            this.txtHasta.Name = "txtHasta";
-            this.txtHasta.Size = new System.Drawing.Size(100, 27);
-            this.txtHasta.TabIndex = 8;
-            this.txtHasta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHasta_KeyPress);
-            // 
             // panelParametros2
             // 
             this.panelParametros2.AutoScroll = true;
@@ -664,7 +647,7 @@
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnLimpiar.Location = new System.Drawing.Point(254, 137);
+            this.btnLimpiar.Location = new System.Drawing.Point(270, 137);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(195, 41);
             this.btnLimpiar.TabIndex = 6;
@@ -678,7 +661,7 @@
             this.btnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIniciar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnIniciar.Location = new System.Drawing.Point(37, 137);
+            this.btnIniciar.Location = new System.Drawing.Point(53, 137);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(195, 41);
             this.btnIniciar.TabIndex = 5;
@@ -692,22 +675,56 @@
             this.lblReprogramacion.AutoSize = true;
             this.lblReprogramacion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReprogramacion.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblReprogramacion.Location = new System.Drawing.Point(492, 88);
+            this.lblReprogramacion.Location = new System.Drawing.Point(508, 88);
             this.lblReprogramacion.Name = "lblReprogramacion";
             this.lblReprogramacion.Size = new System.Drawing.Size(218, 19);
             this.lblReprogramacion.TabIndex = 17;
             this.lblReprogramacion.Text = "Costo por reprogramación:";
+            // 
+            // lblDesde
+            // 
+            this.lblDesde.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDesde.AutoSize = true;
+            this.lblDesde.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDesde.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblDesde.Location = new System.Drawing.Point(508, 141);
+            this.lblDesde.Name = "lblDesde";
+            this.lblDesde.Size = new System.Drawing.Size(61, 19);
+            this.lblDesde.TabIndex = 2;
+            this.lblDesde.Text = "Desde:";
+            // 
+            // txtDesde
+            // 
+            this.txtDesde.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtDesde.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtDesde.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDesde.Location = new System.Drawing.Point(575, 138);
+            this.txtDesde.Name = "txtDesde";
+            this.txtDesde.Size = new System.Drawing.Size(100, 27);
+            this.txtDesde.TabIndex = 7;
+            this.txtDesde.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDesde_KeyPress);
             // 
             // txtCosto
             // 
             this.txtCosto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCosto.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtCosto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCosto.Location = new System.Drawing.Point(716, 85);
+            this.txtCosto.Location = new System.Drawing.Point(732, 85);
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(121, 27);
             this.txtCosto.TabIndex = 4;
             this.txtCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCosto_KeyPress);
+            // 
+            // txtHasta
+            // 
+            this.txtHasta.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtHasta.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtHasta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHasta.Location = new System.Drawing.Point(753, 138);
+            this.txtHasta.Name = "txtHasta";
+            this.txtHasta.Size = new System.Drawing.Size(100, 27);
+            this.txtHasta.TabIndex = 8;
+            this.txtHasta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHasta_KeyPress);
             // 
             // lblGanancia
             // 
@@ -715,18 +732,30 @@
             this.lblGanancia.AutoSize = true;
             this.lblGanancia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGanancia.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblGanancia.Location = new System.Drawing.Point(515, 35);
+            this.lblGanancia.Location = new System.Drawing.Point(531, 35);
             this.lblGanancia.Name = "lblGanancia";
             this.lblGanancia.Size = new System.Drawing.Size(195, 19);
             this.lblGanancia.TabIndex = 15;
             this.lblGanancia.Text = "Ganancia por pasajero:";
+            // 
+            // lblHasta
+            // 
+            this.lblHasta.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblHasta.AutoSize = true;
+            this.lblHasta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHasta.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblHasta.Location = new System.Drawing.Point(691, 141);
+            this.lblHasta.Name = "lblHasta";
+            this.lblHasta.Size = new System.Drawing.Size(56, 19);
+            this.lblHasta.TabIndex = 4;
+            this.lblHasta.Text = "Hasta:";
             // 
             // txtGanancia
             // 
             this.txtGanancia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtGanancia.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtGanancia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGanancia.Location = new System.Drawing.Point(716, 32);
+            this.txtGanancia.Location = new System.Drawing.Point(732, 32);
             this.txtGanancia.Name = "txtGanancia";
             this.txtGanancia.Size = new System.Drawing.Size(121, 27);
             this.txtGanancia.TabIndex = 3;
@@ -763,7 +792,7 @@
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_probabilidades.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgv_probabilidades.EnableHeadersVisualStyles = false;
-            this.dgv_probabilidades.Location = new System.Drawing.Point(907, 17);
+            this.dgv_probabilidades.Location = new System.Drawing.Point(923, 17);
             this.dgv_probabilidades.Name = "dgv_probabilidades";
             this.dgv_probabilidades.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -824,7 +853,7 @@
             "32",
             "33",
             "34"});
-            this.cmbEstrategia.Location = new System.Drawing.Point(331, 32);
+            this.cmbEstrategia.Location = new System.Drawing.Point(347, 32);
             this.cmbEstrategia.Name = "cmbEstrategia";
             this.cmbEstrategia.Size = new System.Drawing.Size(121, 27);
             this.cmbEstrategia.TabIndex = 1;
@@ -835,7 +864,7 @@
             this.lblEstrategia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblEstrategia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEstrategia.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblEstrategia.Location = new System.Drawing.Point(82, 35);
+            this.lblEstrategia.Location = new System.Drawing.Point(98, 35);
             this.lblEstrategia.Name = "lblEstrategia";
             this.lblEstrategia.Size = new System.Drawing.Size(249, 22);
             this.lblEstrategia.TabIndex = 6;
@@ -846,7 +875,7 @@
             this.txtNroVuelos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNroVuelos.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNroVuelos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNroVuelos.Location = new System.Drawing.Point(331, 85);
+            this.txtNroVuelos.Location = new System.Drawing.Point(347, 85);
             this.txtNroVuelos.Name = "txtNroVuelos";
             this.txtNroVuelos.Size = new System.Drawing.Size(121, 27);
             this.txtNroVuelos.TabIndex = 2;
@@ -858,40 +887,11 @@
             this.lblNroVuelos.AutoSize = true;
             this.lblNroVuelos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNroVuelos.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblNroVuelos.Location = new System.Drawing.Point(128, 88);
+            this.lblNroVuelos.Location = new System.Drawing.Point(144, 88);
             this.lblNroVuelos.Name = "lblNroVuelos";
             this.lblNroVuelos.Size = new System.Drawing.Size(197, 19);
             this.lblNroVuelos.TabIndex = 0;
             this.lblNroVuelos.Text = "Nro de Vuelos a Simular:";
-            // 
-            // cmbVersion
-            // 
-            this.cmbVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbVersion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(26)))), ((int)(((byte)(32)))));
-            this.cmbVersion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbVersion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbVersion.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.cmbVersion.FormattingEnabled = true;
-            this.cmbVersion.Items.AddRange(new object[] {
-            "v1",
-            "v2"});
-            this.cmbVersion.Location = new System.Drawing.Point(1625, 25);
-            this.cmbVersion.Name = "cmbVersion";
-            this.cmbVersion.Size = new System.Drawing.Size(42, 24);
-            this.cmbVersion.TabIndex = 2;
-            this.cmbVersion.SelectedIndexChanged += new System.EventHandler(this.cmbVersion_SelectedIndexChanged);
-            // 
-            // lblVersion
-            // 
-            this.lblVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblVersion.AutoSize = true;
-            this.lblVersion.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVersion.ForeColor = System.Drawing.Color.LightGray;
-            this.lblVersion.Location = new System.Drawing.Point(1552, 26);
-            this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(67, 18);
-            this.lblVersion.TabIndex = 3;
-            this.lblVersion.Text = "Versión:";
             // 
             // Principal
             // 
@@ -899,7 +899,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoScrollMinSize = new System.Drawing.Size(1694, 1068);
-            this.ClientSize = new System.Drawing.Size(1678, 1029);
+            this.ClientSize = new System.Drawing.Size(1370, 681);
             this.Controls.Add(this.panelPrincipal);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.panelTitulo);

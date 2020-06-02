@@ -347,6 +347,8 @@ namespace TP4___SIM
             lblTituloEstrategia.Text = "Estrategia de Sobreventa de N Reservas";
             groupBoxEstrategia.Text = "Estrategia de N Reservas";
 
+            probAcumulada.Clear();
+
             btnIniciar.Enabled = true;
         }
 
