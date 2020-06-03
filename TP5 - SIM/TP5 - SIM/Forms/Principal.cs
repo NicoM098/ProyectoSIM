@@ -13,9 +13,6 @@ namespace TP5___SIM
 {
     public partial class Principal : Form
     {
-        public double tiempo;
-        public int iteraciones;
-
         Datos oDatos = new Datos();
 
         public Principal()
@@ -29,18 +26,26 @@ namespace TP5___SIM
             parametros.Show();
         }
 
-        public void CargarDatos(double tiempo, int iteraciones)
-        {
-            this.tiempo = tiempo;
-            this.iteraciones = iteraciones;
-        }
-
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            double time = oDatos.Tiempo;
-            int it = oDatos.Iteraciones;
+            double tiempo = oDatos.Tiempo;
+            int iteraciones = oDatos.Iteraciones;
 
+            int desde = oDatos.Desde;
+            double hasta = oDatos.Hasta;
 
+            double llegClienteA = oDatos.LlegClienteA;
+            double llegClienteB = oDatos.LlegClienteB;
+
+            double tiempoVentaA = oDatos.TiempoVentaA;
+            double tiempoVentaB = oDatos.TiempoVentaB;
+
+            double tiempoRepA = oDatos.TiempoRepA;
+            double tiempoRepB = oDatos.TiempoRepB;
+
+            double tiempoRepIni = oDatos.TiempoRelojero;
+
+            List<double> probAcumulada = new List<double>(oDatos.DistProbDestino);
         }
     }
 }

@@ -51,6 +51,8 @@ namespace TP5___SIM.Clases
 
         public void CargarDatos(double tiempo, int iteraciones, int desde, double hasta, List<double> distProbDest, double llegClienteA, double llegClienteB, double tiempoVentaA, double tiempoVentaB, double tiempoRepA, double tiempoRepB, double tiempoRelojero)
         {
+            this.distProbDestino.Clear();
+
             this.tiempo = tiempo;
             this.iteraciones = iteraciones;
             this.desde = desde;

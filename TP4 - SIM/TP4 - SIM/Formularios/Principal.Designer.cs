@@ -127,7 +127,7 @@
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitulo.Location = new System.Drawing.Point(0, 0);
             this.panelTitulo.Name = "panelTitulo";
-            this.panelTitulo.Size = new System.Drawing.Size(1694, 81);
+            this.panelTitulo.Size = new System.Drawing.Size(1759, 81);
             this.panelTitulo.TabIndex = 0;
             // 
             // lblVersion
@@ -136,7 +136,7 @@
             this.lblVersion.AutoSize = true;
             this.lblVersion.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVersion.ForeColor = System.Drawing.Color.LightGray;
-            this.lblVersion.Location = new System.Drawing.Point(1552, 26);
+            this.lblVersion.Location = new System.Drawing.Point(1617, 26);
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(67, 18);
             this.lblVersion.TabIndex = 3;
@@ -153,7 +153,7 @@
             this.cmbVersion.Items.AddRange(new object[] {
             "v1",
             "v2"});
-            this.cmbVersion.Location = new System.Drawing.Point(1625, 25);
+            this.cmbVersion.Location = new System.Drawing.Point(1690, 25);
             this.cmbVersion.Name = "cmbVersion";
             this.cmbVersion.Size = new System.Drawing.Size(42, 24);
             this.cmbVersion.TabIndex = 2;
@@ -174,7 +174,7 @@
             this.lblTitulo2.AutoSize = true;
             this.lblTitulo2.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTitulo2.Location = new System.Drawing.Point(548, 26);
+            this.lblTitulo2.Location = new System.Drawing.Point(580, 26);
             this.lblTitulo2.Name = "lblTitulo2";
             this.lblTitulo2.Size = new System.Drawing.Size(638, 32);
             this.lblTitulo2.TabIndex = 0;
@@ -264,7 +264,7 @@
             this.panelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelPrincipal.Location = new System.Drawing.Point(200, 81);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(1494, 987);
+            this.panelPrincipal.Size = new System.Drawing.Size(1559, 987);
             this.panelPrincipal.TabIndex = 2;
             // 
             // panelResumen2
@@ -280,7 +280,7 @@
             this.panelResumen2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelResumen2.Location = new System.Drawing.Point(0, 777);
             this.panelResumen2.Name = "panelResumen2";
-            this.panelResumen2.Size = new System.Drawing.Size(1494, 210);
+            this.panelResumen2.Size = new System.Drawing.Size(1559, 210);
             this.panelResumen2.TabIndex = 2;
             // 
             // lblEstrategiaOptima
@@ -289,7 +289,7 @@
             this.lblEstrategiaOptima.AutoSize = true;
             this.lblEstrategiaOptima.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEstrategiaOptima.ForeColor = System.Drawing.Color.Red;
-            this.lblEstrategiaOptima.Location = new System.Drawing.Point(1160, 115);
+            this.lblEstrategiaOptima.Location = new System.Drawing.Point(1192, 115);
             this.lblEstrategiaOptima.Name = "lblEstrategiaOptima";
             this.lblEstrategiaOptima.Size = new System.Drawing.Size(151, 28);
             this.lblEstrategiaOptima.TabIndex = 3;
@@ -300,7 +300,7 @@
             this.lblTextoConclusion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTextoConclusion.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTextoConclusion.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblTextoConclusion.Location = new System.Drawing.Point(1160, 56);
+            this.lblTextoConclusion.Location = new System.Drawing.Point(1192, 56);
             this.lblTextoConclusion.Name = "lblTextoConclusion";
             this.lblTextoConclusion.Size = new System.Drawing.Size(299, 102);
             this.lblTextoConclusion.TabIndex = 2;
@@ -312,7 +312,7 @@
             this.lblConclusion.AutoSize = true;
             this.lblConclusion.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConclusion.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblConclusion.Location = new System.Drawing.Point(1159, 16);
+            this.lblConclusion.Location = new System.Drawing.Point(1191, 16);
             this.lblConclusion.Name = "lblConclusion";
             this.lblConclusion.Size = new System.Drawing.Size(148, 28);
             this.lblConclusion.TabIndex = 1;
@@ -331,7 +331,7 @@
             this.groupBoxEstrategia.Controls.Add(this.label6);
             this.groupBoxEstrategia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEstrategia.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBoxEstrategia.Location = new System.Drawing.Point(586, 16);
+            this.groupBoxEstrategia.Location = new System.Drawing.Point(618, 16);
             this.groupBoxEstrategia.Name = "groupBoxEstrategia";
             this.groupBoxEstrategia.Size = new System.Drawing.Size(553, 136);
             this.groupBoxEstrategia.TabIndex = 0;
@@ -419,7 +419,7 @@
             this.groupBoxEstOri.Controls.Add(this.lblReservasOri);
             this.groupBoxEstOri.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEstOri.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBoxEstOri.Location = new System.Drawing.Point(53, 16);
+            this.groupBoxEstOri.Location = new System.Drawing.Point(85, 16);
             this.groupBoxEstOri.Name = "groupBoxEstOri";
             this.groupBoxEstOri.Size = new System.Drawing.Size(510, 136);
             this.groupBoxEstOri.TabIndex = 0;
@@ -473,7 +473,7 @@
             this.panelResultado2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelResultado2.Location = new System.Drawing.Point(0, 203);
             this.panelResultado2.Name = "panelResultado2";
-            this.panelResultado2.Size = new System.Drawing.Size(1494, 574);
+            this.panelResultado2.Size = new System.Drawing.Size(1559, 574);
             this.panelResultado2.TabIndex = 1;
             // 
             // btnMostrar
@@ -482,7 +482,7 @@
             this.btnMostrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMostrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMostrar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnMostrar.Location = new System.Drawing.Point(1302, 15);
+            this.btnMostrar.Location = new System.Drawing.Point(1334, 15);
             this.btnMostrar.Name = "btnMostrar";
             this.btnMostrar.Size = new System.Drawing.Size(173, 37);
             this.btnMostrar.TabIndex = 9;
@@ -496,7 +496,7 @@
             this.lblTituloEstrategia.AutoSize = true;
             this.lblTituloEstrategia.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloEstrategia.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTituloEstrategia.Location = new System.Drawing.Point(48, 27);
+            this.lblTituloEstrategia.Location = new System.Drawing.Point(80, 27);
             this.lblTituloEstrategia.Name = "lblTituloEstrategia";
             this.lblTituloEstrategia.Size = new System.Drawing.Size(432, 25);
             this.lblTituloEstrategia.TabIndex = 5;
@@ -540,7 +540,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvMonteCarlo.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvMonteCarlo.EnableHeadersVisualStyles = false;
-            this.dgvMonteCarlo.Location = new System.Drawing.Point(48, 73);
+            this.dgvMonteCarlo.Location = new System.Drawing.Point(80, 73);
             this.dgvMonteCarlo.Name = "dgvMonteCarlo";
             this.dgvMonteCarlo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -638,7 +638,7 @@
             this.panelParametros2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelParametros2.Location = new System.Drawing.Point(0, 0);
             this.panelParametros2.Name = "panelParametros2";
-            this.panelParametros2.Size = new System.Drawing.Size(1494, 203);
+            this.panelParametros2.Size = new System.Drawing.Size(1559, 203);
             this.panelParametros2.TabIndex = 0;
             // 
             // btnLimpiar
@@ -647,7 +647,7 @@
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnLimpiar.Location = new System.Drawing.Point(270, 137);
+            this.btnLimpiar.Location = new System.Drawing.Point(302, 137);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(195, 41);
             this.btnLimpiar.TabIndex = 6;
@@ -661,7 +661,7 @@
             this.btnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIniciar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnIniciar.Location = new System.Drawing.Point(53, 137);
+            this.btnIniciar.Location = new System.Drawing.Point(85, 137);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(195, 41);
             this.btnIniciar.TabIndex = 5;
@@ -675,7 +675,7 @@
             this.lblReprogramacion.AutoSize = true;
             this.lblReprogramacion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReprogramacion.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblReprogramacion.Location = new System.Drawing.Point(508, 88);
+            this.lblReprogramacion.Location = new System.Drawing.Point(540, 88);
             this.lblReprogramacion.Name = "lblReprogramacion";
             this.lblReprogramacion.Size = new System.Drawing.Size(218, 19);
             this.lblReprogramacion.TabIndex = 17;
@@ -687,7 +687,7 @@
             this.lblDesde.AutoSize = true;
             this.lblDesde.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDesde.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblDesde.Location = new System.Drawing.Point(508, 141);
+            this.lblDesde.Location = new System.Drawing.Point(540, 141);
             this.lblDesde.Name = "lblDesde";
             this.lblDesde.Size = new System.Drawing.Size(61, 19);
             this.lblDesde.TabIndex = 2;
@@ -698,7 +698,7 @@
             this.txtDesde.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDesde.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtDesde.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDesde.Location = new System.Drawing.Point(575, 138);
+            this.txtDesde.Location = new System.Drawing.Point(607, 138);
             this.txtDesde.Name = "txtDesde";
             this.txtDesde.Size = new System.Drawing.Size(100, 27);
             this.txtDesde.TabIndex = 7;
@@ -709,7 +709,7 @@
             this.txtCosto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCosto.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtCosto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCosto.Location = new System.Drawing.Point(732, 85);
+            this.txtCosto.Location = new System.Drawing.Point(764, 85);
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(121, 27);
             this.txtCosto.TabIndex = 4;
@@ -720,7 +720,7 @@
             this.txtHasta.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtHasta.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtHasta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHasta.Location = new System.Drawing.Point(753, 138);
+            this.txtHasta.Location = new System.Drawing.Point(785, 138);
             this.txtHasta.Name = "txtHasta";
             this.txtHasta.Size = new System.Drawing.Size(100, 27);
             this.txtHasta.TabIndex = 8;
@@ -732,7 +732,7 @@
             this.lblGanancia.AutoSize = true;
             this.lblGanancia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGanancia.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblGanancia.Location = new System.Drawing.Point(531, 35);
+            this.lblGanancia.Location = new System.Drawing.Point(563, 35);
             this.lblGanancia.Name = "lblGanancia";
             this.lblGanancia.Size = new System.Drawing.Size(195, 19);
             this.lblGanancia.TabIndex = 15;
@@ -744,7 +744,7 @@
             this.lblHasta.AutoSize = true;
             this.lblHasta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHasta.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblHasta.Location = new System.Drawing.Point(691, 141);
+            this.lblHasta.Location = new System.Drawing.Point(723, 141);
             this.lblHasta.Name = "lblHasta";
             this.lblHasta.Size = new System.Drawing.Size(56, 19);
             this.lblHasta.TabIndex = 4;
@@ -755,7 +755,7 @@
             this.txtGanancia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtGanancia.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtGanancia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGanancia.Location = new System.Drawing.Point(732, 32);
+            this.txtGanancia.Location = new System.Drawing.Point(764, 32);
             this.txtGanancia.Name = "txtGanancia";
             this.txtGanancia.Size = new System.Drawing.Size(121, 27);
             this.txtGanancia.TabIndex = 3;
@@ -792,7 +792,7 @@
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_probabilidades.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgv_probabilidades.EnableHeadersVisualStyles = false;
-            this.dgv_probabilidades.Location = new System.Drawing.Point(923, 17);
+            this.dgv_probabilidades.Location = new System.Drawing.Point(955, 17);
             this.dgv_probabilidades.Name = "dgv_probabilidades";
             this.dgv_probabilidades.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -853,7 +853,7 @@
             "32",
             "33",
             "34"});
-            this.cmbEstrategia.Location = new System.Drawing.Point(347, 32);
+            this.cmbEstrategia.Location = new System.Drawing.Point(379, 32);
             this.cmbEstrategia.Name = "cmbEstrategia";
             this.cmbEstrategia.Size = new System.Drawing.Size(121, 27);
             this.cmbEstrategia.TabIndex = 1;
@@ -864,7 +864,7 @@
             this.lblEstrategia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblEstrategia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEstrategia.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblEstrategia.Location = new System.Drawing.Point(98, 35);
+            this.lblEstrategia.Location = new System.Drawing.Point(130, 35);
             this.lblEstrategia.Name = "lblEstrategia";
             this.lblEstrategia.Size = new System.Drawing.Size(249, 22);
             this.lblEstrategia.TabIndex = 6;
@@ -875,7 +875,7 @@
             this.txtNroVuelos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNroVuelos.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNroVuelos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNroVuelos.Location = new System.Drawing.Point(347, 85);
+            this.txtNroVuelos.Location = new System.Drawing.Point(379, 85);
             this.txtNroVuelos.Name = "txtNroVuelos";
             this.txtNroVuelos.Size = new System.Drawing.Size(121, 27);
             this.txtNroVuelos.TabIndex = 2;
@@ -887,7 +887,7 @@
             this.lblNroVuelos.AutoSize = true;
             this.lblNroVuelos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNroVuelos.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblNroVuelos.Location = new System.Drawing.Point(144, 88);
+            this.lblNroVuelos.Location = new System.Drawing.Point(176, 88);
             this.lblNroVuelos.Name = "lblNroVuelos";
             this.lblNroVuelos.Size = new System.Drawing.Size(197, 19);
             this.lblNroVuelos.TabIndex = 0;
@@ -899,7 +899,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoScrollMinSize = new System.Drawing.Size(1694, 1068);
-            this.ClientSize = new System.Drawing.Size(1370, 681);
+            this.ClientSize = new System.Drawing.Size(1776, 1028);
             this.Controls.Add(this.panelPrincipal);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.panelTitulo);
