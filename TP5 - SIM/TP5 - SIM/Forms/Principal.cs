@@ -26,6 +26,29 @@ namespace TP5___SIM
             parametros.Show();
         }
 
+        private string compareRandom(double random, List<double> probAcumulada)
+        {
+            for (int i = 0; i < probAcumulada.Count(); i++)
+            {
+                if (random < probAcumulada.ElementAt(i))
+                {
+                    if (i == 0)
+                    {
+                        return "Comprar";
+                    }
+                    else if (i == 1)
+                    {
+                        return "Entregar Reloj";
+                    }
+                    else if (i == 2)
+                    {
+                        return "Retirar Reloj";
+                    }
+                }
+            }
+            return "";
+        }
+
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             double tiempo = oDatos.Tiempo;
