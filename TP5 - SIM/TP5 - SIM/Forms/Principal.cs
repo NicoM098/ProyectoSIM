@@ -77,7 +77,7 @@ namespace TP5___SIM
             double tiempoAyudanteIni = 5 * tiempoEntrega;
             double tiempoRelojeroIni = tiempoRepIni - tiempoAyudanteIni;
 
-            int cantClientes = 0;
+            int nroOrdenCliente = 0;
 
             List<double> probAcumulada = new List<double>(oDatos.DistProbDestino);
 
@@ -163,9 +163,12 @@ namespace TP5___SIM
             double TiempoOcupacionRelojero = tiempoRepIni;
             filaAnterior.Add("TiempoOcupacionRelojero", TiempoOcupacionRelojero.ToString());
 
-            dgvColas.Rows.Add(Evento, Reloj, RND1, TiempoEntreLlegCliente, ProximaLlegCliente, RND2, Destino, RND3, TiempoAtencionVenta, FinCompra, TiempoAtencionEntrega, FinEntrega, RND4, TiempoReparacion, FinReparacion, TiempoAtencionRetiro, FinRetiro, EstadoAyudante, ColaAyudante, EstadoRelojero, ColaRelojero, CantRelojesRetirar, InicioOcupacionAyudante, InicioOcupacionRelojero, TiempoOcupacionAyudante, TiempoOcupacionRelojero);
+            int ContadorClientes = 0;
+            filaAnterior.Add("ContadorClientes", ContadorClientes.ToString());
 
-            for (int i = 1; i <= 1 /*|| double.Parse(Reloj) <= tiempo*/; i++)
+            dgvColas.Rows.Add(Evento, Reloj, RND1, TiempoEntreLlegCliente, ProximaLlegCliente, RND2, Destino, RND3, TiempoAtencionVenta, FinCompra, TiempoAtencionEntrega, FinEntrega, RND4, TiempoReparacion, FinReparacion, TiempoAtencionRetiro, FinRetiro, EstadoAyudante, ColaAyudante, EstadoRelojero, ColaRelojero, CantRelojesRetirar, InicioOcupacionAyudante, InicioOcupacionRelojero, TiempoOcupacionAyudante, TiempoOcupacionRelojero, ContadorClientes);
+
+            for (int i = 1; i <= 5 /*|| double.Parse(Reloj) <= tiempo*/; i++)
             {
                 //**********CALCULO DE EVENTO************
                 Dictionary<string, Double> aComparar = new Dictionary<string, Double>();
@@ -204,7 +207,9 @@ namespace TP5___SIM
                 //Pregunta si evento es del tipo "llegada_cliente"
                 if (Evento.Equals(eventos[0]))
                 {
-                    cantClientes += 1;
+                    ContadorClientes += 1;
+
+                    nroOrdenCliente += 1;
 
                     Reloj = filaAnterior["ProximaLlegCliente"];
 
@@ -220,9 +225,11 @@ namespace TP5___SIM
 
                     Destino = compareRandom(double.Parse(RND2), probAcumulada);
 
+
                     //Si el Ayudante esta "Libre"
                     if (filaAnterior["EstadoAyudante"].Equals("Libre"))
                     {
+
                         //Si el destino es "Comprar"
                         if (Destino.Equals("Comprar"))
                         {
@@ -232,12 +239,7 @@ namespace TP5___SIM
 
                             FinCompra = (double.Parse(Reloj) + double.Parse(TiempoAtencionVenta)).ToString();
 
-                            EstadoAyudante = "Ocupado";
-
-                            ColaAyudante = 0;
-
-                            InicioOcupacionAyudante = Reloj;
-
+                            //Operacion del resto de las columnas
                             TiempoAtencionEntrega = "";
                             FinEntrega = filaAnterior["FinEntrega"];
                             RND4 = "";
@@ -251,7 +253,9 @@ namespace TP5___SIM
                             InicioOcupacionRelojero = filaAnterior["InicioOcupacionRelojero"];
                             TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]);
                             TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
+                            //**********************************
                         }
+
 
                         //Si el destino es "Entregar Reloj"
                         if (Destino.Equals("Entregar Reloj"))
@@ -260,12 +264,7 @@ namespace TP5___SIM
 
                             FinEntrega = (double.Parse(Reloj) + double.Parse(TiempoAtencionEntrega)).ToString();
 
-                            EstadoAyudante = "Ocupado";
-
-                            ColaAyudante = 0;
-
-                            InicioOcupacionAyudante = Reloj;
-
+                            //Operacion del resto de las columnas
                             RND3 = "";
                             TiempoAtencionVenta = "";
                             FinCompra = filaAnterior["FinCompra"];
@@ -280,7 +279,9 @@ namespace TP5___SIM
                             InicioOcupacionRelojero = filaAnterior["InicioOcupacionRelojero"];
                             TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]);
                             TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
+                            //**********************************
                         }
+
 
                         //Si el destino es "Retirar reloj"
                         if (Destino.Equals("Retirar Reloj"))
@@ -289,12 +290,7 @@ namespace TP5___SIM
 
                             FinRetiro = (double.Parse(Reloj) + double.Parse(TiempoAtencionRetiro)).ToString();
 
-                            EstadoAyudante = "Ocupado";
-
-                            ColaAyudante = 0;
-
-                            InicioOcupacionAyudante = Reloj;
-
+                            //Operacion del resto de las columnas
                             RND3 = "";
                             TiempoAtencionVenta = "";
                             FinCompra = filaAnterior["FinCompra"];
@@ -309,22 +305,274 @@ namespace TP5___SIM
                             InicioOcupacionRelojero = filaAnterior["InicioOcupacionRelojero"];
                             TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]);
                             TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
+                            //**********************************
                         }
 
+                        EstadoAyudante = "Ocupado";
+
+                        ColaAyudante = 0;
+
+                        InicioOcupacionAyudante = Reloj;
                     }
 
-                    
+                    if (filaAnterior["EstadoAyudante"].Equals("Ocupado"))
+                    {
+                        ColaAyudante += 1;
 
-                    
+                        //FALTA OPERAR CON CLIENTES
+
+
+                        //Operacion del resto de las columnas
+                        RND3 = "";
+                        TiempoAtencionVenta = "";
+                        FinCompra = filaAnterior["FinCompra"];
+                        TiempoAtencionEntrega = "";
+                        FinEntrega = filaAnterior["FinEntrega"];
+                        RND4 = "";
+                        TiempoReparacion = "";
+                        FinReparacion = filaAnterior["FinReparacion"];
+                        TiempoAtencionRetiro = "";
+                        FinRetiro = filaAnterior["FinRetiro"];
+                        EstadoAyudante = filaAnterior["EstadoAyudante"];
+                        EstadoRelojero = filaAnterior["EstadoRelojero"];
+                        ColaRelojero = int.Parse(filaAnterior["ColaRelojero"]);
+                        CantRelojesRetirar = int.Parse(filaAnterior["CantRelojesRetirar"]);
+                        InicioOcupacionRelojero = filaAnterior["InicioOcupacionRelojero"];
+                        TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]);
+                        TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
+                        //**********************************
+                    }
+
+                    //Se agrega una columna con el cliente nuevo
+                    dgvColas.Columns.Add("cliente " + nroOrdenCliente.ToString(), "Estado Cliente " + nroOrdenCliente.ToString());
                 }
 
-                dgvColas.Rows.Add(Evento, Reloj, RND1, TiempoEntreLlegCliente, ProximaLlegCliente, RND2, Destino, RND3, TiempoAtencionVenta, FinCompra, TiempoAtencionEntrega, FinEntrega, RND4, TiempoReparacion, FinReparacion, TiempoAtencionRetiro, FinRetiro, EstadoAyudante, ColaAyudante, EstadoRelojero, ColaRelojero, CantRelojesRetirar, InicioOcupacionAyudante, InicioOcupacionRelojero, TiempoOcupacionAyudante, TiempoOcupacionRelojero);
+                //Si el evento es "fin_compra"
+                if (Evento.Equals(eventos[1]))
+                {
+                    Reloj = filaAnterior["FinCompra"];
 
+                    if (ColaAyudante > 0)
+                    {
+                        ColaAyudante -= 1;
+                        EstadoAyudante = filaAnterior["EstadoAyudante"];
+                    }
+                    else
+                    {
+                        EstadoAyudante = "Libre";
+                    }
 
-                DataGridViewColumn columna = new DataGridViewColumn();
+                    InicioOcupacionAyudante = "";
 
-                dgvColas.Columns.Add("cliente " + cantClientes.ToString(), "Estado Cliente " + cantClientes.ToString());
+                    TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]) + double.Parse(Reloj) - double.Parse(filaAnterior["InicioOcupacionAyudante"]);
+                    
+                    //Operacion del resto de las columnas
+                    RND1 = "";
+                    TiempoEntreLlegCliente = "";
+                    ProximaLlegCliente = filaAnterior["ProximaLlegCliente"];
+                    RND2 = "";
+                    Destino = "";
+                    RND3 = "";
+                    TiempoAtencionVenta = "";
+                    FinCompra = "";
+                    TiempoAtencionEntrega = "";
+                    FinEntrega = filaAnterior["FinEntrega"];
+                    RND4 = "";
+                    TiempoReparacion = "";
+                    FinReparacion = filaAnterior["FinReparacion"];
+                    TiempoAtencionRetiro = "";
+                    FinRetiro = filaAnterior["FinRetiro"];
+                    EstadoRelojero = filaAnterior["EstadoRelojero"];
+                    ColaRelojero = int.Parse(filaAnterior["ColaRelojero"]);
+                    CantRelojesRetirar = int.Parse(filaAnterior["CantRelojesRetirar"]);
+                    InicioOcupacionRelojero = filaAnterior["InicioOcupacionRelojero"];
+                    TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
+                    //**********************************
+                }
 
+                //Si el evento es "fin_entrega_reloj"
+                if (Evento.Equals(eventos[2]))
+                {
+                    Reloj = filaAnterior["FinEntrega"];
+
+                    if (filaAnterior["ColaAyudante"] == "0")
+                    {
+                        EstadoAyudante = "Libre";
+                        InicioOcupacionAyudante = "";
+                        TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]) + double.Parse(Reloj) - double.Parse(filaAnterior["InicioOcupacionAyudante"]);
+                    }
+                    else
+                    {
+                        EstadoAyudante = "Ocupado";
+                        ColaAyudante -= 1;
+                        TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]);
+                    }
+
+                    if (filaAnterior["EstadoRelojero"].Equals("Libre"))
+                    {
+                        RND4 = Math.Round(oGenerador.generadorUniforme(), 2).ToString();
+
+                        TiempoReparacion = oGenerador.generadorUniforme(tiempoRepA, tiempoRepB, double.Parse(RND4)).ToString();
+
+                        FinReparacion = (double.Parse(Reloj) + double.Parse(TiempoReparacion)).ToString();
+
+                        EstadoRelojero = "Ocupado";
+
+                        InicioOcupacionRelojero = Reloj;
+
+                        //Operacion del resto de las columnas
+                        RND1 = "";
+                        TiempoEntreLlegCliente = "";
+                        ProximaLlegCliente = filaAnterior["ProximaLlegCliente"];
+                        RND2 = "";
+                        Destino = "";
+                        RND3 = "";
+                        TiempoAtencionVenta = "";
+                        FinCompra = filaAnterior["FinCompra"];
+                        TiempoAtencionEntrega = "";
+                        FinEntrega = "";
+                        TiempoAtencionRetiro = "";
+                        FinRetiro = filaAnterior["FinRetiro"];
+                        ColaRelojero = int.Parse(filaAnterior["ColaRelojero"]);
+                        CantRelojesRetirar = int.Parse(filaAnterior["CantRelojesRetirar"]);
+                        TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
+                        //**********************************
+                    }
+
+                    if (filaAnterior["EstadoRelojero"].Equals("Ocupado"))
+                    {
+                        ColaRelojero += 1;
+
+                        //Operacion del resto de las columnas
+                        RND1 = "";
+                        TiempoEntreLlegCliente = "";
+                        ProximaLlegCliente = filaAnterior["ProximaLlegCliente"];
+                        RND2 = "";
+                        Destino = "";
+                        RND3 = "";
+                        TiempoAtencionVenta = "";
+                        FinCompra = filaAnterior["FinCompra"];
+                        TiempoAtencionEntrega = "";
+                        FinEntrega = "";
+                        RND4 = "";
+                        TiempoReparacion = "";
+                        FinReparacion = filaAnterior["FinReparacion"];
+                        TiempoAtencionRetiro = "";
+                        FinRetiro = filaAnterior["FinRetiro"];
+                        EstadoRelojero = filaAnterior["EstadoRelojero"];
+                        CantRelojesRetirar = int.Parse(filaAnterior["CantRelojesRetirar"]);
+                        InicioOcupacionRelojero = filaAnterior["InicioOcupacionRelojero"];
+                        TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
+                        //**********************************
+                    }
+                }
+
+                //Si el evento es "fin_reparacion_reloj"
+                if (Evento.Equals(eventos[3]))
+                {
+                    Reloj = filaAnterior["FinReparacion"];
+
+                    CantRelojesRetirar += 1;
+
+                    if (int.Parse(filaAnterior["ColaRelojero"]) > 0)
+                    {
+                        RND4 = Math.Round(oGenerador.generadorUniforme(), 2).ToString();
+
+                        TiempoReparacion = oGenerador.generadorUniforme(tiempoRepA, tiempoRepB, double.Parse(RND4)).ToString();
+
+                        FinReparacion = (double.Parse(Reloj) + double.Parse(TiempoReparacion)).ToString();
+
+                        ColaRelojero -= 1;
+                        EstadoRelojero = filaAnterior["EstadoRelojero"];
+
+                        TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
+                        InicioOcupacionRelojero = filaAnterior["InicioOcupacionRelojero"];
+                    }
+                    else
+                    {
+                        RND4 = "";
+                        TiempoReparacion = "";
+                        FinReparacion = "";
+                        
+                        EstadoRelojero = "Libre";
+                        InicioOcupacionRelojero = Reloj;
+                        TiempoOcupacionRelojero = double.Parse(Reloj) + double.Parse(filaAnterior["TiempoOcupacionRelojero"]) - double.Parse(filaAnterior["InicioOcupacionRelojero"]);
+                    }
+
+                    //Operacion del resto de las columnas
+                    RND1 = "";
+                    TiempoEntreLlegCliente = "";
+                    ProximaLlegCliente = filaAnterior["ProximaLlegCliente"];
+                    RND2 = "";
+                    Destino = "";
+                    RND3 = "";
+                    TiempoAtencionVenta = "";
+                    FinCompra = filaAnterior["FinCompra"];
+                    TiempoAtencionEntrega = "";
+                    FinEntrega = filaAnterior["FinEntrega"];
+                    TiempoAtencionRetiro = "";
+                    FinRetiro = filaAnterior["FinRetiro"];
+                    EstadoAyudante = filaAnterior["EstadoAyudante"];
+                    ColaAyudante = int.Parse(filaAnterior["ColaAyudante"]);
+                    InicioOcupacionAyudante = filaAnterior["InicioOcupacionAyudante"];
+                    TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]);
+                    //**********************************
+                }
+
+                //Si el evento es "fin_retiro_reloj"
+                if (Evento.Equals(eventos[4]))
+                {
+                    Reloj = filaAnterior["FinRetiro"];
+
+                    CantRelojesRetirar -= 1;
+
+                    if (int.Parse(filaAnterior["ColaAyudante"]) > 0)
+                    {
+                        EstadoAyudante = filaAnterior["EstadoAyudante"];
+                        ColaAyudante -= 1;
+                        InicioOcupacionAyudante = filaAnterior["InicioOcupacionAyudante"];
+                        TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]);
+                    }
+                    else
+                    {
+                        EstadoAyudante = "Libre";
+
+                        InicioOcupacionAyudante = "";
+                        TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]) + double.Parse(Reloj) - double.Parse(filaAnterior["InicioOcupacionAyudante"]);
+                    }
+
+                    //Operacion del resto de las columnas
+                    RND1 = "";
+                    TiempoEntreLlegCliente = "";
+                    ProximaLlegCliente = filaAnterior["ProximaLlegCliente"];
+                    RND2 = "";
+                    Destino = "";
+                    RND3 = "";
+                    TiempoAtencionVenta = "";
+                    FinCompra = filaAnterior["FinCompra"];
+                    TiempoAtencionEntrega = "";
+                    FinEntrega = filaAnterior["FinEntrega"];
+                    RND4 = "";
+                    TiempoReparacion = "";
+                    FinReparacion = filaAnterior["FinReparacion"];
+                    TiempoAtencionRetiro = "";
+                    FinRetiro = "";
+                    EstadoRelojero = filaAnterior["EstadoRelojero"];
+                    ColaRelojero = int.Parse(filaAnterior["ColaRelojero"]);
+                    InicioOcupacionRelojero = filaAnterior["InicioOcupacionRelojero"];
+                    TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
+                    //**********************************
+                }
+
+                dgvColas.Rows.Add(Evento, Reloj, RND1, TiempoEntreLlegCliente, ProximaLlegCliente, RND2, Destino, RND3, TiempoAtencionVenta, FinCompra, TiempoAtencionEntrega, FinEntrega, RND4, TiempoReparacion, FinReparacion, TiempoAtencionRetiro, FinRetiro, EstadoAyudante, ColaAyudante, EstadoRelojero, ColaRelojero, CantRelojesRetirar, InicioOcupacionAyudante, InicioOcupacionRelojero, TiempoOcupacionAyudante, TiempoOcupacionRelojero, ContadorClientes);
+
+                //ACTUALIZACION DE DICCIONARIO
+                filaAnterior["Evento"] = Evento;
+                filaAnterior["Reloj"] = Reloj;
+                filaAnterior["RND1"] = RND1;
+                filaAnterior["TiempoEntreLlegCliente"] = TiempoEntreLlegCliente;
+                filaAnterior["ProximaLlegCliente"] = ProximaLlegCliente;
+                filaAnterior["RND2"] = RND2;
             }
         }
     }
