@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Datos.cs" />
+    <Compile Include="Clases\Generador.cs" />
     <Compile Include="Forms\Parametros.cs">
       <SubType>Form</SubType>
     </Compile>

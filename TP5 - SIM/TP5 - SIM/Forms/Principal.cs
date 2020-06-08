@@ -51,7 +51,10 @@ namespace TP5___SIM
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
+            Generador oGenerador = new Generador();
+
             double tiempo = oDatos.Tiempo;
+
             int iteraciones = oDatos.Iteraciones;
 
             int desde = oDatos.Desde;
@@ -68,7 +71,189 @@ namespace TP5___SIM
 
             double tiempoRepIni = oDatos.TiempoRelojero;
 
+            double tiempoEntrega = 3;
+            double tiempoRetiro = 3;
+
             List<double> probAcumulada = new List<double>(oDatos.DistProbDestino);
+
+            //FILA DE INICIALIZACION
+
+            Dictionary<string, string> filaAnterior = new Dictionary<string, string>();
+
+            string Evento = "Inicialización";
+            filaAnterior.Add("Evento", Evento);
+
+            string Reloj = "0";
+            filaAnterior.Add("Reloj", Reloj);
+
+            string RND1 = Math.Round(oGenerador.generadorUniforme(),2).ToString();
+            filaAnterior.Add("RND1", RND1.ToString());
+
+            string TiempoEntreLlegCliente = oGenerador.generadorUniforme(llegClienteA, llegClienteB, double.Parse(RND1)).ToString();
+            filaAnterior.Add("TiempoEntreLlegCliente", TiempoEntreLlegCliente.ToString());
+
+            string ProximaLlegCliente = (double.Parse(TiempoEntreLlegCliente) + double.Parse(Reloj)).ToString();
+            filaAnterior.Add("ProximaLlegCliente", ProximaLlegCliente.ToString());
+
+            string RND2 = "";
+            filaAnterior.Add("RND2", RND2);
+
+            string Destino = "";
+            filaAnterior.Add("Destino", Destino);
+
+            string RND3 = "";
+            filaAnterior.Add("RND3", RND3);
+
+            string TiempoAtencionVenta = "";
+            filaAnterior.Add("TiempoAtencionVenta", TiempoAtencionVenta);
+
+            string FinCompra = "";
+            filaAnterior.Add("FinCompra", FinCompra);
+
+            string TiempoAtencionEntrega = "";
+            filaAnterior.Add("TiempoAtencionEntrega", TiempoAtencionEntrega);
+
+            string FinEntrega = "";
+            filaAnterior.Add("FinEntrega", FinEntrega);
+
+            string RND4 = "";
+            filaAnterior.Add("RND4", RND4);
+
+            string TiempoReparacion = "";
+            filaAnterior.Add("TiempoReparacion", TiempoReparacion);
+
+            string FinReparacion = "";
+            filaAnterior.Add("FinReparacion", FinReparacion);
+
+            string TiempoAtencionRetiro = "";
+            filaAnterior.Add("TiempoAtencionRetiro", TiempoAtencionRetiro);
+
+            string FinRetiro = "";
+            filaAnterior.Add("FinRetiro", FinRetiro);
+
+            string EstadoAyudante = "Libre";
+            filaAnterior.Add("EstadoAyudante", EstadoAyudante);
+
+            int ColaAyudante = 0;
+            filaAnterior.Add("ColaAyudante", ColaAyudante.ToString());
+
+            string EstadoRelojero = "Libre";
+            filaAnterior.Add("EstadoRelojero", EstadoRelojero);
+
+            int ColaRelojero = 0;
+            filaAnterior.Add("ColaRelojero", ColaRelojero.ToString());
+
+            int CantRelojesRetirar = 5;
+            filaAnterior.Add("CantRelojesRetirar", CantRelojesRetirar.ToString());
+
+            string InicioOcupacionAyudante = "";
+            filaAnterior.Add("InicioOcupacionAyudante", InicioOcupacionAyudante);
+
+            string InicioOcupacionRelojero = "";
+            filaAnterior.Add("InicioOcupacionRelojero", InicioOcupacionRelojero);
+
+            double TiempoOcupacionAyudante = 0;
+            filaAnterior.Add("TiempoOcupacionAyudante", TiempoOcupacionAyudante.ToString());
+
+            double TiempoOcupacionRelojero = 0;
+            filaAnterior.Add("TiempoOcupacionRelojero", TiempoOcupacionRelojero.ToString());
+
+            dgvColas.Rows.Add(Evento, Reloj, RND1, TiempoEntreLlegCliente, ProximaLlegCliente, RND2, Destino, RND3, TiempoAtencionVenta, FinCompra, TiempoAtencionEntrega, FinEntrega, RND4, TiempoReparacion, FinReparacion, TiempoAtencionRetiro, FinRetiro, EstadoAyudante, ColaAyudante, EstadoRelojero, ColaRelojero, CantRelojesRetirar, InicioOcupacionAyudante, InicioOcupacionRelojero, TiempoOcupacionAyudante, TiempoOcupacionRelojero);
+
+            for (int i = 1; i <= 1 /*|| double.Parse(Reloj) <= tiempo*/; i++)
+            {
+                //**********CALCULO DE EVENTO************
+                Dictionary<string, Double> aComparar = new Dictionary<string, Double>();
+
+                string[] eventos = new string[5];
+                eventos[0] = "llegada_cliente";
+                eventos[1] = "fin_compra";
+                eventos[2] = "fin_entrega_reloj";
+                eventos[3] = "fin_reparacion_reloj";
+                eventos[4] = "fin_retiro_reloj";
+
+                string[] columnas = new string[5];
+                columnas[0] = "ProximaLlegCliente";
+                columnas[1] = "FinCompra";
+                columnas[2] = "FinEntrega";
+                columnas[3] = "FinReparacion";
+                columnas[4] = "FinRetiro";
+
+                for (int j = 0; j < columnas.Count(); j++)
+                {
+                    if (filaAnterior[columnas[j]] != "")
+                    {
+                        string key = columnas[j];
+                        Double value = Convert.ToDouble(filaAnterior[columnas[j]]);
+                        aComparar.Add(key, value);
+                    }
+                }
+
+                var min = aComparar.Aggregate((l, r) => l.Value < r.Value ? l : r).Key;
+
+                int indice = Array.IndexOf(columnas, min);
+
+                //Asignacion de Evento....
+                Evento = eventos[indice];
+
+                //Pregunta si evento es del tipo "llegada_cliente"
+                if (Evento.Equals(eventos[0]))
+                {
+                    Reloj = ProximaLlegCliente;
+
+                    //Calculo de proxima llegada del cliente
+                    RND1 = Math.Round(oGenerador.generadorUniforme(), 2).ToString();
+
+                    TiempoEntreLlegCliente = oGenerador.generadorUniforme(llegClienteA, llegClienteB, double.Parse(RND1)).ToString();
+
+                    ProximaLlegCliente = (double.Parse(TiempoEntreLlegCliente) + double.Parse(Reloj)).ToString();
+
+                    //Calculo del destino del cliente
+                    RND2 = Math.Round(oGenerador.generadorUniforme(), 2).ToString();
+
+                    Destino = compareRandom(double.Parse(RND2), probAcumulada);
+
+                    //Si el destino es "Comprar"
+                    if (Destino.Equals("Comprar"))
+                    {
+                        RND3 = Math.Round(oGenerador.generadorUniforme(), 2).ToString();
+
+                        TiempoAtencionVenta = oGenerador.generadorUniforme(tiempoVentaA, tiempoVentaB, double.Parse(RND3)).ToString();
+
+                        FinCompra = (double.Parse(Reloj) + double.Parse(TiempoAtencionVenta)).ToString();
+
+                        //Ayudante
+                        if (filaAnterior.TryGetValue("EstadoAyudante", out string resultado).Equals("Libre"))
+                        {
+                            EstadoAyudante = "Ocupado";
+                            InicioOcupacionAyudante = Reloj;
+                        }
+                        else
+                        {
+                            ColaAyudante += 1;
+                        }
+                    }
+
+                    //Si el destino es "Entregar Reloj"
+                    if (Destino.Equals("Entregar Reloj"))
+                    {
+                        TiempoAtencionEntrega = tiempoEntrega.ToString();
+
+                        FinEntrega = (double.Parse(Reloj) + double.Parse(TiempoAtencionEntrega)).ToString();
+                    }
+
+                    //Si el destino es "Retirar reloj"
+                    if (Destino.Equals("Retirar Reloj"))
+                    {
+                        TiempoAtencionRetiro = tiempoRetiro.ToString();
+
+                        FinRetiro = (double.Parse(Reloj) + double.Parse(TiempoAtencionRetiro)).ToString();
+                    }
+                }
+
+                dgvColas.Rows.Add(Evento, Reloj, RND1, TiempoEntreLlegCliente, ProximaLlegCliente, RND2, Destino, RND3, TiempoAtencionVenta, FinCompra, TiempoAtencionEntrega, FinEntrega, RND4, TiempoReparacion, FinReparacion, TiempoAtencionRetiro, FinRetiro, EstadoAyudante, ColaAyudante, EstadoRelojero, ColaRelojero, CantRelojesRetirar, InicioOcupacionAyudante, InicioOcupacionRelojero, TiempoOcupacionAyudante, TiempoOcupacionRelojero);
+
+            }
         }
     }
 }
