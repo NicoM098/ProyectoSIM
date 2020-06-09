@@ -260,7 +260,7 @@ namespace TP5___SIM
 
 
         private void finCompra(double tiempoVentaA, double tiempoVentaB, double tiempoEntrega, double tiempoRetiro)
-        {
+         {
             Reloj = filaAnterior["FinCompra"];
 
             if (ColaAyudante > 0)
@@ -298,9 +298,20 @@ namespace TP5___SIM
             {
                 EstadoAyudante = "Libre";
 
-                InicioOcupacionAyudante = "";
+                if (filaAnterior["EstadoAyudante"].Equals("Ocupado"))
+                {
+                    InicioOcupacionAyudante = "";
 
-                TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]) + double.Parse(Reloj) - double.Parse(filaAnterior["InicioOcupacionAyudante"]);
+                    TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]) + double.Parse(Reloj) - double.Parse(filaAnterior["InicioOcupacionAyudante"]);
+                }
+                else
+                {
+                    InicioOcupacionAyudante = "";
+
+                    TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]);
+                }
+
+                
 
                 //Operacion del resto de las columnas
                 ProximaLlegCliente = filaAnterior["ProximaLlegCliente"];
@@ -323,10 +334,25 @@ namespace TP5___SIM
             Reloj = filaAnterior["FinEntrega"];
 
             if (filaAnterior["ColaAyudante"] == "0")
+            
             {
                 EstadoAyudante = "Libre";
-                InicioOcupacionAyudante = "";
-                TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]) + double.Parse(Reloj) - double.Parse(filaAnterior["InicioOcupacionAyudante"]);
+
+                if (filaAnterior["EstadoAyudante"].Equals("Ocupado"))
+                {
+                    InicioOcupacionAyudante = "";
+
+                    TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]) + double.Parse(Reloj) - double.Parse(filaAnterior["InicioOcupacionAyudante"]);
+                }
+                else
+                {
+                    InicioOcupacionAyudante = "";
+
+                    TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]);
+                }
+
+               // InicioOcupacionAyudante = "";
+               // TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]) + double.Parse(Reloj) - double.Parse(filaAnterior["InicioOcupacionAyudante"]);
 
                 //Operacion del resto de las columnas
                 ProximaLlegCliente = filaAnterior["ProximaLlegCliente"];
@@ -396,8 +422,7 @@ namespace TP5___SIM
                 TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
                 //**********************************
             }
-
-            if (filaAnterior["EstadoRelojero"].Equals("Ocupado"))
+           else
             {
                 ColaRelojero += 1;
 
@@ -439,8 +464,18 @@ namespace TP5___SIM
             else
             {
                 EstadoRelojero = "Libre";
-                InicioOcupacionRelojero = Reloj;
-                TiempoOcupacionRelojero = double.Parse(Reloj) + double.Parse(filaAnterior["TiempoOcupacionRelojero"]) - double.Parse(filaAnterior["InicioOcupacionRelojero"]);
+
+                if (filaAnterior["EstadoRelojero"].Equals("Ocupado"))
+                {
+                    InicioOcupacionRelojero = "";
+                    TiempoOcupacionRelojero = double.Parse(Reloj) + double.Parse(filaAnterior["TiempoOcupacionRelojero"]) - double.Parse(filaAnterior["InicioOcupacionRelojero"]);
+                }
+                else
+                {
+                    InicioOcupacionRelojero = "";
+                    TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
+                }
+                
             }
 
             //Operacion del resto de las columnas
@@ -500,8 +535,17 @@ namespace TP5___SIM
             {
                 EstadoAyudante = "Libre";
 
-                InicioOcupacionAyudante = "";
-                TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]) + double.Parse(Reloj) - double.Parse(filaAnterior["InicioOcupacionAyudante"]);
+                if (filaAnterior["EstadoAyudante"].Equals("Ocupado"))
+                {
+                    InicioOcupacionAyudante = "";
+                    TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]) + double.Parse(Reloj) - double.Parse(filaAnterior["InicioOcupacionAyudante"]);
+
+                }
+                else
+                {
+                    InicioOcupacionAyudante = "";
+                    TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]);
+                }
 
                 //Operacion del resto de las columnas
                 ProximaLlegCliente = filaAnterior["ProximaLlegCliente"];
@@ -681,10 +725,10 @@ namespace TP5___SIM
                 FinRetiro = "";
                 EstadoAyudante = "";
                 EstadoRelojero = "";
-                InicioOcupacionAyudante = "";
+               /*InicioOcupacionAyudante = "";
                 InicioOcupacionRelojero = "";
                 TiempoOcupacionAyudante = 0;
-                TiempoOcupacionRelojero = 0;
+                TiempoOcupacionRelojero = 0;*/
 
                 
                 //**********CALCULO DE EVENTO************

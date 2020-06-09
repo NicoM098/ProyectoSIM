@@ -14,7 +14,7 @@ namespace TP4___SIM.Logica
        
         public Almacenamiento()
         {
-            Ruta = "C:\\Hola.csv";
+            Ruta = "C:\\Users\\cr9dv\\Desktop\\Simulacion.csv";
             //Ruta = "C:\\Users\\famil\\Desktop\\Simulacion.csv";
         }
 
