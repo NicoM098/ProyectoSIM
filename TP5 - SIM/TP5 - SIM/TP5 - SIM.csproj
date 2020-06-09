@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\Cliente.cs" />
     <Compile Include="Clases\Datos.cs" />
     <Compile Include="Clases\Generador.cs" />
     <Compile Include="Forms\Parametros.cs">
