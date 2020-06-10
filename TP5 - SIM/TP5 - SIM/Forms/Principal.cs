@@ -62,10 +62,14 @@ namespace TP5___SIM
         public Principal()
         {
             InitializeComponent();
+
+            btnIniciar.Enabled = false;
         }
 
         private void btnParametros_Click(object sender, EventArgs e)
         {
+            btnIniciar.Enabled = true;
+
             Parametros parametros = new Parametros(oDatos);
             parametros.Show();
         }
@@ -964,6 +968,27 @@ namespace TP5___SIM
 
             MessageBox.Show("Ayudante: " + porcOcupacionAyudante.ToString());
             MessageBox.Show("Relojero: " + porcOcupacionRelojero.ToString());
+
+            btnIniciar.Enabled = false;
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            dgvColas.Rows.Clear();
+
+            oDatos = new Datos();
+
+            filaAnterior.Clear();
+
+            oGenerador = new Generador();
+
+            Clientes.Clear();
+
+            colaAyudante.Clear();
+
+            colaAux.Clear();
+
+            btnIniciar.Enabled = true;
         }
     }
 }

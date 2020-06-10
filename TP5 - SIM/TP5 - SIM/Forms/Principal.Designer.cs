@@ -78,12 +78,15 @@
             this.ayudante2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.relojero2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contadorclientes1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.panelTitulo.SuspendLayout();
             this.panelContenedor.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelParametros.SuspendLayout();
             this.panelResultados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvColas)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTitulo
@@ -111,6 +114,7 @@
             // panelContenedor
             // 
             this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
+            this.panelContenedor.Controls.Add(this.panel2);
             this.panelContenedor.Controls.Add(this.panel1);
             this.panelContenedor.Controls.Add(this.panelParametros);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Left;
@@ -480,6 +484,32 @@
             this.contadorclientes1.Name = "contadorclientes1";
             this.contadorclientes1.Width = 161;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(22)))), ((int)(((byte)(21)))));
+            this.panel2.Controls.Add(this.btnLimpiar);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.ForeColor = System.Drawing.Color.Transparent;
+            this.panel2.Location = new System.Drawing.Point(0, 278);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(157, 139);
+            this.panel2.TabIndex = 5;
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(50)))), ((int)(((byte)(32)))));
+            this.btnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnLimpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(102)))), ((int)(((byte)(68)))));
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Sitka Small", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Location = new System.Drawing.Point(0, 0);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(157, 139);
+            this.btnLimpiar.TabIndex = 0;
+            this.btnLimpiar.Text = "Limpiar Campos";
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -498,6 +528,7 @@
             this.panelParametros.ResumeLayout(false);
             this.panelResultados.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvColas)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -540,6 +571,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ayudante2;
         private System.Windows.Forms.DataGridViewTextBoxColumn relojero2;
         private System.Windows.Forms.DataGridViewTextBoxColumn contadorclientes1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }
 
