@@ -64,10 +64,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvDistDestinoCliente = new System.Windows.Forms.DataGridView();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProbabilidadAcum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblDistDestino = new System.Windows.Forms.Label();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Probabilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProbabilidadAcum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -425,7 +425,7 @@
             this.dgvDistDestinoCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDistDestinoCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cantidad,
-            this.Column1,
+            this.Probabilidad,
             this.ProbabilidadAcum});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
@@ -451,7 +451,19 @@
             this.dgvDistDestinoCliente.RowTemplate.Height = 32;
             this.dgvDistDestinoCliente.Size = new System.Drawing.Size(492, 155);
             this.dgvDistDestinoCliente.TabIndex = 81;
+            this.dgvDistDestinoCliente.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvDistDestinoCliente_CellValidating);
             this.dgvDistDestinoCliente.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDistDestinoCliente_CellValueChanged);
+            // 
+            // lblDistDestino
+            // 
+            this.lblDistDestino.AutoSize = true;
+            this.lblDistDestino.Font = new System.Drawing.Font("Sitka Small", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDistDestino.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblDistDestino.Location = new System.Drawing.Point(252, 63);
+            this.lblDistDestino.Name = "lblDistDestino";
+            this.lblDistDestino.Size = new System.Drawing.Size(355, 23);
+            this.lblDistDestino.TabIndex = 83;
+            this.lblDistDestino.Text = "Distribución Probabilidad Destino Cliente:";
             // 
             // cantidad
             // 
@@ -464,15 +476,15 @@
             this.cantidad.ReadOnly = true;
             this.cantidad.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // Column1
+            // Probabilidad
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Probabilidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column1.HeaderText = "Probabilidad";
-            this.Column1.Name = "Column1";
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Probabilidad.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Probabilidad.HeaderText = "Probabilidad";
+            this.Probabilidad.Name = "Probabilidad";
+            this.Probabilidad.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // ProbabilidadAcum
             // 
@@ -484,17 +496,6 @@
             this.ProbabilidadAcum.Name = "ProbabilidadAcum";
             this.ProbabilidadAcum.ReadOnly = true;
             this.ProbabilidadAcum.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // lblDistDestino
-            // 
-            this.lblDistDestino.AutoSize = true;
-            this.lblDistDestino.Font = new System.Drawing.Font("Sitka Small", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDistDestino.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblDistDestino.Location = new System.Drawing.Point(252, 63);
-            this.lblDistDestino.Name = "lblDistDestino";
-            this.lblDistDestino.Size = new System.Drawing.Size(355, 23);
-            this.lblDistDestino.TabIndex = 83;
-            this.lblDistDestino.Text = "Distribución Probabilidad Destino Cliente:";
             // 
             // Parametros
             // 
@@ -571,7 +572,7 @@
         private System.Windows.Forms.DataGridView dgvDistDestinoCliente;
         private System.Windows.Forms.Label lblDistDestino;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Probabilidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProbabilidadAcum;
     }
 }

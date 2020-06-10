@@ -45,11 +45,18 @@
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnIniciar = new System.Windows.Forms.Button();
             this.panelParametros = new System.Windows.Forms.Panel();
             this.btnParametros = new System.Windows.Forms.Button();
             this.panelResultados = new System.Windows.Forms.Panel();
+            this.gbEstadisticas = new System.Windows.Forms.GroupBox();
+            this.lblTOPR = new System.Windows.Forms.Label();
+            this.lblTiempo = new System.Windows.Forms.Label();
+            this.lblTOAyu = new System.Windows.Forms.Label();
+            this.lblTORel = new System.Windows.Forms.Label();
             this.dgvColas = new System.Windows.Forms.DataGridView();
             this.evento1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reloj1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,15 +85,15 @@
             this.ayudante2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.relojero2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contadorclientes1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.lblTOPA = new System.Windows.Forms.Label();
             this.panelTitulo.SuspendLayout();
             this.panelContenedor.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelParametros.SuspendLayout();
             this.panelResultados.SuspendLayout();
+            this.gbEstadisticas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvColas)).BeginInit();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTitulo
@@ -121,8 +128,34 @@
             this.panelContenedor.ForeColor = System.Drawing.SystemColors.Control;
             this.panelContenedor.Location = new System.Drawing.Point(0, 58);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(157, 623);
+            this.panelContenedor.Size = new System.Drawing.Size(157, 729);
             this.panelContenedor.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(22)))), ((int)(((byte)(21)))));
+            this.panel2.Controls.Add(this.btnLimpiar);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.ForeColor = System.Drawing.Color.Transparent;
+            this.panel2.Location = new System.Drawing.Point(0, 278);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(157, 139);
+            this.panel2.TabIndex = 5;
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(50)))), ((int)(((byte)(32)))));
+            this.btnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnLimpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(102)))), ((int)(((byte)(68)))));
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Sitka Small", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Location = new System.Drawing.Point(0, 0);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(157, 139);
+            this.btnLimpiar.TabIndex = 0;
+            this.btnLimpiar.Text = "Limpiar Campos";
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // panel1
             // 
@@ -177,12 +210,72 @@
             // panelResultados
             // 
             this.panelResultados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(38)))));
+            this.panelResultados.Controls.Add(this.gbEstadisticas);
             this.panelResultados.Controls.Add(this.dgvColas);
             this.panelResultados.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelResultados.Location = new System.Drawing.Point(157, 58);
             this.panelResultados.Name = "panelResultados";
-            this.panelResultados.Size = new System.Drawing.Size(1187, 623);
+            this.panelResultados.Size = new System.Drawing.Size(1187, 729);
             this.panelResultados.TabIndex = 2;
+            // 
+            // gbEstadisticas
+            // 
+            this.gbEstadisticas.Controls.Add(this.lblTOPA);
+            this.gbEstadisticas.Controls.Add(this.lblTOPR);
+            this.gbEstadisticas.Controls.Add(this.lblTiempo);
+            this.gbEstadisticas.Controls.Add(this.lblTOAyu);
+            this.gbEstadisticas.Controls.Add(this.lblTORel);
+            this.gbEstadisticas.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Bold);
+            this.gbEstadisticas.ForeColor = System.Drawing.SystemColors.Control;
+            this.gbEstadisticas.Location = new System.Drawing.Point(6, 627);
+            this.gbEstadisticas.Name = "gbEstadisticas";
+            this.gbEstadisticas.Size = new System.Drawing.Size(1169, 73);
+            this.gbEstadisticas.TabIndex = 86;
+            this.gbEstadisticas.TabStop = false;
+            this.gbEstadisticas.Text = "Estadísticas";
+            // 
+            // lblTOPR
+            // 
+            this.lblTOPR.AutoSize = true;
+            this.lblTOPR.Font = new System.Drawing.Font("Sitka Small", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTOPR.ForeColor = System.Drawing.Color.Red;
+            this.lblTOPR.Location = new System.Drawing.Point(908, 23);
+            this.lblTOPR.Name = "lblTOPR";
+            this.lblTOPR.Size = new System.Drawing.Size(19, 28);
+            this.lblTOPR.TabIndex = 87;
+            this.lblTOPR.Text = ".";
+            // 
+            // lblTiempo
+            // 
+            this.lblTiempo.AutoSize = true;
+            this.lblTiempo.Font = new System.Drawing.Font("Sitka Small", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTiempo.ForeColor = System.Drawing.Color.Red;
+            this.lblTiempo.Location = new System.Drawing.Point(361, 32);
+            this.lblTiempo.Name = "lblTiempo";
+            this.lblTiempo.Size = new System.Drawing.Size(0, 23);
+            this.lblTiempo.TabIndex = 86;
+            // 
+            // lblTOAyu
+            // 
+            this.lblTOAyu.AutoSize = true;
+            this.lblTOAyu.Font = new System.Drawing.Font("Sitka Small", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTOAyu.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblTOAyu.Location = new System.Drawing.Point(6, 32);
+            this.lblTOAyu.Name = "lblTOAyu";
+            this.lblTOAyu.Size = new System.Drawing.Size(349, 23);
+            this.lblTOAyu.TabIndex = 84;
+            this.lblTOAyu.Text = "Tiempo de ocupación Promedio Ayudante:";
+            // 
+            // lblTORel
+            // 
+            this.lblTORel.AutoSize = true;
+            this.lblTORel.Font = new System.Drawing.Font("Sitka Small", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTORel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblTORel.Location = new System.Drawing.Point(559, 32);
+            this.lblTORel.Name = "lblTORel";
+            this.lblTORel.Size = new System.Drawing.Size(343, 23);
+            this.lblTORel.TabIndex = 85;
+            this.lblTORel.Text = "Tiempo de ocupación Promedio Relojero:";
             // 
             // dgvColas
             // 
@@ -239,7 +332,7 @@
             this.dgvColas.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvColas.EnableHeadersVisualStyles = false;
             this.dgvColas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(38)))));
-            this.dgvColas.Location = new System.Drawing.Point(0, 0);
+            this.dgvColas.Location = new System.Drawing.Point(-3, 0);
             this.dgvColas.Name = "dgvColas";
             this.dgvColas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -484,37 +577,22 @@
             this.contadorclientes1.Name = "contadorclientes1";
             this.contadorclientes1.Width = 161;
             // 
-            // panel2
+            // lblTOPA
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(22)))), ((int)(((byte)(21)))));
-            this.panel2.Controls.Add(this.btnLimpiar);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.ForeColor = System.Drawing.Color.Transparent;
-            this.panel2.Location = new System.Drawing.Point(0, 278);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(157, 139);
-            this.panel2.TabIndex = 5;
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(50)))), ((int)(((byte)(32)))));
-            this.btnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnLimpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(102)))), ((int)(((byte)(68)))));
-            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiar.Font = new System.Drawing.Font("Sitka Small", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(0, 0);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(157, 139);
-            this.btnLimpiar.TabIndex = 0;
-            this.btnLimpiar.Text = "Limpiar Campos";
-            this.btnLimpiar.UseVisualStyleBackColor = false;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            this.lblTOPA.AutoSize = true;
+            this.lblTOPA.Font = new System.Drawing.Font("Sitka Small", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTOPA.ForeColor = System.Drawing.Color.Red;
+            this.lblTOPA.Location = new System.Drawing.Point(361, 23);
+            this.lblTOPA.Name = "lblTOPA";
+            this.lblTOPA.Size = new System.Drawing.Size(19, 28);
+            this.lblTOPA.TabIndex = 88;
+            this.lblTOPA.Text = ".";
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1344, 681);
+            this.ClientSize = new System.Drawing.Size(1344, 787);
             this.Controls.Add(this.panelResultados);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.panelTitulo);
@@ -524,11 +602,13 @@
             this.panelTitulo.ResumeLayout(false);
             this.panelTitulo.PerformLayout();
             this.panelContenedor.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panelParametros.ResumeLayout(false);
             this.panelResultados.ResumeLayout(false);
+            this.gbEstadisticas.ResumeLayout(false);
+            this.gbEstadisticas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvColas)).EndInit();
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -573,6 +653,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn contadorclientes1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.GroupBox gbEstadisticas;
+        private System.Windows.Forms.Label lblTOAyu;
+        private System.Windows.Forms.Label lblTORel;
+        private System.Windows.Forms.Label lblTOPR;
+        private System.Windows.Forms.Label lblTiempo;
+        private System.Windows.Forms.Label lblTOPA;
     }
 }
 

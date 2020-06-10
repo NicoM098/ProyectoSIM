@@ -966,8 +966,11 @@ namespace TP5___SIM
 
             double porcOcupacionRelojero = ((TiempoOcupacionRelojero - tiempoRelojeroIni) * 100f) / double.Parse(Reloj);
 
-            MessageBox.Show("Ayudante: " + porcOcupacionAyudante.ToString());
-            MessageBox.Show("Relojero: " + porcOcupacionRelojero.ToString());
+         
+
+            lblTOPA.Text = (Math.Round(porcOcupacionAyudante,2)).ToString();
+            lblTOPR.Text = (Math.Round(porcOcupacionRelojero,2)).ToString();
+
 
             btnIniciar.Enabled = false;
         }
@@ -990,5 +993,7 @@ namespace TP5___SIM
 
             btnIniciar.Enabled = true;
         }
+
+       
     }
 }

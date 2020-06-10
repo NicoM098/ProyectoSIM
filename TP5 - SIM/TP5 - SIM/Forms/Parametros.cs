@@ -87,7 +87,7 @@ namespace TP5___SIM
             {
                 MessageBox.Show("Ingrese todos los parámetros correctamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            
+
         }
 
 
@@ -227,5 +227,26 @@ namespace TP5___SIM
         {
             validarDouble(sender, e);
         }
+
+        private void dgvDistDestinoCliente_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            if (e.ColumnIndex == dgvDistDestinoCliente.Columns["Probabilidad"].Index)
+            {
+                dgvDistDestinoCliente.Rows[e.RowIndex].ErrorText = "";
+                double newDouble;
+
+                // Don't try to validate the 'new row' until finished  
+                // editing since there 
+                // is not any point in validating its initial value. 
+                if (dgvDistDestinoCliente.Rows[e.RowIndex].IsNewRow) { return; }
+                if (!double.TryParse(e.FormattedValue.ToString(),
+                    out newDouble) || newDouble < 0)
+                {
+                    e.Cancel = true;
+                    dgvDistDestinoCliente.Rows[e.RowIndex].ErrorText = "El valor debe ser un numero positivo";
+                }
+            }
+        }
     }
 }
+
