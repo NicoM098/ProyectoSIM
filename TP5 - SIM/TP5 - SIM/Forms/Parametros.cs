@@ -34,6 +34,19 @@ namespace TP5___SIM
         }
 
 
+        private bool ValidarDesdeHasta()
+        {
+            if ((double.Parse(txtTiempoVentaA.Text) < double.Parse(txtTiempoVentaB.Text)) && (double.Parse(txtTiempoRepA.Text) < double.Parse(txtTiempoRepB.Text)) && (double.Parse(txtLlegadaA.Text) < double.Parse(txtLlegadaB.Text)))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
         private void btnCargar_Click(object sender, EventArgs e)
         {
             if (ValidarCampos())
@@ -72,7 +85,7 @@ namespace TP5___SIM
             }
             else
             {
-                MessageBox.Show("Ingrese todos los parámetros requeridos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ingrese todos los parámetros correctamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             
         }
@@ -84,6 +97,11 @@ namespace TP5___SIM
             {
                 return false;
             }
+            else if (ValidarDesdeHasta() == false)
+            {
+                return false;
+            }
+
             return true;
         }
 
@@ -123,6 +141,7 @@ namespace TP5___SIM
             txtTiempoRepA.Text = "";
             txtTiempoRepB.Text = "";
             txtInicialRep.Text = "";
+
 
             CargarTabla();
 

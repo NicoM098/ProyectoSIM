@@ -213,7 +213,6 @@ namespace TP5___SIM
 
                         InicioOcupacionAyudante = filaAnterior["InicioOcupacionAyudante"];
 
-                        ProximaLlegCliente = filaAnterior["ProximaLlegCliente"];
                         FinCompra = filaAnterior["FinCompra"];
                         FinEntrega = filaAnterior["FinEntrega"];
                         FinReparacion = filaAnterior["FinReparacion"];
