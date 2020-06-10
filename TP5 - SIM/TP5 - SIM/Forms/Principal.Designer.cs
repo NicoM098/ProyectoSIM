@@ -41,20 +41,20 @@
             this.btnParametros = new System.Windows.Forms.Button();
             this.panelResultados = new System.Windows.Forms.Panel();
             this.dgvColas = new System.Windows.Forms.DataGridView();
-            this.evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.evento1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reloj1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tiempoEntreLlegadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.proxLlegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rndDestino = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.destino = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.destino1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tiempoAtencion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finServicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tiempoAtencion2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finServicio2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempoReparacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempoRepa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finServicio4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tiempoAtencion3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finServicio3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,7 +67,7 @@
             this.relojero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ayudante2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.relojero2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contadorClientes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contadorclientes1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTitulo.SuspendLayout();
             this.panelContenedor.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -189,20 +189,20 @@
             this.dgvColas.ColumnHeadersHeight = 80;
             this.dgvColas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvColas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.evento,
-            this.reloj,
-            this.rnd1,
+            this.evento1,
+            this.reloj1,
+            this.rnd11,
             this.tiempoEntreLlegadas,
             this.proxLlegada,
             this.rndDestino,
-            this.destino,
-            this.rnd2,
+            this.destino1,
+            this.rnd22,
             this.tiempoAtencion,
             this.finServicio,
             this.tiempoAtencion2,
             this.finServicio2,
-            this.rnd4,
-            this.tiempoReparacion,
+            this.rnd33,
+            this.tiempoRepa,
             this.finServicio4,
             this.tiempoAtencion3,
             this.finServicio3,
@@ -215,7 +215,7 @@
             this.relojero,
             this.ayudante2,
             this.relojero2,
-            this.contadorClientes});
+            this.contadorclientes1});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlDark;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -241,40 +241,34 @@
             this.dgvColas.Size = new System.Drawing.Size(1187, 623);
             this.dgvColas.TabIndex = 82;
             // 
-            // evento
+            // evento1
             // 
-            this.evento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.evento.HeaderText = "Evento";
-            this.evento.Name = "evento";
-            this.evento.Width = 89;
+            this.evento1.HeaderText = "Evento";
+            this.evento1.Name = "evento1";
             // 
-            // reloj
+            // reloj1
             // 
-            this.reloj.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.reloj.HeaderText = "Reloj";
-            this.reloj.Name = "reloj";
-            this.reloj.Width = 75;
+            this.reloj1.HeaderText = "Reloj";
+            this.reloj1.Name = "reloj1";
             // 
-            // rnd1
+            // rnd11
             // 
-            this.rnd1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.rnd1.HeaderText = "RND";
-            this.rnd1.Name = "rnd1";
-            this.rnd1.Width = 68;
+            this.rnd11.HeaderText = "RND";
+            this.rnd11.Name = "rnd11";
             // 
             // tiempoEntreLlegadas
             // 
             this.tiempoEntreLlegadas.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.tiempoEntreLlegadas.HeaderText = "Tiempo entre llegadas";
+            this.tiempoEntreLlegadas.HeaderText = "Tiempo entre llegadas Cliente";
             this.tiempoEntreLlegadas.Name = "tiempoEntreLlegadas";
-            this.tiempoEntreLlegadas.Width = 133;
+            this.tiempoEntreLlegadas.Width = 147;
             // 
             // proxLlegada
             // 
             this.proxLlegada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.proxLlegada.HeaderText = "Proxima llegada";
+            this.proxLlegada.HeaderText = "Proxima llegada Cliente";
             this.proxLlegada.Name = "proxLlegada";
-            this.proxLlegada.Width = 148;
+            this.proxLlegada.Width = 139;
             // 
             // rndDestino
             // 
@@ -283,103 +277,95 @@
             this.rndDestino.Name = "rndDestino";
             this.rndDestino.Width = 123;
             // 
-            // destino
+            // destino1
             // 
-            this.destino.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.destino.HeaderText = "Destino";
-            this.destino.Name = "destino";
-            this.destino.Width = 95;
+            this.destino1.HeaderText = "Destino";
+            this.destino1.Name = "destino1";
             // 
-            // rnd2
+            // rnd22
             // 
-            this.rnd2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.rnd2.HeaderText = "RND";
-            this.rnd2.Name = "rnd2";
-            this.rnd2.Width = 68;
+            this.rnd22.HeaderText = "RND";
+            this.rnd22.Name = "rnd22";
             // 
             // tiempoAtencion
             // 
             this.tiempoAtencion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.tiempoAtencion.HeaderText = "Tiempo de Atencion";
+            this.tiempoAtencion.HeaderText = "Tiempo de Atencion Compra";
             this.tiempoAtencion.Name = "tiempoAtencion";
-            this.tiempoAtencion.Width = 112;
+            this.tiempoAtencion.Width = 156;
             // 
             // finServicio
             // 
             this.finServicio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.finServicio.HeaderText = "Fin Servicio";
+            this.finServicio.HeaderText = "Fin Compra";
             this.finServicio.Name = "finServicio";
-            this.finServicio.Width = 119;
+            this.finServicio.Width = 115;
             // 
             // tiempoAtencion2
             // 
             this.tiempoAtencion2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.tiempoAtencion2.HeaderText = "Tiempo de Atencion";
+            this.tiempoAtencion2.HeaderText = "Tiempo de Atencion Entrega";
             this.tiempoAtencion2.Name = "tiempoAtencion2";
-            this.tiempoAtencion2.Width = 112;
+            this.tiempoAtencion2.Width = 157;
             // 
             // finServicio2
             // 
             this.finServicio2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.finServicio2.HeaderText = "Fin Servicio";
+            this.finServicio2.HeaderText = "Fin Entrega Reloj";
             this.finServicio2.Name = "finServicio2";
-            this.finServicio2.Width = 119;
+            this.finServicio2.Width = 121;
             // 
-            // rnd4
+            // rnd33
             // 
-            this.rnd4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.rnd4.HeaderText = "RND";
-            this.rnd4.Name = "rnd4";
-            this.rnd4.Width = 68;
+            this.rnd33.HeaderText = "RND";
+            this.rnd33.Name = "rnd33";
             // 
-            // tiempoReparacion
+            // tiempoRepa
             // 
-            this.tiempoReparacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.tiempoReparacion.HeaderText = "Tiempo Reparacion";
-            this.tiempoReparacion.Name = "tiempoReparacion";
-            this.tiempoReparacion.Width = 171;
+            this.tiempoRepa.HeaderText = "Tiempo Reparacion";
+            this.tiempoRepa.Name = "tiempoRepa";
             // 
             // finServicio4
             // 
             this.finServicio4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.finServicio4.HeaderText = "Fin Servicio";
+            this.finServicio4.HeaderText = "Fin Reparacion Reloj";
             this.finServicio4.Name = "finServicio4";
-            this.finServicio4.Width = 119;
+            this.finServicio4.Width = 145;
             // 
             // tiempoAtencion3
             // 
             this.tiempoAtencion3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.tiempoAtencion3.HeaderText = "Tiempo de Atencion";
+            this.tiempoAtencion3.HeaderText = "Tiempo de Atencion Retiro";
             this.tiempoAtencion3.Name = "tiempoAtencion3";
-            this.tiempoAtencion3.Width = 112;
+            this.tiempoAtencion3.Width = 146;
             // 
             // finServicio3
             // 
             this.finServicio3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.finServicio3.HeaderText = "Fin Servicio";
+            this.finServicio3.HeaderText = "Fin Retiro";
             this.finServicio3.Name = "finServicio3";
-            this.finServicio3.Width = 119;
+            this.finServicio3.Width = 105;
             // 
             // estado
             // 
             this.estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.estado.HeaderText = "Estado";
+            this.estado.HeaderText = "Estado Ayudante";
             this.estado.Name = "estado";
-            this.estado.Width = 88;
+            this.estado.Width = 153;
             // 
             // cola
             // 
             this.cola.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.cola.HeaderText = "Cola";
+            this.cola.HeaderText = "Cola Ayudante";
             this.cola.Name = "cola";
-            this.cola.Width = 68;
+            this.cola.Width = 135;
             // 
             // estado2
             // 
             this.estado2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.estado2.HeaderText = "Estado";
+            this.estado2.HeaderText = "Estado Relojero";
             this.estado2.Name = "estado2";
-            this.estado2.Width = 88;
+            this.estado2.Width = 148;
             // 
             // colaRelojesReparar
             // 
@@ -423,12 +409,10 @@
             this.relojero2.Name = "relojero2";
             this.relojero2.Width = 169;
             // 
-            // contadorClientes
+            // contadorclientes1
             // 
-            this.contadorClientes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.contadorClientes.HeaderText = "Contador Clientes";
-            this.contadorClientes.Name = "contadorClientes";
-            this.contadorClientes.Width = 161;
+            this.contadorclientes1.HeaderText = "Contador Clientes";
+            this.contadorclientes1.Name = "contadorclientes1";
             // 
             // Principal
             // 
@@ -463,20 +447,20 @@
         private System.Windows.Forms.DataGridView dgvColas;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnIniciar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn evento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reloj;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rnd1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn evento1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reloj1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rnd11;
         private System.Windows.Forms.DataGridViewTextBoxColumn tiempoEntreLlegadas;
         private System.Windows.Forms.DataGridViewTextBoxColumn proxLlegada;
         private System.Windows.Forms.DataGridViewTextBoxColumn rndDestino;
-        private System.Windows.Forms.DataGridViewTextBoxColumn destino;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rnd2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn destino1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rnd22;
         private System.Windows.Forms.DataGridViewTextBoxColumn tiempoAtencion;
         private System.Windows.Forms.DataGridViewTextBoxColumn finServicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn tiempoAtencion2;
         private System.Windows.Forms.DataGridViewTextBoxColumn finServicio2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rnd4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tiempoReparacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rnd33;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiempoRepa;
         private System.Windows.Forms.DataGridViewTextBoxColumn finServicio4;
         private System.Windows.Forms.DataGridViewTextBoxColumn tiempoAtencion3;
         private System.Windows.Forms.DataGridViewTextBoxColumn finServicio3;
@@ -489,7 +473,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn relojero;
         private System.Windows.Forms.DataGridViewTextBoxColumn ayudante2;
         private System.Windows.Forms.DataGridViewTextBoxColumn relojero2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contadorClientes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contadorclientes1;
     }
 }
 

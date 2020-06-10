@@ -177,32 +177,38 @@ namespace TP5___SIM
                     cli.Estado = "AER";
                 }
 
+                EstadoAyudante = "Ocupado";
+
+                InicioOcupacionAyudante = Reloj;
 
                 //Si el destino es "Retirar reloj"
                 if (Destino.Equals("Retirar Reloj"))
                 {
-                    destinoRetirar(tiempoRetiro);
+                    if (CantRelojesRetirar > 0)
+                    {
+                        destinoRetirar(tiempoRetiro);
 
-                    //Columnas que se mantienen
-                    FinCompra = filaAnterior["FinCompra"];
-                    FinEntrega = filaAnterior["FinEntrega"];
-                    FinReparacion = filaAnterior["FinReparacion"];
+                        //Columnas que se mantienen
+                        FinCompra = filaAnterior["FinCompra"];
+                        FinEntrega = filaAnterior["FinEntrega"];
+                        FinReparacion = filaAnterior["FinReparacion"];
 
-                    //ESTADO CLIENTE
-                    cli.Estado = "ARR";
+                        //ESTADO CLIENTE
+                        cli.Estado = "ARR";
+                    }
+                    else
+                    {
+                        EstadoAyudante = "Libre";
+
+                        InicioOcupacionAyudante = filaAnterior["InicioOcupacionAyudante"];
+                    } 
                 }
 
-                EstadoAyudante = "Ocupado";
-
                 ColaAyudante = 0;
-
-                InicioOcupacionAyudante = Reloj;
             }
 
             if (filaAnterior["EstadoAyudante"].Equals("Ocupado"))
             {
-                ColaAyudante += 1;
-
                 if (Destino.Equals("Comprar"))
                 {
                     cli.Estado = "EAC";
@@ -211,12 +217,17 @@ namespace TP5___SIM
                 {
                     cli.Estado = "EAE";
                 }
-                else if (Destino.Equals("Retirar Reloj"))
+                else if (Destino.Equals("Retirar Reloj") && CantRelojesRetirar > 0)
                 {
                     cli.Estado = "ERR";
                 }
 
-                colaAyudante.Add(cli);
+                if (!(Destino.Equals("Retirar Reloj") && CantRelojesRetirar == 0))
+                {
+                    colaAyudante.Add(cli);
+
+                    ColaAyudante += 1;
+                }
 
                 //Operacion del resto de las columnas
                 FinCompra = filaAnterior["FinCompra"];
@@ -569,6 +580,7 @@ namespace TP5___SIM
 
 
 
+
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             Generador oGenerador = new Generador();
@@ -654,6 +666,7 @@ namespace TP5___SIM
 
              EstadoAyudante = "Libre";
             filaAnterior.Add("EstadoAyudante", EstadoAyudante);
+
              ColaAyudante = 0;
             filaAnterior.Add("ColaAyudante", ColaAyudante.ToString());
 
@@ -710,7 +723,7 @@ namespace TP5___SIM
                 ContadorClientes);
 
 
-            for (int i = 1; i <= 30 /*|| double.Parse(Reloj) <= tiempo*/; i++)
+            for (int i = 1; i <= 10 /*|| double.Parse(Reloj) <= tiempo*/; i++)
             {
                 //LIMPIEZA DE VARIABLES
                 Evento = "";
@@ -803,9 +816,14 @@ namespace TP5___SIM
 
                 dgvColas.Rows.Add(Evento, Reloj, RND1, TiempoEntreLlegCliente, ProximaLlegCliente, RND2, Destino, RND3, TiempoAtencionVenta, FinCompra, TiempoAtencionEntrega, FinEntrega, RND4, TiempoReparacion, FinReparacion, TiempoAtencionRetiro, FinRetiro, EstadoAyudante, ColaAyudante, EstadoRelojero, ColaRelojero, CantRelojesRetirar, InicioOcupacionAyudante, InicioOcupacionRelojero, TiempoOcupacionAyudante, TiempoOcupacionRelojero, ContadorClientes);
 
-                Cliente temp = (Cliente)Clientes[nroOrdenCliente];
-                
-                dgvColas.Rows[dgvColas.Rows.Count - 1].Cells["cliente" + nroOrdenCliente.ToString()].Value = temp.Estado;
+                int cantFilas = dgvColas.Rows.Count - 1;
+
+                foreach (DictionaryEntry item in Clientes)
+                {
+                    Cliente aux = (Cliente)item.Value;
+
+                    dgvColas.Rows[dgvColas.Rows.Count - 1].Cells["cliente" + aux.Id.ToString()].Value = aux.Estado;
+                }
 
 
                 //ACTUALIZACION DE DICCIONARIO
