@@ -166,12 +166,12 @@ namespace TP5___SIM
 
         private void txtDesde_KeyPress(object sender, KeyPressEventArgs e)
         {
-            validarEntero(sender, e);
+            validarDouble(sender, e);
         }
 
         private void txtHasta_KeyPress(object sender, KeyPressEventArgs e)
         {
-            validarDouble(sender, e);
+            validarEntero(sender, e);
         }
 
         private void txtLlegadaA_KeyPress(object sender, KeyPressEventArgs e)

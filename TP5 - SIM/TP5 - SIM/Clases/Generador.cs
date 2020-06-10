@@ -21,7 +21,11 @@ namespace TP5___SIM.Clases
 
             if (random == 0)
             {
-                random = 0.0001;
+                random = 0.01;
+            }
+            if (random == 1)
+            {
+                random = 0.99;
             }
             return random;
         }

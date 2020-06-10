@@ -243,18 +243,24 @@
             // 
             // evento1
             // 
+            this.evento1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.evento1.HeaderText = "Evento";
             this.evento1.Name = "evento1";
+            this.evento1.Width = 89;
             // 
             // reloj1
             // 
+            this.reloj1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.reloj1.HeaderText = "Reloj";
             this.reloj1.Name = "reloj1";
+            this.reloj1.Width = 75;
             // 
             // rnd11
             // 
+            this.rnd11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.rnd11.HeaderText = "RND";
             this.rnd11.Name = "rnd11";
+            this.rnd11.Width = 68;
             // 
             // tiempoEntreLlegadas
             // 
@@ -279,13 +285,17 @@
             // 
             // destino1
             // 
+            this.destino1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.destino1.HeaderText = "Destino";
             this.destino1.Name = "destino1";
+            this.destino1.Width = 95;
             // 
             // rnd22
             // 
+            this.rnd22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.rnd22.HeaderText = "RND";
             this.rnd22.Name = "rnd22";
+            this.rnd22.Width = 68;
             // 
             // tiempoAtencion
             // 
@@ -317,13 +327,17 @@
             // 
             // rnd33
             // 
+            this.rnd33.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.rnd33.HeaderText = "RND";
             this.rnd33.Name = "rnd33";
+            this.rnd33.Width = 68;
             // 
             // tiempoRepa
             // 
+            this.tiempoRepa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.tiempoRepa.HeaderText = "Tiempo Reparacion";
             this.tiempoRepa.Name = "tiempoRepa";
+            this.tiempoRepa.Width = 171;
             // 
             // finServicio4
             // 
@@ -411,8 +425,10 @@
             // 
             // contadorclientes1
             // 
+            this.contadorclientes1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.contadorclientes1.HeaderText = "Contador Clientes";
             this.contadorclientes1.Name = "contadorclientes1";
+            this.contadorclientes1.Width = 161;
             // 
             // Principal
             // 

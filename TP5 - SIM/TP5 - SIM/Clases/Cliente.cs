@@ -13,6 +13,7 @@ namespace TP5___SIM.Clases
 
         public Cliente()
         {
+            estado = "";
         }
 
         public Cliente(int id, string estado)
