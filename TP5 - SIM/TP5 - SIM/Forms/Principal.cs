@@ -90,6 +90,7 @@ namespace TP5___SIM
         }
 
 
+
         private void destinoComprar(double tiempoVentaA, double tiempoVentaB)
         {
             RND3 = Math.Round(oGenerador.generadorUniforme(), 2).ToString();
@@ -97,19 +98,8 @@ namespace TP5___SIM
             TiempoAtencionVenta = oGenerador.generadorUniforme(tiempoVentaA, tiempoVentaB, double.Parse(RND3)).ToString();
 
             FinCompra = (double.Parse(Reloj) + double.Parse(TiempoAtencionVenta)).ToString();
-
-            //Operacion del resto de las columnas
-            FinEntrega = filaAnterior["FinEntrega"];
-            FinReparacion = filaAnterior["FinReparacion"];
-            FinRetiro = filaAnterior["FinRetiro"];
-            EstadoRelojero = filaAnterior["EstadoRelojero"];
-            ColaRelojero = int.Parse(filaAnterior["ColaRelojero"]);
-            CantRelojesRetirar = int.Parse(filaAnterior["CantRelojesRetirar"]);
-            InicioOcupacionRelojero = filaAnterior["InicioOcupacionRelojero"];
-            TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]);
-            TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
-            //**********************************
         }
+
 
 
         private void destinoEntregar(double tiempoEntrega)
@@ -117,19 +107,8 @@ namespace TP5___SIM
             TiempoAtencionEntrega = tiempoEntrega.ToString();
 
             FinEntrega = (double.Parse(Reloj) + double.Parse(TiempoAtencionEntrega)).ToString();
-
-            //Operacion del resto de las columnas
-            FinCompra = filaAnterior["FinCompra"];
-            FinReparacion = filaAnterior["FinReparacion"];
-            FinRetiro = filaAnterior["FinRetiro"];
-            EstadoRelojero = filaAnterior["EstadoRelojero"];
-            ColaRelojero = int.Parse(filaAnterior["ColaRelojero"]);
-            CantRelojesRetirar = int.Parse(filaAnterior["CantRelojesRetirar"]);
-            InicioOcupacionRelojero = filaAnterior["InicioOcupacionRelojero"];
-            TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]);
-            TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
-            //**********************************
         }
+
 
 
         private void destinoRetirar(double tiempoRetiro)
@@ -137,19 +116,8 @@ namespace TP5___SIM
             TiempoAtencionRetiro = tiempoRetiro.ToString();
 
             FinRetiro = (double.Parse(Reloj) + double.Parse(TiempoAtencionRetiro)).ToString();
-
-            //Operacion del resto de las columnas
-            FinCompra = filaAnterior["FinCompra"];
-            FinEntrega = filaAnterior["FinEntrega"];
-            FinReparacion = filaAnterior["FinReparacion"];
-            EstadoRelojero = filaAnterior["EstadoRelojero"];
-            ColaRelojero = int.Parse(filaAnterior["ColaRelojero"]);
-            CantRelojesRetirar = int.Parse(filaAnterior["CantRelojesRetirar"]);
-            InicioOcupacionRelojero = filaAnterior["InicioOcupacionRelojero"];
-            TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]);
-            TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
-            //**********************************
         }
+
 
 
         private void llegadaCliente(double llegClienteA, double llegClienteB, List<double> probAcumulada, double tiempoVentaA, double tiempoVentaB, double tiempoRetiro, double tiempoEntrega)
@@ -185,6 +153,11 @@ namespace TP5___SIM
                 {
                     destinoComprar(tiempoVentaA, tiempoVentaB);
 
+                    //Columnas que se mantienen
+                    FinEntrega = filaAnterior["FinEntrega"];
+                    FinReparacion = filaAnterior["FinReparacion"];
+                    FinRetiro = filaAnterior["FinRetiro"];
+
                     //ESTADO CLIENTE
                     cli.Estado = "AC";
                 }
@@ -195,6 +168,11 @@ namespace TP5___SIM
                 {
                     destinoEntregar(tiempoEntrega);
 
+                    //Columnas que se mantienen
+                    FinCompra = filaAnterior["FinCompra"];
+                    FinReparacion = filaAnterior["FinReparacion"];
+                    FinRetiro = filaAnterior["FinRetiro"];
+
                     //ESTADO CLIENTE
                     cli.Estado = "AER";
                 }
@@ -204,6 +182,11 @@ namespace TP5___SIM
                 if (Destino.Equals("Retirar Reloj"))
                 {
                     destinoRetirar(tiempoRetiro);
+
+                    //Columnas que se mantienen
+                    FinCompra = filaAnterior["FinCompra"];
+                    FinEntrega = filaAnterior["FinEntrega"];
+                    FinReparacion = filaAnterior["FinReparacion"];
 
                     //ESTADO CLIENTE
                     cli.Estado = "ARR";
@@ -241,12 +224,6 @@ namespace TP5___SIM
                 FinReparacion = filaAnterior["FinReparacion"];
                 FinRetiro = filaAnterior["FinRetiro"];
                 EstadoAyudante = filaAnterior["EstadoAyudante"];
-                EstadoRelojero = filaAnterior["EstadoRelojero"];
-                ColaRelojero = int.Parse(filaAnterior["ColaRelojero"]);
-                CantRelojesRetirar = int.Parse(filaAnterior["CantRelojesRetirar"]);
-                InicioOcupacionRelojero = filaAnterior["InicioOcupacionRelojero"];
-                TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]);
-                TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
                 //**********************************
             }
 
@@ -255,6 +232,14 @@ namespace TP5___SIM
 
             //Se agrega una columna con el cliente nuevo
             dgvColas.Columns.Add("cliente" + nroOrdenCliente.ToString(), "Estado Cliente " + nroOrdenCliente.ToString());
+
+            //Se mantienen indistintamente estas columnas....
+            EstadoRelojero = filaAnterior["EstadoRelojero"];
+            ColaRelojero = int.Parse(filaAnterior["ColaRelojero"]);
+            CantRelojesRetirar = int.Parse(filaAnterior["CantRelojesRetirar"]);
+            InicioOcupacionRelojero = filaAnterior["InicioOcupacionRelojero"];
+            TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]);
+            TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
         }
 
 
@@ -266,7 +251,10 @@ namespace TP5___SIM
             if (ColaAyudante > 0)
             {
                 ColaAyudante -= 1;
+
                 EstadoAyudante = filaAnterior["EstadoAyudante"];
+                InicioOcupacionAyudante = filaAnterior["InicioOcupacionAyudante"];
+                TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]);
 
                 Cliente cliTemp = colaAyudante.ElementAt(0);
 
@@ -276,18 +264,31 @@ namespace TP5___SIM
                     destinoComprar(tiempoVentaA, tiempoVentaB);
 
                     cliTemp.Estado = "AC";
+
+                    //Columnas que se mantienen
+                    FinEntrega = filaAnterior["FinEntrega"];
+                    FinReparacion = filaAnterior["FinReparacion"];
+                    FinRetiro = filaAnterior["FinRetiro"];
                 }
                 else if (cliTemp.Estado.Equals("EAE"))
                 {
                     destinoEntregar(tiempoEntrega);
 
                     cliTemp.Estado = "AER";
+
+                    //Columnas que se mantienen
+                    FinReparacion = filaAnterior["FinReparacion"];
+                    FinRetiro = filaAnterior["FinRetiro"];
                 }
                 else if (cliTemp.Estado.Equals("ERR"))
                 {
                     destinoRetirar(tiempoRetiro);
 
                     cliTemp.Estado = "ARR";
+
+                    //Columnas que se mantienen
+                    FinEntrega = filaAnterior["FinEntrega"];
+                    FinReparacion = filaAnterior["FinReparacion"];
                 }
 
                 Clientes[cliTemp.Id] = cliTemp;
@@ -310,21 +311,16 @@ namespace TP5___SIM
 
                     TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]);
                 }
-
-                
-
-                //Operacion del resto de las columnas
-                ProximaLlegCliente = filaAnterior["ProximaLlegCliente"];
-                FinEntrega = filaAnterior["FinEntrega"];
-                FinReparacion = filaAnterior["FinReparacion"];
-                FinRetiro = filaAnterior["FinRetiro"];
-                EstadoRelojero = filaAnterior["EstadoRelojero"];
-                ColaRelojero = int.Parse(filaAnterior["ColaRelojero"]);
-                CantRelojesRetirar = int.Parse(filaAnterior["CantRelojesRetirar"]);
-                InicioOcupacionRelojero = filaAnterior["InicioOcupacionRelojero"];
-                TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
-                //**********************************
             }
+
+
+            //Columnas que se mantienen indistintamente....
+            ProximaLlegCliente = filaAnterior["ProximaLlegCliente"];
+            EstadoRelojero = filaAnterior["EstadoRelojero"];
+            ColaRelojero = int.Parse(filaAnterior["ColaRelojero"]);
+            CantRelojesRetirar = int.Parse(filaAnterior["CantRelojesRetirar"]);
+            InicioOcupacionRelojero = filaAnterior["InicioOcupacionRelojero"];
+            TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
         }
 
 
@@ -334,7 +330,6 @@ namespace TP5___SIM
             Reloj = filaAnterior["FinEntrega"];
 
             if (filaAnterior["ColaAyudante"] == "0")
-            
             {
                 EstadoAyudante = "Libre";
 
@@ -351,19 +346,9 @@ namespace TP5___SIM
                     TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]);
                 }
 
-               // InicioOcupacionAyudante = "";
-               // TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]) + double.Parse(Reloj) - double.Parse(filaAnterior["InicioOcupacionAyudante"]);
-
                 //Operacion del resto de las columnas
-                ProximaLlegCliente = filaAnterior["ProximaLlegCliente"];
-                FinEntrega = filaAnterior["FinEntrega"];
-                FinReparacion = filaAnterior["FinReparacion"];
+                FinCompra = filaAnterior["FinCompra"];
                 FinRetiro = filaAnterior["FinRetiro"];
-                EstadoRelojero = filaAnterior["EstadoRelojero"];
-                ColaRelojero = int.Parse(filaAnterior["ColaRelojero"]);
-                CantRelojesRetirar = int.Parse(filaAnterior["CantRelojesRetirar"]);
-                InicioOcupacionRelojero = filaAnterior["InicioOcupacionRelojero"];
-                TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
                 //**********************************
             }
             else
@@ -379,25 +364,38 @@ namespace TP5___SIM
                     destinoComprar(tiempoVentaA, tiempoVentaB);
 
                     cliTemp.Estado = "AC";
+
+                    //Columnas que se mantienen....
+                    FinRetiro = filaAnterior["FinRetiro"];
                 }
                 else if (cliTemp.Estado.Equals("EAE"))
                 {
                     destinoEntregar(tiempoEntrega);
 
                     cliTemp.Estado = "AER";
+
+                    //Columnas que se mantienen....
+                    FinCompra = filaAnterior["FinCompra"];
+                    FinRetiro = filaAnterior["FinRetiro"];
                 }
                 else if (cliTemp.Estado.Equals("ERR"))
                 {
                     destinoRetirar(tiempoRetiro);
 
                     cliTemp.Estado = "ARR";
+
+                    //Columnas que se mantienen...
+                    FinCompra = filaAnterior["FinCompra"];
                 }
 
                 Clientes[cliTemp.Id] = cliTemp;
 
                 colaAyudante.RemoveAt(0);
 
+                //Columnas que se mantiene...
                 TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]);
+                EstadoAyudante = filaAnterior["EstadoAyudante"];
+                InicioOcupacionAyudante = filaAnterior["InicioOcupacionAyudante"];
             }
 
 
@@ -414,9 +412,6 @@ namespace TP5___SIM
                 InicioOcupacionRelojero = Reloj;
 
                 //Operacion del resto de las columnas
-                ProximaLlegCliente = filaAnterior["ProximaLlegCliente"];
-                FinCompra = filaAnterior["FinCompra"];
-                FinRetiro = filaAnterior["FinRetiro"];
                 ColaRelojero = int.Parse(filaAnterior["ColaRelojero"]);
                 CantRelojesRetirar = int.Parse(filaAnterior["CantRelojesRetirar"]);
                 TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
@@ -426,17 +421,20 @@ namespace TP5___SIM
             {
                 ColaRelojero += 1;
 
-                //Operacion del resto de las columnas
-                ProximaLlegCliente = filaAnterior["ProximaLlegCliente"];
-                FinCompra = filaAnterior["FinCompra"];
                 FinReparacion = filaAnterior["FinReparacion"];
-                FinRetiro = filaAnterior["FinRetiro"];
+
                 EstadoRelojero = filaAnterior["EstadoRelojero"];
-                CantRelojesRetirar = int.Parse(filaAnterior["CantRelojesRetirar"]);
+
                 InicioOcupacionRelojero = filaAnterior["InicioOcupacionRelojero"];
+
+                //Operacion del resto de las columnas
+                CantRelojesRetirar = int.Parse(filaAnterior["CantRelojesRetirar"]);
                 TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
                 //**********************************
             }
+
+            //Columna que se mantiene indistintamente...
+            ProximaLlegCliente = filaAnterior["ProximaLlegCliente"];
         }
 
 
@@ -475,7 +473,6 @@ namespace TP5___SIM
                     InicioOcupacionRelojero = "";
                     TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
                 }
-                
             }
 
             //Operacion del resto de las columnas
@@ -508,18 +505,31 @@ namespace TP5___SIM
                     destinoComprar(tiempoVentaA, tiempoVentaB);
 
                     cliTemp.Estado = "AC";
+
+                    //Columnas que se mantienen
+                    FinEntrega = filaAnterior["FinEntrega"];
+                    FinReparacion = filaAnterior["FinReparacion"];
                 }
                 else if (cliTemp.Estado.Equals("EAE"))
                 {
                     destinoEntregar(tiempoEntrega);
 
                     cliTemp.Estado = "AER";
+
+                    //Columnas que se mantienen
+                    FinCompra = filaAnterior["FinCompra"];
+                    FinReparacion = filaAnterior["FinReparacion"];
                 }
                 else if (cliTemp.Estado.Equals("ERR"))
                 {
                     destinoRetirar(tiempoRetiro);
 
                     cliTemp.Estado = "ARR";
+
+                    //Columnas que se mantienen
+                    FinEntrega = filaAnterior["FinEntrega"];
+                    FinCompra = filaAnterior["FinCompra"];
+                    FinReparacion = filaAnterior["FinReparacion"];
                 }
 
                 Clientes[cliTemp.Id] = cliTemp;
@@ -546,18 +556,15 @@ namespace TP5___SIM
                     InicioOcupacionAyudante = "";
                     TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]);
                 }
-
-                //Operacion del resto de las columnas
-                ProximaLlegCliente = filaAnterior["ProximaLlegCliente"];
-                FinCompra = filaAnterior["FinCompra"];
-                FinEntrega = filaAnterior["FinEntrega"];
-                FinReparacion = filaAnterior["FinReparacion"];
-                EstadoRelojero = filaAnterior["EstadoRelojero"];
-                ColaRelojero = int.Parse(filaAnterior["ColaRelojero"]);
-                InicioOcupacionRelojero = filaAnterior["InicioOcupacionRelojero"];
-                TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
-                //**********************************
             }
+
+            //Operacion del resto de las columnas
+            ProximaLlegCliente = filaAnterior["ProximaLlegCliente"];
+            EstadoRelojero = filaAnterior["EstadoRelojero"];
+            ColaRelojero = int.Parse(filaAnterior["ColaRelojero"]);
+            InicioOcupacionRelojero = filaAnterior["InicioOcupacionRelojero"];
+            TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
+            //**********************************
         }
 
 
@@ -725,10 +732,6 @@ namespace TP5___SIM
                 FinRetiro = "";
                 EstadoAyudante = "";
                 EstadoRelojero = "";
-               /*InicioOcupacionAyudante = "";
-                InicioOcupacionRelojero = "";
-                TiempoOcupacionAyudante = 0;
-                TiempoOcupacionRelojero = 0;*/
 
                 
                 //**********CALCULO DE EVENTO************
