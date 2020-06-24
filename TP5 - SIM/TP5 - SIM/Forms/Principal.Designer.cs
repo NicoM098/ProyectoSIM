@@ -53,6 +53,7 @@
             this.btnParametros = new System.Windows.Forms.Button();
             this.panelResultados = new System.Windows.Forms.Panel();
             this.gbEstadisticas = new System.Windows.Forms.GroupBox();
+            this.lblTOPA = new System.Windows.Forms.Label();
             this.lblTOPR = new System.Windows.Forms.Label();
             this.lblTiempo = new System.Windows.Forms.Label();
             this.lblTOAyu = new System.Windows.Forms.Label();
@@ -85,7 +86,6 @@
             this.ayudante2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.relojero2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contadorclientes1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblTOPA = new System.Windows.Forms.Label();
             this.panelTitulo.SuspendLayout();
             this.panelContenedor.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -144,7 +144,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(50)))), ((int)(((byte)(32)))));
+            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.btnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnLimpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(102)))), ((int)(((byte)(68)))));
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -227,21 +227,32 @@
             this.gbEstadisticas.Controls.Add(this.lblTORel);
             this.gbEstadisticas.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Bold);
             this.gbEstadisticas.ForeColor = System.Drawing.SystemColors.Control;
-            this.gbEstadisticas.Location = new System.Drawing.Point(6, 627);
+            this.gbEstadisticas.Location = new System.Drawing.Point(14, 627);
             this.gbEstadisticas.Name = "gbEstadisticas";
-            this.gbEstadisticas.Size = new System.Drawing.Size(1169, 73);
+            this.gbEstadisticas.Size = new System.Drawing.Size(1158, 90);
             this.gbEstadisticas.TabIndex = 86;
             this.gbEstadisticas.TabStop = false;
             this.gbEstadisticas.Text = "Estadísticas";
             // 
+            // lblTOPA
+            // 
+            this.lblTOPA.AutoSize = true;
+            this.lblTOPA.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTOPA.ForeColor = System.Drawing.Color.Red;
+            this.lblTOPA.Location = new System.Drawing.Point(407, 41);
+            this.lblTOPA.Name = "lblTOPA";
+            this.lblTOPA.Size = new System.Drawing.Size(15, 24);
+            this.lblTOPA.TabIndex = 88;
+            this.lblTOPA.Text = ".";
+            // 
             // lblTOPR
             // 
             this.lblTOPR.AutoSize = true;
-            this.lblTOPR.Font = new System.Drawing.Font("Sitka Small", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTOPR.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTOPR.ForeColor = System.Drawing.Color.Red;
-            this.lblTOPR.Location = new System.Drawing.Point(908, 23);
+            this.lblTOPR.Location = new System.Drawing.Point(913, 41);
             this.lblTOPR.Name = "lblTOPR";
-            this.lblTOPR.Size = new System.Drawing.Size(19, 28);
+            this.lblTOPR.Size = new System.Drawing.Size(15, 24);
             this.lblTOPR.TabIndex = 87;
             this.lblTOPR.Text = ".";
             // 
@@ -250,7 +261,7 @@
             this.lblTiempo.AutoSize = true;
             this.lblTiempo.Font = new System.Drawing.Font("Sitka Small", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTiempo.ForeColor = System.Drawing.Color.Red;
-            this.lblTiempo.Location = new System.Drawing.Point(361, 32);
+            this.lblTiempo.Location = new System.Drawing.Point(465, 32);
             this.lblTiempo.Name = "lblTiempo";
             this.lblTiempo.Size = new System.Drawing.Size(0, 23);
             this.lblTiempo.TabIndex = 86;
@@ -260,22 +271,22 @@
             this.lblTOAyu.AutoSize = true;
             this.lblTOAyu.Font = new System.Drawing.Font("Sitka Small", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTOAyu.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTOAyu.Location = new System.Drawing.Point(6, 32);
+            this.lblTOAyu.Location = new System.Drawing.Point(131, 41);
             this.lblTOAyu.Name = "lblTOAyu";
-            this.lblTOAyu.Size = new System.Drawing.Size(349, 23);
+            this.lblTOAyu.Size = new System.Drawing.Size(270, 23);
             this.lblTOAyu.TabIndex = 84;
-            this.lblTOAyu.Text = "Tiempo de ocupación Promedio Ayudante:";
+            this.lblTOAyu.Text = "Porcentaje Ocupación Ayudante:";
             // 
             // lblTORel
             // 
             this.lblTORel.AutoSize = true;
             this.lblTORel.Font = new System.Drawing.Font("Sitka Small", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTORel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTORel.Location = new System.Drawing.Point(559, 32);
+            this.lblTORel.Location = new System.Drawing.Point(643, 41);
             this.lblTORel.Name = "lblTORel";
-            this.lblTORel.Size = new System.Drawing.Size(343, 23);
+            this.lblTORel.Size = new System.Drawing.Size(264, 23);
             this.lblTORel.TabIndex = 85;
-            this.lblTORel.Text = "Tiempo de ocupación Promedio Relojero:";
+            this.lblTORel.Text = "Porcentaje Ocupación Relojero:";
             // 
             // dgvColas
             // 
@@ -576,17 +587,6 @@
             this.contadorclientes1.HeaderText = "Contador Clientes";
             this.contadorclientes1.Name = "contadorclientes1";
             this.contadorclientes1.Width = 161;
-            // 
-            // lblTOPA
-            // 
-            this.lblTOPA.AutoSize = true;
-            this.lblTOPA.Font = new System.Drawing.Font("Sitka Small", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTOPA.ForeColor = System.Drawing.Color.Red;
-            this.lblTOPA.Location = new System.Drawing.Point(361, 23);
-            this.lblTOPA.Name = "lblTOPA";
-            this.lblTOPA.Size = new System.Drawing.Size(19, 28);
-            this.lblTOPA.TabIndex = 88;
-            this.lblTOPA.Text = ".";
             // 
             // Principal
             // 

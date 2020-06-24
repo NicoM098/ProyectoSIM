@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,10 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TP5___SIM.Clases;
-using System.Collections;
+using TP6___SIM.Clases;
+using TP6___SIM.Forms;
 
-namespace TP5___SIM
+namespace TP6___SIM
 {
     public partial class Principal : Form
     {
@@ -27,6 +28,7 @@ namespace TP5___SIM
         string TiempoAtencionEntrega;
         string FinEntrega;
         string RND4;
+        string Complejidad;
         string TiempoReparacion;
         string FinReparacion;
         string TiempoAtencionRetiro;
@@ -41,6 +43,7 @@ namespace TP5___SIM
         double TiempoOcupacionAyudante;
         double TiempoOcupacionRelojero;
         int ContadorClientes;
+        int ClientesSinReloj;
         int nroOrdenCliente;
         double acumTiempoAyu;
         double acumTiempoRel;
@@ -64,11 +67,16 @@ namespace TP5___SIM
             InitializeComponent();
 
             btnIniciar.Enabled = false;
+            btnEuler.Enabled = false;
+            btnVolver.Enabled = false;
+
+            dgvEuler.Visible = false;
         }
 
         private void btnParametros_Click(object sender, EventArgs e)
         {
             btnIniciar.Enabled = true;
+            btnEuler.Enabled = true;
 
             Parametros parametros = new Parametros(oDatos);
             parametros.Show();
@@ -95,6 +103,55 @@ namespace TP5___SIM
                 }
             }
             return "";
+        }
+
+
+        private string compareRandom(double random)
+        {
+            if (random < 0.5f)
+            {
+                return "50";
+            }
+            else
+            {
+                return "80";
+            }
+        }
+
+
+        private string calculoTiempoReparacion(int contInt, double a, double h, int R, int C)
+        {
+            double t = 0f;
+            double D = 0f;
+            double derivada;
+            double Dsiguiente = 0f;
+            double tsiguiente = 0f;
+
+            dgvEuler.Rows.Add("", "a = " + a.ToString(), "h = " + h.ToString(), "R = " + R.ToString(), "C = " + C.ToString(), "");
+            dgvEuler.Rows.Add(contInt, "", "", "", tsiguiente.ToString(), Dsiguiente.ToString());
+
+            while (D <= C + 1000)
+            {
+                t = tsiguiente;
+                D = Dsiguiente;
+
+                derivada = (0.4f / (double) C) + t + a * R;
+
+                tsiguiente = Math.Round(t + h, 2);
+                Dsiguiente = D + h * derivada;
+
+                dgvEuler.Rows.Add(contInt, t, D, derivada, tsiguiente, Dsiguiente);
+
+                if (D >= C)
+                {
+                    dgvEuler.Rows.Add("Fin", "-", "-", "-", "-", "-");
+                    dgvEuler.Rows.Add();
+                    dgvEuler.Rows.Add();
+                    return t.ToString();
+                }
+            }
+
+            return "0";
         }
 
 
@@ -213,6 +270,8 @@ namespace TP5___SIM
                     }
                     else
                     {
+                        ClientesSinReloj += 1;
+
                         EstadoAyudante = "Libre";
 
                         InicioOcupacionAyudante = filaAnterior["InicioOcupacionAyudante"];
@@ -221,7 +280,7 @@ namespace TP5___SIM
                         FinEntrega = filaAnterior["FinEntrega"];
                         FinReparacion = filaAnterior["FinReparacion"];
                         FinRetiro = filaAnterior["FinRetiro"];
-                    } 
+                    }
                 }
 
                 if (!(Destino.Equals("Retirar Reloj") && CantRelojesRetirar == 0))
@@ -229,7 +288,7 @@ namespace TP5___SIM
                     //Se agrega a la lista auxiliar
                     colaAux.Add(cli);
                 }
-                
+
                 ColaAyudante = 0;
             }
 
@@ -267,7 +326,7 @@ namespace TP5___SIM
             //Se agrega el cliente a la Hashtable
             Clientes.Add(nroOrdenCliente, cli);
 
-            if (nroOrdenCliente <= 50 )
+            if (nroOrdenCliente <= 50)
             {
                 //Se agrega una columna con el cliente nuevo
                 dgvColas.Columns.Add("cliente" + nroOrdenCliente.ToString(), "Estado Cliente " + nroOrdenCliente.ToString());
@@ -286,12 +345,12 @@ namespace TP5___SIM
 
 
         private void finCompra(double tiempoVentaA, double tiempoVentaB, double tiempoEntrega, double tiempoRetiro)
-         {
+        {
             if (colaAux.ElementAt(0).Estado == "AC")
             {
                 int idAux = colaAux.ElementAt(0).Id;
 
-                Cliente temp = (Cliente) Clientes[idAux];
+                Cliente temp = (Cliente)Clientes[idAux];
 
                 temp.Estado = "";
 
@@ -355,6 +414,10 @@ namespace TP5___SIM
             }
             else
             {
+                FinEntrega = filaAnterior["FinEntrega"];
+                FinReparacion = filaAnterior["FinReparacion"];
+                FinRetiro = filaAnterior["FinRetiro"];
+
                 EstadoAyudante = "Libre";
 
                 if (filaAnterior["EstadoAyudante"].Equals("Ocupado"))
@@ -383,7 +446,7 @@ namespace TP5___SIM
 
 
 
-        private void finEntregaReloj(double tiempoRepA, double tiempoRepB, double tiempoVentaA, double tiempoVentaB, double tiempoEntrega, double tiempoRetiro)
+        private void finEntregaReloj(int contInt, double h, double a, double tiempoVentaA, double tiempoVentaB, double tiempoEntrega, double tiempoRetiro)
         {
             if (colaAux.ElementAt(0).Estado == "AER")
             {
@@ -476,7 +539,9 @@ namespace TP5___SIM
             {
                 RND4 = Math.Round(oGenerador.generadorUniforme(), 2).ToString();
 
-                TiempoReparacion = oGenerador.generadorUniforme(tiempoRepA, tiempoRepB, double.Parse(RND4)).ToString();
+                Complejidad = compareRandom(double.Parse(RND4));
+
+                TiempoReparacion = calculoTiempoReparacion(contInt, a, h, ColaRelojero, int.Parse(Complejidad));
 
                 FinReparacion = (double.Parse(Reloj) + double.Parse(TiempoReparacion)).ToString();
 
@@ -490,7 +555,7 @@ namespace TP5___SIM
                 TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
                 //**********************************
             }
-           else
+            else
             {
                 ColaRelojero += 1;
 
@@ -512,7 +577,7 @@ namespace TP5___SIM
 
 
 
-        private void finReparacionReloj(double tiempoRepA, double tiempoRepB)
+        private void finReparacionReloj(int contInt, double h, double a)
         {
             Reloj = filaAnterior["FinReparacion"];
 
@@ -522,7 +587,9 @@ namespace TP5___SIM
             {
                 RND4 = Math.Round(oGenerador.generadorUniforme(), 2).ToString();
 
-                TiempoReparacion = oGenerador.generadorUniforme(tiempoRepA, tiempoRepB, double.Parse(RND4)).ToString();
+                Complejidad = compareRandom(double.Parse(RND4));
+
+                TiempoReparacion = calculoTiempoReparacion(contInt, a, h, ColaRelojero, int.Parse(Complejidad));
 
                 FinReparacion = (double.Parse(Reloj) + double.Parse(TiempoReparacion)).ToString();
 
@@ -668,7 +735,7 @@ namespace TP5___SIM
             int iteraciones = oDatos.Iteraciones;
 
             int desde = oDatos.Desde;
-            double hasta = oDatos.Hasta;
+            double hasta = oDatos.Hasta+1;
 
             double llegClienteA = oDatos.LlegClienteA;
             double llegClienteB = oDatos.LlegClienteB;
@@ -676,8 +743,8 @@ namespace TP5___SIM
             double tiempoVentaA = oDatos.TiempoVentaA;
             double tiempoVentaB = oDatos.TiempoVentaB;
 
-            double tiempoRepA = oDatos.TiempoRepA;
-            double tiempoRepB = oDatos.TiempoRepB;
+            double h = oDatos.H;
+            double a = oDatos.A;
 
             double tiempoRepIni = oDatos.TiempoRelojero;
 
@@ -688,6 +755,7 @@ namespace TP5___SIM
             double tiempoRelojeroIni = tiempoRepIni - tiempoAyudanteIni;
 
             int contadorIteraciones = 0;
+            int contIt = 0;
 
             List<double> probAcumulada = new List<double>(oDatos.DistProbDestino);
 
@@ -699,64 +767,67 @@ namespace TP5___SIM
             Reloj = "0";
             filaAnterior.Add("Reloj", Reloj);
 
-            RND1 = Math.Round(oGenerador.generadorUniforme(),2).ToString();
+            RND1 = Math.Round(oGenerador.generadorUniforme(), 2).ToString();
             filaAnterior.Add("RND1", RND1.ToString());
 
             TiempoEntreLlegCliente = oGenerador.generadorUniforme(llegClienteA, llegClienteB, double.Parse(RND1)).ToString();
             filaAnterior.Add("TiempoEntreLlegCliente", TiempoEntreLlegCliente.ToString());
 
-             ProximaLlegCliente = (double.Parse(TiempoEntreLlegCliente) + double.Parse(Reloj)).ToString();
+            ProximaLlegCliente = (double.Parse(TiempoEntreLlegCliente) + double.Parse(Reloj)).ToString();
             filaAnterior.Add("ProximaLlegCliente", ProximaLlegCliente.ToString());
 
-             RND2 = "";
+            RND2 = "";
             filaAnterior.Add("RND2", RND2);
 
-             Destino = "";
+            Destino = "";
             filaAnterior.Add("Destino", Destino);
-           
-             RND3 = "";
+
+            RND3 = "";
             filaAnterior.Add("RND3", RND3);
 
-             TiempoAtencionVenta = "";
+            TiempoAtencionVenta = "";
             filaAnterior.Add("TiempoAtencionVenta", TiempoAtencionVenta);
 
-             FinCompra = "";
+            FinCompra = "";
             filaAnterior.Add("FinCompra", FinCompra);
 
-             TiempoAtencionEntrega = "";
+            TiempoAtencionEntrega = "";
             filaAnterior.Add("TiempoAtencionEntrega", TiempoAtencionEntrega);
 
-             FinEntrega = "";
+            FinEntrega = "";
             filaAnterior.Add("FinEntrega", FinEntrega);
 
-             RND4 = "";
+            RND4 = "";
             filaAnterior.Add("RND4", RND4);
 
-             TiempoReparacion = "";
+            Complejidad = "";
+            filaAnterior.Add("Complejidad", Complejidad);
+
+            TiempoReparacion = "";
             filaAnterior.Add("TiempoReparacion", TiempoReparacion);
 
-             FinReparacion = "";
+            FinReparacion = "";
             filaAnterior.Add("FinReparacion", FinReparacion);
 
-             TiempoAtencionRetiro = "";
+            TiempoAtencionRetiro = "";
             filaAnterior.Add("TiempoAtencionRetiro", TiempoAtencionRetiro);
 
-             FinRetiro = "";
+            FinRetiro = "";
             filaAnterior.Add("FinRetiro", FinRetiro);
 
-             EstadoAyudante = "Libre";
+            EstadoAyudante = "Libre";
             filaAnterior.Add("EstadoAyudante", EstadoAyudante);
 
-             ColaAyudante = 0;
+            ColaAyudante = 0;
             filaAnterior.Add("ColaAyudante", ColaAyudante.ToString());
 
-             EstadoRelojero = "Libre";
+            EstadoRelojero = "Libre";
             filaAnterior.Add("EstadoRelojero", EstadoRelojero);
 
-             ColaRelojero = 0;
+            ColaRelojero = 0;
             filaAnterior.Add("ColaRelojero", ColaRelojero.ToString());
 
-             CantRelojesRetirar = 5;
+            CantRelojesRetirar = 5;
             filaAnterior.Add("CantRelojesRetirar", CantRelojesRetirar.ToString());
 
             InicioOcupacionAyudante = "";
@@ -774,10 +845,14 @@ namespace TP5___SIM
             ContadorClientes = 0;
             filaAnterior.Add("ContadorClientes", ContadorClientes.ToString());
 
+            ClientesSinReloj = 0;
+            filaAnterior.Add("ClientesSinReloj", ClientesSinReloj.ToString());
+
             acumTiempoAyu = 0;
             acumTiempoRel = 0;
 
-            dgvColas.Rows.Add(Evento,
+            dgvColas.Rows.Add(contIt,
+                Evento,
                 Reloj,
                 RND1,
                 TiempoEntreLlegCliente,
@@ -790,6 +865,7 @@ namespace TP5___SIM
                 TiempoAtencionEntrega,
                 FinEntrega,
                 RND4,
+                Complejidad,
                 TiempoReparacion,
                 FinReparacion,
                 TiempoAtencionRetiro,
@@ -803,11 +879,14 @@ namespace TP5___SIM
                 InicioOcupacionRelojero,
                 TiempoOcupacionAyudante,
                 TiempoOcupacionRelojero,
-                ContadorClientes);
+                ContadorClientes,
+                ClientesSinReloj);
 
 
             for (int i = 1; i <= iteraciones && double.Parse(Reloj) <= tiempo; i++)
             {
+                contIt++;
+
                 //LIMPIEZA DE VARIABLES
                 Evento = "";
                 Reloj = "";
@@ -822,6 +901,7 @@ namespace TP5___SIM
                 TiempoAtencionEntrega = "";
                 FinEntrega = "";
                 RND4 = "";
+                Complejidad = "";
                 TiempoReparacion = "";
                 FinReparacion = "";
                 TiempoAtencionRetiro = "";
@@ -829,7 +909,7 @@ namespace TP5___SIM
                 EstadoAyudante = "";
                 EstadoRelojero = "";
 
-                
+
                 //**********CALCULO DE EVENTO************
                 Dictionary<string, Double> aComparar = new Dictionary<string, Double>();
 
@@ -881,13 +961,13 @@ namespace TP5___SIM
                 //Si el evento es "fin_entrega_reloj"
                 if (Evento.Equals(eventos[2]))
                 {
-                    finEntregaReloj(tiempoRepA, tiempoRepB, tiempoVentaA, tiempoVentaB, tiempoEntrega, tiempoRetiro);
+                    finEntregaReloj(contIt, h, a, tiempoVentaA, tiempoVentaB, tiempoEntrega, tiempoRetiro);
                 }
 
                 //Si el evento es "fin_reparacion_reloj"
                 if (Evento.Equals(eventos[3]))
                 {
-                    finReparacionReloj(tiempoRepA, tiempoRepB);
+                    finReparacionReloj(contIt, h, a);
                 }
 
                 //Si el evento es "fin_retiro_reloj"
@@ -902,7 +982,36 @@ namespace TP5___SIM
 
                     if (contadorIteraciones <= hasta || i >= iteraciones || double.Parse(Reloj) >= tiempo)
                     {
-                        dgvColas.Rows.Add(Evento, Reloj, RND1, TiempoEntreLlegCliente, ProximaLlegCliente, RND2, Destino, RND3, TiempoAtencionVenta, FinCompra, TiempoAtencionEntrega, FinEntrega, RND4, TiempoReparacion, FinReparacion, TiempoAtencionRetiro, FinRetiro, EstadoAyudante, ColaAyudante, EstadoRelojero, ColaRelojero, CantRelojesRetirar, InicioOcupacionAyudante, InicioOcupacionRelojero, TiempoOcupacionAyudante, TiempoOcupacionRelojero, ContadorClientes);
+                        dgvColas.Rows.Add(contIt,
+                        Evento,
+                        Reloj,
+                        RND1,
+                        TiempoEntreLlegCliente,
+                        ProximaLlegCliente,
+                        RND2,
+                        Destino,
+                        RND3,
+                        TiempoAtencionVenta,
+                        FinCompra,
+                        TiempoAtencionEntrega,
+                        FinEntrega,
+                        RND4,
+                        Complejidad,
+                        TiempoReparacion,
+                        FinReparacion,
+                        TiempoAtencionRetiro,
+                        FinRetiro,
+                        EstadoAyudante,
+                        ColaAyudante,
+                        EstadoRelojero,
+                        ColaRelojero,
+                        CantRelojesRetirar,
+                        InicioOcupacionAyudante,
+                        InicioOcupacionRelojero,
+                        TiempoOcupacionAyudante,
+                        TiempoOcupacionRelojero,
+                        ContadorClientes,
+                        ClientesSinReloj);
                     }
                 }
 
@@ -931,7 +1040,7 @@ namespace TP5___SIM
                         dgvColas.Rows[dgvColas.Rows.Count - 1].Cells["cliente" + aux.Id.ToString()].Value = aux.Estado;
                     }
                 }
-                
+
 
                 //ACTUALIZACION DE DICCIONARIO
                 filaAnterior["Evento"] = Evento;
@@ -966,10 +1075,10 @@ namespace TP5___SIM
 
             double porcOcupacionRelojero = ((TiempoOcupacionRelojero - tiempoRelojeroIni) * 100f) / double.Parse(Reloj);
 
-         
 
-            lblTOPA.Text = (Math.Round(porcOcupacionAyudante,2)).ToString() + "%";
-            lblTOPR.Text = (Math.Round(porcOcupacionRelojero,2)).ToString() + "%";
+
+            lblTOPA.Text = (Math.Round(porcOcupacionAyudante, 2)).ToString() + "%";
+            lblTOPR.Text = (Math.Round(porcOcupacionRelojero, 2)).ToString() + "%";
 
 
             btnIniciar.Enabled = false;
@@ -979,21 +1088,48 @@ namespace TP5___SIM
         {
             dgvColas.Rows.Clear();
 
+            dgvEuler.Rows.Clear();
+
+
+            foreach (DictionaryEntry item in Clientes)
+            {
+                Cliente aux = (Cliente)item.Value;
+
+                if (aux.Id <= 50)
+                {
+                    dgvColas.Columns.Remove("cliente" + aux.Id.ToString());
+                }
+            }
+
             oDatos = new Datos();
 
-            filaAnterior.Clear();
+            filaAnterior = new Dictionary<string, string>();
 
             oGenerador = new Generador();
 
-            Clientes.Clear();
+            Clientes = new Hashtable();
 
-            colaAyudante.Clear();
+            colaAyudante = new List<Cliente>();
 
-            colaAux.Clear();
+            colaAux = new List<Cliente>();
 
             btnIniciar.Enabled = true;
+
+            nroOrdenCliente = 0;
         }
 
-       
+        private void btnEuler_Click(object sender, EventArgs e)
+        {
+            dgvEuler.Visible = true;
+            btnEuler.Enabled = false;
+            btnVolver.Enabled = true;
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            dgvEuler.Visible = false;
+            btnVolver.Enabled = false;
+            btnEuler.Enabled = true;
+        }
     }
 }
