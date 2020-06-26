@@ -647,7 +647,14 @@ namespace TP6___SIM
 
             Reloj = filaAnterior["FinRetiro"];
 
-            CantRelojesRetirar -= 1;
+            if (CantRelojesRetirar > 0)
+            {
+                CantRelojesRetirar -= 1;
+            }
+            else
+            {
+                ClientesSinReloj += 1;
+            }
 
             if (int.Parse(filaAnterior["ColaAyudante"]) > 0)
             {
@@ -1092,10 +1099,12 @@ namespace TP6___SIM
 
             double porcOcupacionRelojero = ((TiempoOcupacionRelojero - tiempoRelojeroIni) * 100f) / double.Parse(Reloj);
 
+            double porcClientesSinReloj = ((double) ClientesSinReloj * 100) / (double)ContadorClientes;
 
 
             lblTOPA.Text = (Math.Round(porcOcupacionAyudante, 2)).ToString() + "%";
             lblTOPR.Text = (Math.Round(porcOcupacionRelojero, 2)).ToString() + "%";
+            lblCliSinReloj.Text = (Math.Round(porcClientesSinReloj, 2)).ToString() + "%";
 
 
             btnIniciar.Enabled = false;

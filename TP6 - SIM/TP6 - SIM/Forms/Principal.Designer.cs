@@ -99,6 +99,8 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblPorcSinReloj = new System.Windows.Forms.Label();
+            this.lblCliSinReloj = new System.Windows.Forms.Label();
             this.panelResultados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEuler)).BeginInit();
             this.gbEstadisticas.SuspendLayout();
@@ -117,7 +119,7 @@
             this.panelResultados.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelResultados.Location = new System.Drawing.Point(157, 58);
             this.panelResultados.Name = "panelResultados";
-            this.panelResultados.Size = new System.Drawing.Size(1203, 768);
+            this.panelResultados.Size = new System.Drawing.Size(1187, 729);
             this.panelResultados.TabIndex = 5;
             // 
             // dgvEuler
@@ -154,7 +156,7 @@
             this.dgvEuler.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvEuler.EnableHeadersVisualStyles = false;
             this.dgvEuler.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(38)))));
-            this.dgvEuler.Location = new System.Drawing.Point(5, 20);
+            this.dgvEuler.Location = new System.Drawing.Point(-3, 0);
             this.dgvEuler.Name = "dgvEuler";
             this.dgvEuler.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -208,10 +210,13 @@
             // 
             // gbEstadisticas
             // 
+            this.gbEstadisticas.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gbEstadisticas.Controls.Add(this.lblTOPA);
+            this.gbEstadisticas.Controls.Add(this.lblCliSinReloj);
             this.gbEstadisticas.Controls.Add(this.lblTOPR);
             this.gbEstadisticas.Controls.Add(this.lblTiempo);
             this.gbEstadisticas.Controls.Add(this.lblTOAyu);
+            this.gbEstadisticas.Controls.Add(this.lblPorcSinReloj);
             this.gbEstadisticas.Controls.Add(this.lblTORel);
             this.gbEstadisticas.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Bold);
             this.gbEstadisticas.ForeColor = System.Drawing.SystemColors.Control;
@@ -227,7 +232,7 @@
             this.lblTOPA.AutoSize = true;
             this.lblTOPA.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTOPA.ForeColor = System.Drawing.Color.Red;
-            this.lblTOPA.Location = new System.Drawing.Point(407, 41);
+            this.lblTOPA.Location = new System.Drawing.Point(323, 41);
             this.lblTOPA.Name = "lblTOPA";
             this.lblTOPA.Size = new System.Drawing.Size(15, 24);
             this.lblTOPA.TabIndex = 88;
@@ -238,7 +243,7 @@
             this.lblTOPR.AutoSize = true;
             this.lblTOPR.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTOPR.ForeColor = System.Drawing.Color.Red;
-            this.lblTOPR.Location = new System.Drawing.Point(913, 41);
+            this.lblTOPR.Location = new System.Drawing.Point(695, 41);
             this.lblTOPR.Name = "lblTOPR";
             this.lblTOPR.Size = new System.Drawing.Size(15, 24);
             this.lblTOPR.TabIndex = 87;
@@ -249,7 +254,7 @@
             this.lblTiempo.AutoSize = true;
             this.lblTiempo.Font = new System.Drawing.Font("Sitka Small", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTiempo.ForeColor = System.Drawing.Color.Red;
-            this.lblTiempo.Location = new System.Drawing.Point(465, 32);
+            this.lblTiempo.Location = new System.Drawing.Point(417, 32);
             this.lblTiempo.Name = "lblTiempo";
             this.lblTiempo.Size = new System.Drawing.Size(0, 23);
             this.lblTiempo.TabIndex = 86;
@@ -259,7 +264,7 @@
             this.lblTOAyu.AutoSize = true;
             this.lblTOAyu.Font = new System.Drawing.Font("Sitka Small", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTOAyu.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTOAyu.Location = new System.Drawing.Point(131, 41);
+            this.lblTOAyu.Location = new System.Drawing.Point(47, 41);
             this.lblTOAyu.Name = "lblTOAyu";
             this.lblTOAyu.Size = new System.Drawing.Size(270, 23);
             this.lblTOAyu.TabIndex = 84;
@@ -270,7 +275,7 @@
             this.lblTORel.AutoSize = true;
             this.lblTORel.Font = new System.Drawing.Font("Sitka Small", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTORel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTORel.Location = new System.Drawing.Point(643, 41);
+            this.lblTORel.Location = new System.Drawing.Point(425, 41);
             this.lblTORel.Name = "lblTORel";
             this.lblTORel.Size = new System.Drawing.Size(264, 23);
             this.lblTORel.TabIndex = 85;
@@ -334,7 +339,7 @@
             this.dgvColas.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvColas.EnableHeadersVisualStyles = false;
             this.dgvColas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(38)))));
-            this.dgvColas.Location = new System.Drawing.Point(5, 20);
+            this.dgvColas.Location = new System.Drawing.Point(-3, 0);
             this.dgvColas.Name = "dgvColas";
             this.dgvColas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -612,7 +617,7 @@
             this.panelContenedor.ForeColor = System.Drawing.SystemColors.Control;
             this.panelContenedor.Location = new System.Drawing.Point(0, 58);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(157, 768);
+            this.panelContenedor.Size = new System.Drawing.Size(157, 729);
             this.panelContenedor.TabIndex = 4;
             // 
             // btnParametros
@@ -706,7 +711,7 @@
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitulo.Location = new System.Drawing.Point(0, 0);
             this.panelTitulo.Name = "panelTitulo";
-            this.panelTitulo.Size = new System.Drawing.Size(1360, 58);
+            this.panelTitulo.Size = new System.Drawing.Size(1344, 58);
             this.panelTitulo.TabIndex = 3;
             // 
             // label1
@@ -715,18 +720,39 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Sitka Small", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(493, 9);
+            this.label1.Location = new System.Drawing.Point(485, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(437, 35);
             this.label1.TabIndex = 0;
             this.label1.Text = "SIMULACIÓN SISTEMA DE COLAS";
+            // 
+            // lblPorcSinReloj
+            // 
+            this.lblPorcSinReloj.AutoSize = true;
+            this.lblPorcSinReloj.Font = new System.Drawing.Font("Sitka Small", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPorcSinReloj.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblPorcSinReloj.Location = new System.Drawing.Point(800, 41);
+            this.lblPorcSinReloj.Name = "lblPorcSinReloj";
+            this.lblPorcSinReloj.Size = new System.Drawing.Size(255, 23);
+            this.lblPorcSinReloj.TabIndex = 85;
+            this.lblPorcSinReloj.Text = "Porcentaje Clientes Sin Reloj: ";
+            // 
+            // lblCliSinReloj
+            // 
+            this.lblCliSinReloj.AutoSize = true;
+            this.lblCliSinReloj.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCliSinReloj.ForeColor = System.Drawing.Color.Red;
+            this.lblCliSinReloj.Location = new System.Drawing.Point(1057, 41);
+            this.lblCliSinReloj.Name = "lblCliSinReloj";
+            this.lblCliSinReloj.Size = new System.Drawing.Size(15, 24);
+            this.lblCliSinReloj.TabIndex = 87;
+            this.lblCliSinReloj.Text = ".";
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.AutoScrollMinSize = new System.Drawing.Size(1360, 826);
             this.ClientSize = new System.Drawing.Size(1344, 787);
             this.Controls.Add(this.panelResultados);
             this.Controls.Add(this.panelContenedor);
@@ -804,6 +830,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn derivada;
         private System.Windows.Forms.DataGridViewTextBoxColumn tsiguiente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dsiguiente;
+        private System.Windows.Forms.Label lblCliSinReloj;
+        private System.Windows.Forms.Label lblPorcSinReloj;
     }
 }
 
