@@ -1015,18 +1015,18 @@ namespace TP6___SIM
                     }
                 }
 
-                if (i >= iteraciones || double.Parse(Reloj) >= tiempo)
-                {
-                    if (EstadoAyudante.Equals("Ocupado"))
-                    {
-                        TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]) + double.Parse(Reloj) - double.Parse(InicioOcupacionAyudante);
-                    }
+                //if (i >= iteraciones || double.Parse(Reloj) >= tiempo)
+                //{
+                //    if (EstadoAyudante.Equals("Ocupado"))
+                //    {
+                //        TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]) + double.Parse(Reloj) - double.Parse(InicioOcupacionAyudante);
+                //    }
 
-                    if (EstadoRelojero.Equals("Ocupado"))
-                    {
-                        TiempoOcupacionRelojero = double.Parse(Reloj) + double.Parse(filaAnterior["TiempoOcupacionRelojero"]) - double.Parse(InicioOcupacionRelojero);
-                    }
-                }
+                //    if (EstadoRelojero.Equals("Ocupado"))
+                //    {
+                //        TiempoOcupacionRelojero = double.Parse(Reloj) + double.Parse(filaAnterior["TiempoOcupacionRelojero"]) - double.Parse(InicioOcupacionRelojero);
+                //    }
+                //}
 
 
                 int cantFilas = dgvColas.Rows.Count - 1;
@@ -1069,6 +1069,16 @@ namespace TP6___SIM
                 filaAnterior["InicioOcupacionRelojero"] = InicioOcupacionRelojero;
                 filaAnterior["TiempoOcupacionAyudante"] = TiempoOcupacionAyudante.ToString();
                 filaAnterior["TiempoOcupacionRelojero"] = TiempoOcupacionRelojero.ToString();
+            }
+
+            if (EstadoAyudante.Equals("Ocupado"))
+            {
+                TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]) + double.Parse(Reloj) - double.Parse(InicioOcupacionAyudante);
+            }
+
+            if (EstadoRelojero.Equals("Ocupado"))
+            {
+                TiempoOcupacionRelojero = double.Parse(Reloj) + double.Parse(filaAnterior["TiempoOcupacionRelojero"]) - double.Parse(InicioOcupacionRelojero);
             }
 
             double porcOcupacionAyudante = ((TiempoOcupacionAyudante - tiempoAyudanteIni) * 100f) / double.Parse(Reloj);
