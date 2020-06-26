@@ -906,7 +906,7 @@ namespace TP5___SIM
                     }
                 }
 
-                if (i >= iteraciones || double.Parse(Reloj) >= tiempo)
+               /* if (i == iteraciones)
                 {
                     if (EstadoAyudante.Equals("Ocupado"))
                     {
@@ -917,7 +917,7 @@ namespace TP5___SIM
                     {
                         TiempoOcupacionRelojero = double.Parse(Reloj) + double.Parse(filaAnterior["TiempoOcupacionRelojero"]) - double.Parse(InicioOcupacionRelojero);
                     }
-                }
+                }*/
 
 
                 int cantFilas = dgvColas.Rows.Count - 1;
@@ -961,6 +961,18 @@ namespace TP5___SIM
                 filaAnterior["TiempoOcupacionAyudante"] = TiempoOcupacionAyudante.ToString();
                 filaAnterior["TiempoOcupacionRelojero"] = TiempoOcupacionRelojero.ToString();
             }
+
+
+            if (EstadoAyudante.Equals("Ocupado"))
+            {
+                TiempoOcupacionAyudante = double.Parse(filaAnterior["TiempoOcupacionAyudante"]) + double.Parse(Reloj) - double.Parse(InicioOcupacionAyudante);
+            }
+
+            if (EstadoRelojero.Equals("Ocupado"))
+            {
+                TiempoOcupacionRelojero = double.Parse(Reloj) + double.Parse(filaAnterior["TiempoOcupacionRelojero"]) - double.Parse(InicioOcupacionRelojero);
+            }
+
 
             double porcOcupacionAyudante = ((TiempoOcupacionAyudante - tiempoAyudanteIni) * 100f) / double.Parse(Reloj);
 
