@@ -119,7 +119,7 @@
             this.panelResultados.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelResultados.Location = new System.Drawing.Point(157, 58);
             this.panelResultados.Name = "panelResultados";
-            this.panelResultados.Size = new System.Drawing.Size(1187, 729);
+            this.panelResultados.Size = new System.Drawing.Size(1203, 768);
             this.panelResultados.TabIndex = 5;
             // 
             // dgvEuler
@@ -156,7 +156,7 @@
             this.dgvEuler.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvEuler.EnableHeadersVisualStyles = false;
             this.dgvEuler.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(38)))));
-            this.dgvEuler.Location = new System.Drawing.Point(-3, 0);
+            this.dgvEuler.Location = new System.Drawing.Point(5, 20);
             this.dgvEuler.Name = "dgvEuler";
             this.dgvEuler.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -220,7 +220,7 @@
             this.gbEstadisticas.Controls.Add(this.lblTORel);
             this.gbEstadisticas.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Bold);
             this.gbEstadisticas.ForeColor = System.Drawing.SystemColors.Control;
-            this.gbEstadisticas.Location = new System.Drawing.Point(14, 627);
+            this.gbEstadisticas.Location = new System.Drawing.Point(22, 647);
             this.gbEstadisticas.Name = "gbEstadisticas";
             this.gbEstadisticas.Size = new System.Drawing.Size(1158, 90);
             this.gbEstadisticas.TabIndex = 86;
@@ -339,7 +339,7 @@
             this.dgvColas.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvColas.EnableHeadersVisualStyles = false;
             this.dgvColas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(38)))));
-            this.dgvColas.Location = new System.Drawing.Point(-3, 0);
+            this.dgvColas.Location = new System.Drawing.Point(5, 20);
             this.dgvColas.Name = "dgvColas";
             this.dgvColas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -617,7 +617,7 @@
             this.panelContenedor.ForeColor = System.Drawing.SystemColors.Control;
             this.panelContenedor.Location = new System.Drawing.Point(0, 58);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(157, 729);
+            this.panelContenedor.Size = new System.Drawing.Size(157, 768);
             this.panelContenedor.TabIndex = 4;
             // 
             // btnParametros
@@ -711,7 +711,7 @@
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitulo.Location = new System.Drawing.Point(0, 0);
             this.panelTitulo.Name = "panelTitulo";
-            this.panelTitulo.Size = new System.Drawing.Size(1344, 58);
+            this.panelTitulo.Size = new System.Drawing.Size(1360, 58);
             this.panelTitulo.TabIndex = 3;
             // 
             // label1
@@ -720,7 +720,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Sitka Small", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(485, 9);
+            this.label1.Location = new System.Drawing.Point(493, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(437, 35);
             this.label1.TabIndex = 0;
@@ -753,6 +753,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.AutoScrollMinSize = new System.Drawing.Size(1360, 826);
             this.ClientSize = new System.Drawing.Size(1344, 787);
             this.Controls.Add(this.panelResultados);
             this.Controls.Add(this.panelContenedor);
