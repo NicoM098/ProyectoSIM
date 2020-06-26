@@ -1082,6 +1082,12 @@ namespace TP6___SIM
                 TiempoOcupacionRelojero = double.Parse(Reloj) + double.Parse(filaAnterior["TiempoOcupacionRelojero"]) - double.Parse(InicioOcupacionRelojero);
             }
 
+
+            //Asignacion de los valores de Tiempo Ocupacion correspondientes en la ultima fila....
+            dgvColas.Rows[dgvColas.Rows.Count - 1].Cells["ayudante2"].Value = TiempoOcupacionAyudante;
+            dgvColas.Rows[dgvColas.Rows.Count - 1].Cells["relojero2"].Value = TiempoOcupacionRelojero;
+
+
             double porcOcupacionAyudante = ((TiempoOcupacionAyudante - tiempoAyudanteIni) * 100f) / double.Parse(Reloj);
 
             double porcOcupacionRelojero = ((TiempoOcupacionRelojero - tiempoRelojeroIni) * 100f) / double.Parse(Reloj);

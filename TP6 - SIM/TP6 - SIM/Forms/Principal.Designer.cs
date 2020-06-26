@@ -47,6 +47,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.panelResultados = new System.Windows.Forms.Panel();
             this.dgvEuler = new System.Windows.Forms.DataGridView();
+            this.nroIt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.t = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.D = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.derivada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tsiguiente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dsiguiente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbEstadisticas = new System.Windows.Forms.GroupBox();
             this.lblTOPA = new System.Windows.Forms.Label();
             this.lblTOPR = new System.Windows.Forms.Label();
@@ -85,20 +91,14 @@
             this.contadorclientes1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contClientesSinRetiro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.btnVolver = new System.Windows.Forms.Button();
-            this.btnEuler = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.btnIniciar = new System.Windows.Forms.Button();
             this.btnParametros = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnIniciar = new System.Windows.Forms.Button();
+            this.btnEuler = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.nroIt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.t = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.D = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.derivada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tsiguiente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dsiguiente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelResultados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEuler)).BeginInit();
             this.gbEstadisticas.SuspendLayout();
@@ -154,7 +154,7 @@
             this.dgvEuler.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvEuler.EnableHeadersVisualStyles = false;
             this.dgvEuler.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(38)))));
-            this.dgvEuler.Location = new System.Drawing.Point(0, 0);
+            this.dgvEuler.Location = new System.Drawing.Point(-3, 0);
             this.dgvEuler.Name = "dgvEuler";
             this.dgvEuler.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -169,6 +169,42 @@
             this.dgvEuler.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEuler.Size = new System.Drawing.Size(1187, 621);
             this.dgvEuler.TabIndex = 100;
+            // 
+            // nroIt
+            // 
+            this.nroIt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nroIt.HeaderText = "Nro Iteración";
+            this.nroIt.Name = "nroIt";
+            // 
+            // t
+            // 
+            this.t.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.t.HeaderText = "t";
+            this.t.Name = "t";
+            // 
+            // D
+            // 
+            this.D.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.D.HeaderText = "D";
+            this.D.Name = "D";
+            // 
+            // derivada
+            // 
+            this.derivada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.derivada.HeaderText = "dD/dt";
+            this.derivada.Name = "derivada";
+            // 
+            // tsiguiente
+            // 
+            this.tsiguiente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tsiguiente.HeaderText = "t (i + 1)";
+            this.tsiguiente.Name = "tsiguiente";
+            // 
+            // Dsiguiente
+            // 
+            this.Dsiguiente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Dsiguiente.HeaderText = "D (i + 1)";
+            this.Dsiguiente.Name = "Dsiguiente";
             // 
             // gbEstadisticas
             // 
@@ -579,6 +615,21 @@
             this.panelContenedor.Size = new System.Drawing.Size(157, 729);
             this.panelContenedor.TabIndex = 4;
             // 
+            // btnParametros
+            // 
+            this.btnParametros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnParametros.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnParametros.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.btnParametros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnParametros.Font = new System.Drawing.Font("Sitka Small", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnParametros.Location = new System.Drawing.Point(0, 18);
+            this.btnParametros.Name = "btnParametros";
+            this.btnParametros.Size = new System.Drawing.Size(157, 139);
+            this.btnParametros.TabIndex = 0;
+            this.btnParametros.Text = "Parámetros";
+            this.btnParametros.UseVisualStyleBackColor = false;
+            this.btnParametros.Click += new System.EventHandler(this.btnParametros_Click);
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(22)))), ((int)(((byte)(21)))));
@@ -589,20 +640,19 @@
             this.panel4.Size = new System.Drawing.Size(157, 139);
             this.panel4.TabIndex = 7;
             // 
-            // btnVolver
+            // btnIniciar
             // 
-            this.btnVolver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.btnVolver.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnVolver.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVolver.Font = new System.Drawing.Font("Sitka Small", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolver.Location = new System.Drawing.Point(0, 435);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(157, 139);
-            this.btnVolver.TabIndex = 102;
-            this.btnVolver.Text = "Volver";
-            this.btnVolver.UseVisualStyleBackColor = false;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            this.btnIniciar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnIniciar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(18)))), ((int)(((byte)(14)))));
+            this.btnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIniciar.Font = new System.Drawing.Font("Sitka Small", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIniciar.Location = new System.Drawing.Point(0, 0);
+            this.btnIniciar.Name = "btnIniciar";
+            this.btnIniciar.Size = new System.Drawing.Size(157, 139);
+            this.btnIniciar.TabIndex = 0;
+            this.btnIniciar.Text = "Iniciar Simulación";
+            this.btnIniciar.UseVisualStyleBackColor = true;
+            this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
             // 
             // btnEuler
             // 
@@ -619,6 +669,21 @@
             this.btnEuler.UseVisualStyleBackColor = false;
             this.btnEuler.Click += new System.EventHandler(this.btnEuler_Click);
             // 
+            // btnVolver
+            // 
+            this.btnVolver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnVolver.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnVolver.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVolver.Font = new System.Drawing.Font("Sitka Small", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.Location = new System.Drawing.Point(0, 435);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(157, 139);
+            this.btnVolver.TabIndex = 102;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // btnLimpiar
             // 
             this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
@@ -633,35 +698,6 @@
             this.btnLimpiar.Text = "Limpiar Campos";
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
-            // btnIniciar
-            // 
-            this.btnIniciar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnIniciar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(18)))), ((int)(((byte)(14)))));
-            this.btnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIniciar.Font = new System.Drawing.Font("Sitka Small", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIniciar.Location = new System.Drawing.Point(0, 0);
-            this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(157, 139);
-            this.btnIniciar.TabIndex = 0;
-            this.btnIniciar.Text = "Iniciar Simulación";
-            this.btnIniciar.UseVisualStyleBackColor = true;
-            this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
-            // 
-            // btnParametros
-            // 
-            this.btnParametros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.btnParametros.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnParametros.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.btnParametros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnParametros.Font = new System.Drawing.Font("Sitka Small", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnParametros.Location = new System.Drawing.Point(0, 18);
-            this.btnParametros.Name = "btnParametros";
-            this.btnParametros.Size = new System.Drawing.Size(157, 139);
-            this.btnParametros.TabIndex = 0;
-            this.btnParametros.Text = "Parámetros";
-            this.btnParametros.UseVisualStyleBackColor = false;
-            this.btnParametros.Click += new System.EventHandler(this.btnParametros_Click);
             // 
             // panelTitulo
             // 
@@ -684,42 +720,6 @@
             this.label1.Size = new System.Drawing.Size(437, 35);
             this.label1.TabIndex = 0;
             this.label1.Text = "SIMULACIÓN SISTEMA DE COLAS";
-            // 
-            // nroIt
-            // 
-            this.nroIt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nroIt.HeaderText = "Nro Iteración";
-            this.nroIt.Name = "nroIt";
-            // 
-            // t
-            // 
-            this.t.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.t.HeaderText = "t";
-            this.t.Name = "t";
-            // 
-            // D
-            // 
-            this.D.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.D.HeaderText = "D";
-            this.D.Name = "D";
-            // 
-            // derivada
-            // 
-            this.derivada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.derivada.HeaderText = "dD/dt";
-            this.derivada.Name = "derivada";
-            // 
-            // tsiguiente
-            // 
-            this.tsiguiente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tsiguiente.HeaderText = "t (i + 1)";
-            this.tsiguiente.Name = "tsiguiente";
-            // 
-            // Dsiguiente
-            // 
-            this.Dsiguiente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Dsiguiente.HeaderText = "D (i + 1)";
-            this.Dsiguiente.Name = "Dsiguiente";
             // 
             // Principal
             // 
