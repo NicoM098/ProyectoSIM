@@ -585,6 +585,8 @@ namespace TP6___SIM
 
             if (int.Parse(filaAnterior["ColaRelojero"]) > 0)
             {
+                ColaRelojero -= 1;
+
                 RND4 = Math.Round(oGenerador.generadorUniforme(), 2).ToString();
 
                 Complejidad = compareRandom(double.Parse(RND4));
@@ -593,7 +595,6 @@ namespace TP6___SIM
 
                 FinReparacion = (double.Parse(Reloj) + double.Parse(TiempoReparacion)).ToString();
 
-                ColaRelojero -= 1;
                 EstadoRelojero = filaAnterior["EstadoRelojero"];
 
                 TiempoOcupacionRelojero = double.Parse(filaAnterior["TiempoOcupacionRelojero"]);
