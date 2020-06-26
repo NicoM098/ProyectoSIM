@@ -1116,6 +1116,9 @@ namespace TP6___SIM
             btnIniciar.Enabled = true;
 
             nroOrdenCliente = 0;
+
+            lblTOPA.Text = "";
+            lblTOPR.Text = "";
         }
 
         private void btnEuler_Click(object sender, EventArgs e)

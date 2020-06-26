@@ -87,13 +87,9 @@
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnVolver = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.btnEuler = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btnIniciar = new System.Windows.Forms.Button();
-            this.panelParametros = new System.Windows.Forms.Panel();
             this.btnParametros = new System.Windows.Forms.Button();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -109,10 +105,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvColas)).BeginInit();
             this.panelContenedor.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panelParametros.SuspendLayout();
             this.panelTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -574,12 +566,12 @@
             // 
             // panelContenedor
             // 
-            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
+            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(27)))), ((int)(((byte)(30)))));
+            this.panelContenedor.Controls.Add(this.btnParametros);
             this.panelContenedor.Controls.Add(this.panel4);
-            this.panelContenedor.Controls.Add(this.panel3);
-            this.panelContenedor.Controls.Add(this.panel2);
-            this.panelContenedor.Controls.Add(this.panel1);
-            this.panelContenedor.Controls.Add(this.panelParametros);
+            this.panelContenedor.Controls.Add(this.btnEuler);
+            this.panelContenedor.Controls.Add(this.btnVolver);
+            this.panelContenedor.Controls.Add(this.btnLimpiar);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelContenedor.ForeColor = System.Drawing.SystemColors.Control;
             this.panelContenedor.Location = new System.Drawing.Point(0, 58);
@@ -590,10 +582,9 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(22)))), ((int)(((byte)(21)))));
-            this.panel4.Controls.Add(this.btnLimpiar);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Controls.Add(this.btnIniciar);
             this.panel4.ForeColor = System.Drawing.Color.Transparent;
-            this.panel4.Location = new System.Drawing.Point(0, 556);
+            this.panel4.Location = new System.Drawing.Point(0, 157);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(157, 139);
             this.panel4.TabIndex = 7;
@@ -605,24 +596,13 @@
             this.btnVolver.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVolver.Font = new System.Drawing.Font("Sitka Small", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolver.Location = new System.Drawing.Point(0, 0);
+            this.btnVolver.Location = new System.Drawing.Point(0, 435);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(157, 139);
             this.btnVolver.TabIndex = 102;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(22)))), ((int)(((byte)(21)))));
-            this.panel3.Controls.Add(this.btnVolver);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.ForeColor = System.Drawing.Color.Transparent;
-            this.panel3.Location = new System.Drawing.Point(0, 417);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(157, 139);
-            this.panel3.TabIndex = 6;
             // 
             // btnEuler
             // 
@@ -631,24 +611,13 @@
             this.btnEuler.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.btnEuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEuler.Font = new System.Drawing.Font("Sitka Small", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEuler.Location = new System.Drawing.Point(0, 0);
+            this.btnEuler.Location = new System.Drawing.Point(0, 296);
             this.btnEuler.Name = "btnEuler";
             this.btnEuler.Size = new System.Drawing.Size(157, 139);
             this.btnEuler.TabIndex = 101;
             this.btnEuler.Text = "Método Euler";
             this.btnEuler.UseVisualStyleBackColor = false;
             this.btnEuler.Click += new System.EventHandler(this.btnEuler_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(22)))), ((int)(((byte)(21)))));
-            this.panel2.Controls.Add(this.btnEuler);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.ForeColor = System.Drawing.Color.Transparent;
-            this.panel2.Location = new System.Drawing.Point(0, 278);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(157, 139);
-            this.panel2.TabIndex = 5;
             // 
             // btnLimpiar
             // 
@@ -657,24 +626,13 @@
             this.btnLimpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Sitka Small", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(0, 0);
+            this.btnLimpiar.Location = new System.Drawing.Point(0, 574);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(157, 139);
             this.btnLimpiar.TabIndex = 0;
             this.btnLimpiar.Text = "Limpiar Campos";
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(22)))), ((int)(((byte)(21)))));
-            this.panel1.Controls.Add(this.btnIniciar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.ForeColor = System.Drawing.Color.Transparent;
-            this.panel1.Location = new System.Drawing.Point(0, 139);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(157, 139);
-            this.panel1.TabIndex = 4;
             // 
             // btnIniciar
             // 
@@ -690,16 +648,6 @@
             this.btnIniciar.UseVisualStyleBackColor = true;
             this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
             // 
-            // panelParametros
-            // 
-            this.panelParametros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.panelParametros.Controls.Add(this.btnParametros);
-            this.panelParametros.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelParametros.Location = new System.Drawing.Point(0, 0);
-            this.panelParametros.Name = "panelParametros";
-            this.panelParametros.Size = new System.Drawing.Size(157, 139);
-            this.panelParametros.TabIndex = 2;
-            // 
             // btnParametros
             // 
             this.btnParametros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
@@ -707,7 +655,7 @@
             this.btnParametros.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
             this.btnParametros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnParametros.Font = new System.Drawing.Font("Sitka Small", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnParametros.Location = new System.Drawing.Point(0, 0);
+            this.btnParametros.Location = new System.Drawing.Point(0, 18);
             this.btnParametros.Name = "btnParametros";
             this.btnParametros.Size = new System.Drawing.Size(157, 139);
             this.btnParametros.TabIndex = 0;
@@ -792,10 +740,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvColas)).EndInit();
             this.panelContenedor.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panelParametros.ResumeLayout(false);
             this.panelTitulo.ResumeLayout(false);
             this.panelTitulo.PerformLayout();
             this.ResumeLayout(false);
@@ -813,11 +757,8 @@
         private System.Windows.Forms.Label lblTORel;
         private System.Windows.Forms.DataGridView dgvColas;
         private System.Windows.Forms.Panel panelContenedor;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnIniciar;
-        private System.Windows.Forms.Panel panelParametros;
         private System.Windows.Forms.Button btnParametros;
         private System.Windows.Forms.Panel panelTitulo;
         private System.Windows.Forms.Label label1;
@@ -852,7 +793,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn contadorclientes1;
         private System.Windows.Forms.DataGridViewTextBoxColumn contClientesSinRetiro;
         private System.Windows.Forms.DataGridView dgvEuler;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnEuler;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnVolver;
